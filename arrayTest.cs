@@ -5,10 +5,10 @@ int[] numArr = new int[arrSize];
 int counter = 0;
 for (int i = 1; i < arrSize*3; i++)
 {
-    if (i%2 == 0)
+    if (i < 20)
     {
         //numbers.Add(i);
-        numArr[i-1] = i;
+        numArr[i] = i;
         counter ++;
         if (counter >= arrSize)
         {
