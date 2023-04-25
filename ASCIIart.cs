@@ -43,7 +43,7 @@ for (int i = 0; i < height; i++)
     {
         if ((i+j) % 2 == 0)
             {
-               Console.Write("#"); 
+               Console.Write("█"); 
             } else
             {
                 Console.Write(" ");
