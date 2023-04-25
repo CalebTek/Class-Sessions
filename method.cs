@@ -34,16 +34,16 @@ namespace SimpleFunction
         //static int[] EvenNumbers(int len)
         static List<int> EvenNumbers(int len)
         {
-            //List<int> numbers = new List<int>();
-            int arrSize = len;
-            int[] numArr = new int[arrSize];
+            List<int> numbers = new List<int>();
+            //int arrSize = len;
+            //int[] numArr = new int[arrSize];
             int counter = 0;
             for (int i = 1; i < len*3; i++)
             {
                 if (i%2 == 0)
                 {
-                    //numbers.Add(i);
-                    numArr[i-1] = i;
+                    numbers.Add(i);
+                    //numArr[i-1] = i;
                     counter ++;
                     if (counter >= len)
                     {
@@ -58,8 +58,8 @@ namespace SimpleFunction
             {
                 Console.WriteLine(numbers[i]);
             } */
-            //return numbers;
-            return numArr;
+            return numbers;
+            //return numArr;
         }
 
     }
