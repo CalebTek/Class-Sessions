@@ -1,6 +1,6 @@
 using System;
 
-int arrSize = len;
+int arrSize = 10;
 int[] numArr = new int[arrSize];
 int counter = 0;
 for (int i = 1; i < len*3; i++)
