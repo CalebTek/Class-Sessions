@@ -23,7 +23,8 @@ namespace SimpleFunction
                 throw;
             }
 
-            Console.WriteLine(EvenNumbers(length));
+            Console.WriteLine(EvenNumbersList(length));
+            Console.WriteLine(EvenNumbersArray(length));
 
         }
         
@@ -32,7 +33,7 @@ namespace SimpleFunction
         //Console.WriteLine($"Print {length} even number(s) using modulo operator ");
 
         //static int[] EvenNumbers(int len)
-        static List<int> EvenNumbers(int len)
+        static List<int> EvenNumbersList(int len)
         {
             List<int> numbers = new List<int>();
             //int arrSize = len;
@@ -60,6 +61,27 @@ namespace SimpleFunction
             } */
             return numbers;
             //return numArr;
+        }
+
+        static int[] EvenNumbers(int len)
+        //static List<int> EvenNumbersArray(int len)
+        {
+            //List<int> numbers = new List<int>();
+            int arrSize = len;
+            int[] numArr = new int[arrSize];
+            //int counter = 0;
+            for (int i = 0; i < len; i++)
+            {  
+                numArr[i] = (i+1) *2 ;
+            }
+
+            // Print all elements in the list to the console
+            /* for (int i = 0; i < numbers.Count; i++)
+            {
+                Console.WriteLine(numbers[i]);
+            } */
+            //return numbers;
+            return numArr;
         }
 
     }
