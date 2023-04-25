@@ -42,7 +42,7 @@ namespace SimpleFunction
                 if (i%2 == 0)
                 {
                     //numbers.Add(i);
-                    numArr[i] = i;
+                    numArr[i-1] = i;
                     counter ++;
                     if (counter >= len)
                     {
