@@ -3,7 +3,7 @@ using System;
 Console.WriteLine("Let's create some cool ASCII art!");
 Console.WriteLine();
 
-int width = 50, height = 20;
+int width = 30, height = 10;
 
 Console.WriteLine("SOLID RECTANGLE");
 for (int i = 0; i < height; i++)
@@ -15,7 +15,7 @@ for (int i = 0; i < height; i++)
     Console.WriteLine();
 }
 
-
+Console.WriteLine();
 Console.WriteLine("BORDER RECTANGLE");
 int borderWidth = 2;
 for (int i = 0; i < height; i++)
@@ -33,3 +33,4 @@ for (int i = 0; i < height; i++)
     }
     Console.WriteLine();
 }
+
