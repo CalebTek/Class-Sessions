@@ -31,7 +31,8 @@ namespace SimpleFunction
         // Using modulo operator
         //Console.WriteLine($"Print {length} even number(s) using modulo operator ");
 
-        static int[] EvenNumbers(int len)
+        //static int[] EvenNumbers(int len)
+        static List<int> EvenNumbers(int len)
         {
             //List<int> numbers = new List<int>();
             int arrSize = len;
