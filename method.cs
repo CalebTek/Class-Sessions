@@ -31,15 +31,18 @@ namespace SimpleFunction
         // Using modulo operator
         //Console.WriteLine($"Print {length} even number(s) using modulo operator ");
 
-        static List EvenNumbers(int len)
+        static int[] EvenNumbers(int len)
         {
-            List<int> numbers = new List<int>();
+            //List<int> numbers = new List<int>();
+            int arrSize = len;
+            int[] numArr = new int[arrSize];
             int counter = 0;
             for (int i = 1; i < len*3; i++)
             {
                 if (i%2 == 0)
                 {
-                    numbers.Add(i);
+                    //numbers.Add(i);
+                    numArr[i] = i;
                     counter ++;
                     if (counter >= len)
                     {
@@ -54,7 +57,8 @@ namespace SimpleFunction
             {
                 Console.WriteLine(numbers[i]);
             } */
-            return numbers;
+            //return numbers;
+            return numArr;
         }
 
     }
