@@ -17,3 +17,5 @@ for (int i = 1; i < len*3; i++)
     }
     
 }
+
+Console.WriteLine(numArr);
