@@ -31,17 +31,17 @@ namespace SimpleFunction
         // Using modulo operator
         //Console.WriteLine($"Print {length} even number(s) using modulo operator ");
 
-        static List EvenNumbers(int length)
+        static List EvenNumbers(int len)
         {
             List<int> numbers = new List<int>();
             int counter = 0;
-            for (int i = 1; i < length*3; i++)
+            for (int i = 1; i < len*3; i++)
             {
                 if (i%2 == 0)
                 {
                     numbers.Add(i);
                     counter ++;
-                    if (counter >= length)
+                    if (counter >= len)
                     {
                         break;
                     }
