@@ -1,12 +1,19 @@
 using System;
 
-static void Main()
+namespace AddNumber
 {
-    Console.WriteLine(AddNumber(2,5));
+    class method
+    {
+        static void Main()
+    {
+        Console.WriteLine(AddNumber(2,5));
+    }
+
+    static int AddNumber(int a, int b)
+    {
+        int sum = a + b;
+        return sum;
+    }
+    }
 }
 
-static int AddNumber(int a, int b)
-{
-    int sum = a + b;
-    return sum;
-}
