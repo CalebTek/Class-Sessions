@@ -34,3 +34,20 @@ for (int i = 0; i < height; i++)
     Console.WriteLine();
 }
 
+Console.WriteLine();
+Console.WriteLine("CHECKER PATTERN");
+int borderWidth = 2;
+for (int i = 0; i < height; i++)
+{
+    for (int j = 0; j < width; j++)
+    {
+        if ((i+j) % 2 == 0)
+            {
+               Console.Write("#"); 
+            } else
+            {
+                Console.Write(" ");
+            }
+    }
+    Console.WriteLine();
+}
