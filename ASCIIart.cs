@@ -23,7 +23,7 @@ for (int i = 0; i < height; i++)
     for (int j = 0; j < width; j++)
     {
         if (i < borderWidth || i > height -1 - borderWidth 
-            || j < borderWidth || j > height - 1 - borderWidth)
+            || j < borderWidth || j > width - 1 - borderWidth)
             {
                Console.Write("#"); 
             } else
