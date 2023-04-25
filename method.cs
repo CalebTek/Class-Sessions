@@ -1,6 +1,10 @@
 using System;
 
-/*
+namespace SimpleFunctio
+{
+    class method
+    {
+        /*
 Program that print even number within a given range of number
 */
 Console.Write("How many numbers do you want to print: ");
@@ -16,6 +20,7 @@ catch (System.Exception)
     throw;
 }
 
+Console.WriteLine(EvenNumbers(length));
 
 // Even Numbers
 // Using modulo operator
@@ -24,12 +29,12 @@ catch (System.Exception)
 Static int EvenNumbers(int length)
 {
     List<int> numbers = new List<int>();
-    int counter = 0 ;
+    int counter = 0;
     for (int i = 1; i < length*3; i++)
     {
         if (i%2 == 0)
         {
-            numbers.Add(10*i);
+            numbers.Add(i);
             counter ++;
             if (counter >= length)
             {
@@ -38,5 +43,8 @@ Static int EvenNumbers(int length)
         }
         
     }
-    return numbers
+    return numbers;
+}
+
+    }
 }
