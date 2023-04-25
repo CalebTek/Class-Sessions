@@ -63,7 +63,7 @@ namespace SimpleFunction
             //return numArr;
         }
 
-        static int[] EvenNumbers(int len)
+        static int[] EvenNumbersArray(int len)
         //static List<int> EvenNumbersArray(int len)
         {
             //List<int> numbers = new List<int>();
