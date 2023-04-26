@@ -3,14 +3,15 @@ using System;
 Console.WriteLine("Let's create some cool ASCII art!");
 Console.WriteLine();
 
+int height, width;
 
 try
 {
     Console.Write("Enter the shape height: ");
-    int height = Convert.ToInt32(Console.ReadLine());
+    height = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine();
     Console.Write("Enter the shape width: ");
-    int width = Convert.ToInt32(Console.ReadLine());
+    width = Convert.ToInt32(Console.ReadLine());
 }
 catch (System.Exception)
 {
