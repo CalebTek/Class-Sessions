@@ -3,7 +3,22 @@ using System;
 Console.WriteLine("Let's create some cool ASCII art!");
 Console.WriteLine();
 
-int width = 30, height = 10;
+
+try
+{
+    Console.Write("Enter the shape height: ");
+    int height = convert.ToInt32(Console.ReadLine());
+    Console.WriteLine();
+    Console.Write("Enter the shape width: ");
+    int width = Convert.ToInt32(Console.ReadLine());
+}
+catch (System.Exception)
+{
+    Console.WriteLine("Input is wrong, Please enter a number");
+    throw;
+}
+
+//int width = 30, height = 10;
 
 Console.WriteLine("SOLID RECTANGLE");
 for (int i = 0; i < height; i++)
