@@ -75,10 +75,10 @@ for (int i = 0; i < height; i++)
 
 Console.WriteLine();
 Console.WriteLine("CIRCLE");
-double centerX = width/2.0;
-double centerY = height/2.0;
+double centerX = width / 2.0;
+double centerY = height / 2.0;
 double radius = 0.0;
-if (height > width)
+if (height < width)
 {
     radius = 0.5 * height;
 } else
@@ -87,7 +87,7 @@ if (height > width)
 }
 for (int i = 0; i < height; i++)
 {
-    for (int j = 0; j < pyramidWidth; j++)
+    for (int j = 0; j < width; j++)
     {
         double dy = i - centerY;
         double dx = j - centerX;
@@ -97,7 +97,7 @@ for (int i = 0; i < height; i++)
                Console.Write("█"); 
             } else
             {
-                Console.Write(" ");
+                Console.Write(".");
             }
     }
     Console.WriteLine();
