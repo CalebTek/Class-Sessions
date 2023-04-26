@@ -63,6 +63,12 @@ namespace SimpleFunction
             //return numArr;
         }
 
+        /// <summary>
+        /// Create List of Even numbers
+        /// </summary>
+        /// <param name ="Size">The Size of the List</param>
+        /// <returns> The List of Even numbers in a class list</returns>
+        
         static int[] EvenNumbersArray(int len)
         //static List<int> EvenNumbersArray(int len)
         {
