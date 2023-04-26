@@ -83,7 +83,7 @@ if (height > width)
     radius = 0.5 * height;
 } else
 {
-    radius = o.5 * width;
+    radius = 0.5 * width;
 }
 for (int i = 0; i < height; i++)
 {
