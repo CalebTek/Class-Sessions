@@ -66,7 +66,38 @@ for (int i = 0; i < height; i++)
                Console.Write("█"); 
             } else
             {
-                Console.Write(".");
+                Console.Write(" ");
+            }
+    }
+    Console.WriteLine();
+}
+
+
+Console.WriteLine();
+Console.WriteLine("CIRCLE");
+double centerX = width/2.0;
+double centerY = height/2.0;
+double radius = 0.0;
+if (height > width)
+{
+    radius = 0.5 * height;
+} else
+{
+    radius = o.5 * width;
+}
+for (int i = 0; i < height; i++)
+{
+    for (int j = 0; j < pyramidWidth; j++)
+    {
+        double dy = i - centerY;
+        double dx = j - centerX;
+        double d = Math.Sqrt(dx * dx + dy * dy);
+        if (d < radius)
+            {
+               Console.Write("█"); 
+            } else
+            {
+                Console.Write(" ");
             }
     }
     Console.WriteLine();
