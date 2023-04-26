@@ -7,7 +7,7 @@ Console.WriteLine();
 try
 {
     Console.Write("Enter the shape height: ");
-    int height = convert.ToInt32(Console.ReadLine());
+    int height = Convert.ToInt32(Console.ReadLine());
     Console.WriteLine();
     Console.Write("Enter the shape width: ");
     int width = Convert.ToInt32(Console.ReadLine());
