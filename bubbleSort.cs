@@ -7,17 +7,17 @@ namespace Sorting
         static void Main(string[] args)
         {
             int[] arr = { 78, 55, 45, 98, 13 };
-            Console.WriteLine("Unsorted:");            
+            LogN("Unsorted:");            
             foreach (int i in arr)
             {
-                Console.Write(i + " ");
+                Log(i + " ");
             } 
-            Console.WriteLine();
-            Console.WriteLine("Sorted:");
+            LogN("");
+            LogN("Sorted:");
             int[] sorted = BubbleSort(arr);
             foreach (int i in sorted)
             {
-                Console.Write(i + " ");
+                Log(i + " ");
             }   
         }
 
@@ -48,14 +48,14 @@ namespace Sorting
             return arr;
         }
 
-        static void Log(str)
+        static void Log(string str)
         {
             Console.Write(str);
         }
 
-        static void LogN(str)
+        static void LogN(string str)
         {
-            Console.WriteLine(str)
+            Console.WriteLine(str);
         }
     }
 }
