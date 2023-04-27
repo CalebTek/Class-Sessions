@@ -6,7 +6,7 @@ namespace testVoid
     {
         static void Main(string[] args)
         {
-            string name = "C.E.O Odeyemi"
+            string name = "C.E.O Odeyemi";
             Log($"{name}");
         }
 
