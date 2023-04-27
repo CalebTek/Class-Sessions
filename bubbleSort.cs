@@ -7,11 +7,17 @@ namespace Sorting
         static void Main(string[] args)
         {
             int[] arr = { 78, 55, 45, 98, 13 };
+            Console.WriteLine("Unsorted:");            
+            foreach (int i in arr)
+            {
+                Console.Write(i + " ");
+            } 
+            Console.WriteLine()
             Console.WriteLine("Sorted:");
             int[] sorted = BubbleSort(arr);
-            foreach (int p in sorted)
+            foreach (int i in sorted)
             {
-                Console.Write(p + " ");
+                Console.Write(i + " ");
             }   
         }
 
@@ -25,8 +31,9 @@ namespace Sorting
 
         static int[] BubbleSort(int[] arr)
         {
-            int temp;
-            for (int j = 0; j <= arr.Length - 2; j++) 
+            int temp; // create a container for the next element of the array
+
+            for (int j = 0; j <= arr.Length - 1; j++) 
             {
                 for (int i = 0; i <= arr.Length - 2; i++) 
                 {
