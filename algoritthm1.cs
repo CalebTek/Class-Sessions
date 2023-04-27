@@ -32,10 +32,11 @@ namespace Algorithm
 
         static int Recursion(int num)
         {
-            string str = (string) (num);
+            let sum = 0;
+            string str = Convert.ToString(num);
             while(str.Length > 1)
             {
-                let sum = 0;
+                
                 for (int i = 0; i < str.Length; i++){
                     sum += (int)str[i];
                 }
