@@ -10,7 +10,7 @@ namespace Algorithm
             int numbers = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine(DigitalRoot(numbers));
-            Console.WriteLine(Recursion(numbers));
+            //Console.WriteLine(Recursion(numbers));
         }
 
         static int DigitalRoot(int num)
@@ -31,19 +31,20 @@ namespace Algorithm
             
         }
 
-        static int Recursion(int num)
+        /* static int Recursion(int num)
         {
-            int sum = 0;
+            int sum = 0, result;
             string str = Convert.ToString(num);
-            while(str.Length > 1)
+            //while(str.Length > 1)
+            for (int j = 0; j < str.Length; j++)
             {
                 for (int i = 0; i < str.Length; i++){
-                    sum += Convert.ToInt32(str[i]);
+                    sum += str[i];
                 }
                 str = Convert.ToString(sum);
             } 
-            int result = Convert.ToInt32(str);
+            result = Convert.ToInt32(str);
             return Recursion(result);
-        }
+        } */
     }
 }
