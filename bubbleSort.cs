@@ -6,7 +6,7 @@ namespace Sorting
     {
         static void Main(string[] args)
         {
-            int[] arr = { 78, 55, 45, 98, 13 };
+            int[] arr = { 90, 75, 95, 98, 13, 20, 50, 14, 12, 13, 25};
             LogN("Unsorted:");            
             foreach (int i in arr)
             {
