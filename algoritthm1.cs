@@ -10,6 +10,7 @@ namespace Algorithm
             int numbers = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine(DigitalRoot(numbers));
+            Console.WriteLine(Recursion(numbers));
         }
 
         static int DigitalRoot(int num)
@@ -40,7 +41,8 @@ namespace Algorithm
                 for (int i = 0; i < str.Length; i++){
                     sum += (int)str[i];
                 }
-            } return sum;
+                str = Convert.ToString(sum);
+            } return Recursion(sum);
         }
     }
 }
