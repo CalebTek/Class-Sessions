@@ -12,7 +12,7 @@ namespace Sorting
             {
                 Console.Write(i + " ");
             } 
-            Console.WriteLine()
+            Console.WriteLine();
             Console.WriteLine("Sorted:");
             int[] sorted = BubbleSort(arr);
             foreach (int i in sorted)
@@ -39,13 +39,23 @@ namespace Sorting
                 {
                     if (arr[i] > arr[i + 1]) 
                     {
-                        temp = arr[i + 1];
-                        arr[i + 1] = arr[i];
-                        arr[i] = temp;
+                        temp = arr[i + 1]; // hold the ith + 1 element of the array 
+                        arr[i + 1] = arr[i]; // hold the ith element of the array
+                        arr[i] = temp; // swap the ith with the ith + 1 element of the array
                     }
                 }
             }
             return arr;
+        }
+
+        static void Log(str)
+        {
+            Console.Write(str);
+        }
+
+        static void LogN(str)
+        {
+            Console.WriteLine(str)
         }
     }
 }
