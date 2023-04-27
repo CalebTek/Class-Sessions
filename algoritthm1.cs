@@ -30,10 +30,6 @@ namespace Algorithm
             
         }
 
-        static int Recursion(int num)
-        {
-            string str = (string) (num);
-            while(string.Len)
-        }
+        
     }
 }
