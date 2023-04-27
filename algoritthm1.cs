@@ -31,19 +31,25 @@ namespace Algorithm
             
         }
 
-        /* static int Recursion(int num)
+        /* static int Recursion(int num) // assume input '99'
         {
-            int sum = 0, result;
-            string str = Convert.ToString(num);
-            //while(str.Length > 1)
-            for (int j = 0; j < str.Length; j++)
+            int sum = 0, result; 
+            string str = Convert.ToString(num); // '99' => "99"
+            while(str.Length > 1) // "99".Length = 2 , "18".Length = 2, "9".Length = 1
+            //for (int j = 0; j < str.Length; j++)
             {
                 for (int i = 0; i < str.Length; i++){
-                    sum += str[i];
+                    sum += Convert.ToInt32(str[i]);
+                    //1.while:
+                    // i=0(9): sum = 9, i=1(9): sum = 18 
+                    //2.while:
+                    // i=0(1): sum = 1, i=1(8): sum = 9 
                 }
                 str = Convert.ToString(sum);
+                // 1.while: str = "18"
+                // 2. while str = "9"
             } 
-            result = Convert.ToInt32(str);
+            result = Convert.ToInt32(str); // result = '9'
             return Recursion(result);
         } */
     }
