@@ -15,6 +15,14 @@ namespace Sorting
             }   
         }
 
+        /*
+        The pseudocode for bubble sort might look like:
+        Repeat n-1 times
+            For i from 0 to n–2
+                If numbers[i] and numbers[i+1] out of order
+                    Swap them
+        */
+
         static int[] BubbleSort(int[] arr)
         {
             int temp;
