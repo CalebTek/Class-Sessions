@@ -8,7 +8,7 @@ namespace Algorithm
         {
             Console.Write("Enter a non-negative integer: ");
             int numbers = Convert.ToInt32(Console.ReadLine());
-            
+
             Console.WriteLine(DigitalRoot(numbers));
         }
 
@@ -28,6 +28,12 @@ namespace Algorithm
             return DigitalRoot(sum);
             }
             
+        }
+
+        static int Recursion(int num)
+        {
+            string str = (string) (num);
+            while(string.Len)
         }
     }
 }
