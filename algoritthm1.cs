@@ -6,9 +6,10 @@ namespace Algorithm
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a non-negative integer: ")
+            Console.Write("Enter a non-negative integer: ");
             int numbers = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(DigitalRoot())
+            
+            Console.WriteLine(DigitalRoot(numbers));
         }
 
         static int DigitalRoot(int num)
@@ -16,14 +17,17 @@ namespace Algorithm
             if (num < 10)
             {
                 return num;
-            }
-            int sum = 0;
+            }else{
+                int sum = 0;
+
             while (num > 0)
             {
                 sum += num % 10;
-                num = Math.Floor(num / 10); 
+                num = num / 10; 
             }
-            return DigitalRoot(num);
+            return DigitalRoot(sum);
+            }
+            
         }
     }
 }
