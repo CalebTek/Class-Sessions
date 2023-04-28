@@ -1,5 +1,5 @@
 using System;
-using System.Generic.Collections;
+using System.Collections.Generic;
 
 namespace Algorithm
 {
