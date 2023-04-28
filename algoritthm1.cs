@@ -11,7 +11,7 @@ namespace Algorithm
             int numbers = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine(DigitalRoot(numbers));
-            //Console.WriteLine(Recursion(numbers));
+            Console.WriteLine(Recursion(numbers));
         }
 
         static int DigitalRoot(int num)
@@ -56,23 +56,34 @@ namespace Algorithm
 
         static int Recursion(int num)
         {
-            //int numbers = Convert.ToInt32(num);
-            while (num >= 9)
+            if (num < 10)
             {
-                List<int> splits = new List<int>();
-                string numStr = Convert.ToString(num);
-                int length = numStr.Length;
-                for (int i = 0; i < length; i++)
+                return num;
+            }else
+            {
+                //int numbers = Convert.ToInt32(num);
+                while (num >= 9)
                 {
-                    splits.Add(numStr[i]);
+                    List<int> splits = new List<int>();
+                    string numStr = Convert.ToString(num);
+                    int length = numStr.Length;
+                    for (int i = 0; i < length; i++)
+                    {
+                        splits.Add(numStr[i]);
+                    }
+                    int sum = 0;
+                    foreach (int i in splits)
+                    {
+                        sum += i;
+                    }
+                    num = sum;
+                    if (num < 10)
+                    {
+                        return num;
+                    }
                 }
-                int sum = 0;
-                foreach (int i in splits)
-                {
-                    sum += i;
-                }
-                num = sum;
             }
+            
             return Recursion(num);
         }
     }
