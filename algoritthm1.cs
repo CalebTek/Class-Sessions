@@ -54,7 +54,7 @@ namespace Algorithm
             return Recursion(result);
         } */
 
-        static int Recursion(int num)
+        /* static int Recursion(int num)
         {
             if (num < 10)
             {
@@ -85,6 +85,6 @@ namespace Algorithm
             }
             
             return Recursion(num);
-        }
+        } */
     }
 }
