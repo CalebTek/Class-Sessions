@@ -60,19 +60,20 @@ namespace Algorithm
             while (num >= 9)
             {
                 List<int> splits = new List<int>();
-                int length = Convert.ToString(num);
+                string numStr = Convert.ToString(num);
+                int length = numStr.Length;
                 for (int i = 0; i < length; i++)
                 {
-                    splits.Add(num[i]);
+                    splits.Add(numStr[i]);
                 }
                 int sum = 0;
                 foreach (int i in splits)
                 {
                     sum += i;
                 }
-                numbers = sum;
+                num = sum;
             }
-            return Recursion(numbers);
+            return Recursion(num);
         }
     }
 }
