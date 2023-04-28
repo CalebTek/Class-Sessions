@@ -6,7 +6,7 @@ namespace Binary
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine(Int32ToString(12345,2));
         }
 
         public static string Int32ToString(int value, int toBase)
