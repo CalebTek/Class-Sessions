@@ -11,7 +11,7 @@ namespace Algorithm
             int numbers = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine(DigitalRoot(numbers));
-            Console.WriteLine(Recursion(numbers));
+            //Console.WriteLine(Recursion(numbers));
         }
 
         static int DigitalRoot(int num)
