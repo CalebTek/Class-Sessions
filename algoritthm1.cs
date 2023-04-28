@@ -52,5 +52,25 @@ namespace Algorithm
             result = Convert.ToInt32(str); // result = '9'
             return Recursion(result);
         } */
+
+        static int Recursion(int num)
+        {
+            int numbers = Convert.ToInt32(num);
+            while (numbers >= 9)
+            {
+                List<int> splits = new List<int>();
+                for (int i = 0; i < num.Length; i++)
+                {
+                    splits.Add(num[i]);
+                }
+                int sum = 0;
+                foreach (int i in splits)
+                {
+                    sum += i;
+                }
+                numbers = sum;
+            }
+            return Recursion(numbers);
+        }
     }
 }
