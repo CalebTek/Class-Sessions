@@ -56,11 +56,12 @@ namespace Algorithm
 
         static int Recursion(int num)
         {
-            int numbers = Convert.ToInt32(num);
-            while (numbers >= 9)
+            //int numbers = Convert.ToInt32(num);
+            while (num >= 9)
             {
                 List<int> splits = new List<int>();
-                for (int i = 0; i < num.Length; i++)
+                int length = Convert.ToString(num);
+                for (int i = 0; i < length; i++)
                 {
                     splits.Add(num[i]);
                 }
