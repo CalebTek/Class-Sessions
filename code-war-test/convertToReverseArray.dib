@@ -1,0 +1,13 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+int nums = 35231;
+Console.WriteLine(nums%10);
+Console.WriteLine(nums/10);
+
+#!csharp
+
+int nums = 35231;
