@@ -1,3 +1,4 @@
-using Systme;
+using System;
+
 int[] time = {3,4,8,9,5,2,1};
-Console.Write(Array.Sort(time));
+Console.Write(time);
