@@ -14,7 +14,12 @@ Object Oriented Programming
 /// </summary>
 class Person
 {
-
+    // Fields
+    public string name;
+    public int age;
+    public double height;
+    public bool isAlive;
+    public bool isStudent;
 }
 
 #!csharp
