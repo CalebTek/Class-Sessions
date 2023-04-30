@@ -1,0 +1,19 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Create a method
+
+#!csharp
+
+static int Add(int a, int b)
+{
+    return a+b;
+}
+
+#!csharp
+
+int z = Add(1,2);
+Console.Write(z);
