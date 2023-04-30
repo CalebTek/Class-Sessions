@@ -213,3 +213,27 @@ Console.Write(year%100);
 
 century = (year-1)/100 + 1;
 Console.Write(century);
+
+#!markdown
+
+Insertion Sort
+
+#!csharp
+
+int[] arr = {5,4,2,6,1,3};
+for (int i = 2; i < arr.Length; i++)
+{
+    int key = arr[i];
+    // Insert arr[i] into the sorted sequence arr[i-1]
+    int j = i -1;
+    while(j > 0 && arr[i] > key)
+    {
+        arr[j+1] = arr[j];
+        j -= 1;
+    }
+    arr[j+1] = key;
+}
+foreach(int item in arr)
+{
+    Console.Write(item+" ");
+}
