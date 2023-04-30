@@ -233,7 +233,38 @@ for (int i = 2; i < arr.Length; i++)
     }
     arr[j+1] = key;
 }
+
 foreach(int item in arr)
 {
     Console.Write(item+" ");
+}
+
+#!markdown
+
+Algorithm
+Sum of the first nth prime numbers
+
+Example
+3 --> 5;
+7 --> 17; 
+100 -->
+
+#!csharp
+
+Console.WriteLine("Prime numbers: ");
+for (int i = 2; i < 100; i++)
+{
+    bool isPrime = true;
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime == true)
+    {
+        Console.WriteLine(i);
+    }
 }
