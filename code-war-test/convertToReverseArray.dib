@@ -11,3 +11,170 @@ Console.WriteLine(nums/10);
 #!csharp
 
 int nums = 35231;
+string numN = nums.ToString();
+Console.Write(numN.Length);
+
+#!csharp
+
+int nums = 10;
+while (nums < 20)
+{
+    //int numbers = 23;
+    int n = nums%10;
+    Console.WriteLine(n);
+    //nums /=10;
+    nums ++;
+}
+
+#!csharp
+
+int nums = 35231;
+string numN = nums.ToString();
+int length = numN.Length;
+
+int[] arr = {};
+while (nums < 0)
+{
+    //for (int i = 0; i < length; i++)
+    //{
+        arr[nums] = nums%10;
+        nums = nums/10;
+        nums ++;
+    //}
+}
+Console.WriteLine(arr);
+
+foreach(int item in arr)
+{
+    Console.Write(item + " ");
+}
+Console.WriteLine(",");
+
+#!csharp
+
+int nums = 456533;
+List<int> list = new List<int>();
+
+if (nums < 10)
+{
+    list.Add(nums);
+} else
+{
+    while (nums > 0)
+    {
+        list.Add(nums%10);
+        nums /=10;
+    }
+}
+
+int[] arr = list.ToArray();
+
+
+Console.WriteLine(arr);
+foreach(int item in arr)
+{
+    Console.Write(item);
+}
+
+#!markdown
+
+Write a function which calculates the average of the numbers in a given list.
+
+Note: Empty arrays should return 0.
+
+#!csharp
+
+long[] arr = {1,2,3};
+if (arr.Length > 0) //Test for method .Length
+{
+    Console.Write("Not equals Zero");
+}
+
+#!csharp
+
+long[] arr = {1,2,3,4,5};
+long average,sum = 0;
+if (arr.Length == 0)
+{
+    average = 0;
+} else
+{
+    for(int i = 0; i < arr.Length; i++)
+    {
+        sum += arr[i];
+    }
+    average = sum/arr.Length;
+}
+
+Console.Write(average);
+
+#!markdown
+
+Nathan loves cycling.
+
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+For example:
+
+#!markdown
+
+time = 3 ----> litres = 1
+
+time = 6.7---> litres = 3
+
+time = 11.8--> litres = 5
+
+#!csharp
+
+double sum;
+sum = Math.Floor(2.5);
+Console.Write(sum);
+
+#!csharp
+
+double times = 6.7, waterPH = 0.5;
+long litres;
+litres = Convert.ToInt64(Math.Floor(time*waterPH));
+Console.Write(litres);
+
+#!csharp
+
+double times = 89;
+double div = Math.Floor(times*waterPH);
+int litres = Convert.ToInt32(div);
+Console.Write(litres);
+
+#!csharp
+
+litres = (int)(times/2);
+Console.Write(litres);
+
+#!markdown
+
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+
+Return true if yes, false otherwise :)
+
+#!csharp
+
+int bullets =60, dragons = 40;
+bool victory = false;
+if (bullets >= dragons*2)
+{
+    victory = true;
+}
+Console.Write(victory);
+
+#!csharp
+
+int bullets =60, dragons = 40;
+bool victory = bullets / 2 >= dragons;
+Console.Write(victory);
+
+#!csharp
+
+int bullets =80, dragons = 40;
+bool victory = bullets >= dragons*2;
+Console.Write(victory);
