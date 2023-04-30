@@ -195,10 +195,21 @@ Examples
 
 #!csharp
 
-int year = 1705;
+int year = 1905;
 int century = year/100;
-if (century%100 > 0)
+if (year%100 > 0)
 {
     century++;
 }
 Console.WriteLine(century);
+
+#!csharp
+
+int century = year/100;
+Console.WriteLine(year/100);
+Console.Write(year%100);
+
+#!csharp
+
+century = (year-1)/100 + 1;
+Console.Write(century);
