@@ -25,3 +25,8 @@ class Person
 #!csharp
 
 Person Olawale = new Person();
+Olawale.name = "Odeyemi Olawale"; Olawale.age = 20; 
+Olawale.height = 175; Olawale.isAlive = true; 
+Olawale.isStudent = true;
+
+Console.Write(Olawale);
