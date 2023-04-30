@@ -213,3 +213,58 @@ Console.Write(year%100);
 
 century = (year-1)/100 + 1;
 Console.Write(century);
+
+#!markdown
+
+Insertion Sort
+
+#!csharp
+
+int[] arr = {5,4,2,6,1,3};
+for (int i = 2; i < arr.Length; i++)
+{
+    int key = arr[i];
+    // Insert arr[i] into the sorted sequence arr[i-1]
+    int j = i -1;
+    while(j > 0 && arr[i] > key)
+    {
+        arr[j+1] = arr[j];
+        j -= 1;
+    }
+    arr[j+1] = key;
+}
+
+foreach(int item in arr)
+{
+    Console.Write(item+" ");
+}
+
+#!markdown
+
+Algorithm
+Sum of the first nth prime numbers
+
+Example
+3 --> 5;
+7 --> 17; 
+100 -->
+
+#!csharp
+
+Console.WriteLine("Prime numbers: ");
+for (int i = 2; i < 100; i++)
+{
+    bool isPrime = true;
+    for (int j = 2; j < i; j++)
+    {
+        if (i % j == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
+    if (isPrime == true)
+    {
+        Console.WriteLine(i);
+    }
+}
