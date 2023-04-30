@@ -73,3 +73,26 @@ static double Addition(double[] array)
     }
     return sum;
 }
+
+#!csharp
+
+double[] arr = {2,5,6,3,29};
+Console.Write(Addition(arr));
+
+#!markdown
+
+Print element in an array
+
+#!csharp
+
+static void Print(double[] array)
+{
+    foreach (int item in array)
+    {
+        Console.Write($"{item} ");
+    }
+}
+
+#!csharp
+
+Print(arr);
