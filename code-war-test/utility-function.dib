@@ -1,0 +1,52 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Create Utility functions
+
+#!markdown
+
+Power Method
+
+#!csharp
+
+static double Pow(double baseValue, double exponent)
+{
+    if (exponent == 0)
+    {
+        return 1;
+    }
+    double value = baseValue;
+    for (int i = 0; i < exponent-1; i++)
+    {
+        value *= baseValue;
+    }
+    return value;
+}
+
+#!csharp
+
+Console.Write(Pow(15,2));
+
+#!csharp
+
+// function that calculate the area of a circle
+static double CircleArea(double radius) => Math.PI * Pow(radius,2);
+
+#!csharp
+
+double radius = 6;
+Console.Write(CircleArea(radius));
+
+#!markdown
+
+Distance between two points
+
+#!csharp
+
+static double DistPoint(double x0, double y0, double x1, double y1)
+{
+    
+}
