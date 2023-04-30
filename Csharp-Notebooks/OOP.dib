@@ -1,3 +1,22 @@
 #!meta
 
 {"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Object Oriented Programming
+
+#!csharp
+
+/// <summary>
+/// This is a class that will define the properties
+/// and functionality of Person objects.
+/// </summary>
+class Person
+{
+
+}
+
+#!csharp
+
+Person Olawale = new Person();
