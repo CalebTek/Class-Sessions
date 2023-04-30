@@ -136,7 +136,7 @@ Console.Write(sum);
 
 double times = 6.7, waterPH = 0.5;
 long litres;
-litres = Convert.ToInt64(Math.Floor(time*waterPH));
+litres = Convert.ToInt64(Math.Floor(times*waterPH));
 Console.Write(litres);
 
 #!csharp
