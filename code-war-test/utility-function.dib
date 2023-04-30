@@ -71,7 +71,7 @@ static double Sum(double[] array)
         return 0;
     }
     double sum = 0;
-    foreach (int item in array)
+    foreach (double item in array)
     {
         sum += item;
     }
@@ -88,7 +88,7 @@ static double Average(double[] array)
 
 #!csharp
 
-double[] arr = {2,5,6,3,29};
+double[] arr = {1,5.2,4,0,-1};
 Console.Write(Sum(arr));
 
 #!csharp
