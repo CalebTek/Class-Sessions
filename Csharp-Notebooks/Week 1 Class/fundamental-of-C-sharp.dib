@@ -138,3 +138,4 @@ Even numbers are numbers divisible by 2
 #!csharp
 
 // 2/2 1 remainder 0
+// 2%2 = 0
