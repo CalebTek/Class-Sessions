@@ -15,37 +15,57 @@
 class Person
 {
     // Fields
-    private string name;
-    private int YOB; // Year Of Birth
-    private double height;
-    private bool isAlive;
+    private string _name;
+    private int _YOB; // Year Of Birth
+    private double _height;
+    private bool _isAlive;
     //private bool isStudent;
+
+
+    // Properties
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+        set
+        {
+            this._name = value;
+        }
+    }
+
+    public bool IsAlive
+    {
+        get => _isAlive;
+    }
+
 
     // Constructors
 
     public Person(string name, int YOB, double height)
     {
-        this.name = name;
-        this.YOB = YOB;
-        this.height = height;
+        this._name = name;
+        this._YOB = YOB;
+        this._height = height;
 
         int currentYear = DateTime.Now.Year;
 
-        this.isAlive = true;
+        this._isAlive = true;
         if(YOB > currentYear)
         {
-            this.isAlive = false;
+            this._isAlive = false;
         }
     }
 
     // METHODS
-    public void SayHi() => Console.WriteLine($"Hi, i am {name}!");
+    public void SayHi() => Console.WriteLine($"Hi, i am {_name}!");
     
-    public void SayHi(string otherName) => Console.WriteLine($"Hi {otherName}!, i am {name}!");
+    public void SayHi(string otherName) => Console.WriteLine($"Hi {otherName}!, i am {_name}!");
 
-    public void SayHi(Person otherNAME) => Console.WriteLine($"Hi {otherNAME.name}!, i am {name}!");
+    public void SayHi(Person otherNAME) => Console.WriteLine($"Hi {otherNAME._name}!, i am {_name}!");
     
-    public int GetAge() => DateTime.Now.Year - this.YOB;
+    public int GetAge() => DateTime.Now.Year - this._YOB;
 
     public string Info() 
     {
@@ -53,10 +73,10 @@ class Person
         string info = 
         $$"""
         {
-            Name: {{this.name}}
-            Year of Birth: {{this.YOB}}
+            Name: {{this._name}}
+            Year of Birth: {{this._YOB}}
             Age: {{GetAge()}}
-            Still Alive: {{this.isAlive}}
+            Still Alive: {{this._isAlive}}
         }
         """;
         return info;
@@ -64,3 +84,12 @@ class Person
     
     
 }
+
+#!csharp
+
+Person John = new Person("John Wesley", 1980, 185);
+Person Juliet = new Person("Juliet McCall", 1993, 175);
+Console.WriteLine(John.Info());
+John.Info();
+John.Name = "James Wesley";
+John.GetAge();
