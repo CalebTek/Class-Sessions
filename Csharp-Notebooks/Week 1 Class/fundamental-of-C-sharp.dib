@@ -35,6 +35,16 @@ Valid identifiers must follow these rules:
 *   Identifiers must start with a letter or underscore (_).  
 *   Identifiers may contain Unicode letter characters, decimal digit characters, Unicode connecting characters, Unicode combining characters, or Unicode formatting characters.
 
+#!csharp
+
+int myAge = 17;
+double myAge2 = 16;
+string _strings = "John";
+float my_float = 3.666F;
+int myAGe_ = 76;
+double theSquareRootOfTheNum = 788;
+double sum_Of_Age = myAge + myAge2;
+
 #!markdown
 
 ### Naming conventions
@@ -53,9 +63,11 @@ In addition to the rules, there are many identifier naming conventions used thro
 
 // Good
 int minutesPerHour = 60;
+int _mph_ = 60; // minutes per hour.
 
 // OK, but not so easy to understand what m actually is
-int m = 60;
+
+int m = 60; // m is minutes per hour.
 
 #!markdown
 
@@ -74,6 +86,10 @@ To create a variable, you must specify the type and assign it a value:
 
 // type variableName = value;
 int testScore = 25;
+Console.WriteLine(testScore+testScore);
+testScore = 50;
+Console.Write(testScore+testScore);
+//var myAGe = 2.1;
 
 #!markdown
 
@@ -83,6 +99,7 @@ Create a variable called **name** of type **string** and assign it the **value**
 #!csharp
 
 string name = "John";
+char _name = '$';
 Console.WriteLine(name);
 
 #!markdown
@@ -109,3 +126,15 @@ long myLong = 15000000L;        // Long
 float myFloat = 5.75F;          // float
 float f1 = 35e3F;               // Scientific Numbers
 double d1 = 12E4D;              // Scientific Numbers
+
+#!markdown
+
+A program that print out even numbers
+
+#!markdown
+
+Even numbers are numbers divisible by 2
+
+#!csharp
+
+// 2/2 1 remainder 0

@@ -126,17 +126,29 @@ time = 6.7---> litres = 3
 
 time = 11.8--> litres = 5
 
+#!markdown
+
+Nathan takes 0.5 litres of water per cycle, if nathan drink water 3 times, how many litres of water did nathan take .?
+1st time = 0.5
+second time = 0.5
+third time = 0.5
+0.5 + 0.5 + 0.5 = 1.5 => 1
+0.5 * 6.7 = 3.4 => 3
+
 #!csharp
 
 double sum;
-sum = Math.Floor(2.5);
+sum = Math.Floor(3.9);
 Console.Write(sum);
 
 #!csharp
 
-double times = 6.7, waterPH = 0.5;
-long litres;
-litres = Convert.ToInt64(Math.Floor(times*waterPH));
+double times = 6.7;
+double waterPerHour = 0.5;
+double litres =  times * waterPerHour;
+//litres = Convert.ToInt64(litres);
+litres = Math.Floor(litres);
+//litres = Convert.ToInt32(Math.Floor(times*waterPerHour));
 Console.Write(litres);
 
 #!csharp
@@ -148,6 +160,8 @@ Console.Write(litres);
 
 #!csharp
 
+double times = 3;
+long litres;
 litres = (int)(times/2);
 Console.Write(litres);
 
@@ -159,18 +173,22 @@ Return true if yes, false otherwise :)
 
 #!csharp
 
-int bullets =60, dragons = 40;
-bool victory = false;
+int bullets = 60;
+int dragons = 40;
+bool victory;
 if (bullets >= dragons*2)
 {
     victory = true;
+} else
+{
+    victory = false;
 }
 Console.Write(victory);
 
 #!csharp
 
-int bullets =60, dragons = 40;
-bool victory = bullets / 2 >= dragons;
+int bullets =120, dragons = 40;
+bool victory = bullets / 3 >= dragons;
 Console.Write(victory);
 
 #!csharp
@@ -195,7 +213,13 @@ Examples
 
 #!csharp
 
-int year = 1905;
+double year = 1901;
+double century = Math.Ceiling(year/100);
+Console.Write(century);
+
+#!csharp
+
+int year = 100;
 int century = year/100;
 if (year%100 > 0)
 {
@@ -211,6 +235,7 @@ Console.Write(year%100);
 
 #!csharp
 
+int year = 101;
 century = (year-1)/100 + 1;
 Console.Write(century);
 
@@ -264,9 +289,31 @@ for (int i = 2; i < nums; i++)
             break;
         }
     }
+    if (isPrime)
+    {
+        Console.WriteLine(i);
+    }
+ 
+}
+
+#!csharp
+
+//using System;
+
+Console.WriteLine("Prime numbers: ");
+for (int i = 2; i < 100; i++)
+{
+    bool isPrime = true;
+    for (int j = 2; j < i/2; j++)
+    {
+        if (i % j == 0)
+        {
+            isPrime = false;
+            break;
+        }
+    }
     if (isPrime == true)
     {
-        sum += Convert.ToInt32(i);
+        Console.WriteLine(i);
     }
-    Console.Write(sum);
 }
