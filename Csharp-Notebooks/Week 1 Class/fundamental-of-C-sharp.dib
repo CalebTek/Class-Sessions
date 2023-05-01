@@ -1,0 +1,18 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Fundamental of C# Language
+
+#!markdown
+
+### Outline
+1. Identifiers  
+2. Data Types  
+    i. Integer  
+    ii. Character  
+    iii. Boolean  
+    iv. Double/Float/Decimal  
+    v. Strings 
