@@ -16,3 +16,12 @@
     iii. Boolean  
     iv. Double/Float/Decimal  
     v. Strings 
+
+#!markdown
+
+## C# Identifier  
+An identifier is the name you assign to a type (class, interface, struct, record, delegate, or enum), member, variable, or namespace.  
+Identifiers are used for identification purposes. Or in other words, identifiers are the user-defined name of the program components.  
+In C#, an identifier can be a class name, method name, variable name, or label. 
+All C# variables must be identified with unique names.   
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
