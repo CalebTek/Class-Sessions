@@ -38,6 +38,8 @@ class Person
     public void SayHi() => Console.WriteLine($"Hi, i am {name}!");
     
     public void SayHi(string otherName) => Console.WriteLine($"Hi {otherName}!, i am {name}!");
+
+    public void SayHi(Person otherName) => Console.WriteLine($"Hi {otherName.name}!, i am {name}!");
     
     public int GetAge() => DateTime.Now.Year - this.YOB;
     
