@@ -90,7 +90,7 @@ public class Numeric
         return average;
     }
 
-    public static double[] NumericSeries(double start, int end, double steps)
+    public static double[] Series(double start, int end, double steps)
     {
         double[] array = new double[end];
         for(int i = 0; i < end; i++)
@@ -121,7 +121,7 @@ public class Numeric
 
 #!csharp
 
-double[] arr = Numeric.NumericSeries(1,15,2);
+double[] arr = Numeric.Series(1,15,2);
 Numeric.Print(arr);
 Numeric.Print("");
 Numeric.Print(Numeric.Average(arr));

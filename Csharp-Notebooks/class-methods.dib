@@ -35,16 +35,10 @@ class Person
     }
 
     // METHODS
-    public void SayHi()
-    {
-        Console.WriteLine($"Hi, i am {name}!");
-    }
-
-    public void SayHi(string otherName)
-    {
-        Console.WriteLine($"Hi {otherName}!, i am {name}!");
-    }
-
+    public void SayHi() => Console.WriteLine($"Hi, i am {name}!");
+    
+    public void SayHi(string otherName) => Console.WriteLine($"Hi {otherName}!, i am {name}!");
+    
     public int GetAge() => DateTime.Now.Year - this.YOB;
     
 }
@@ -52,5 +46,6 @@ class Person
 #!csharp
 
 Person John = new Person("John Wesley", 1980, 185);
+John.SayHi();
 John.SayHi("James");
 Console.WriteLine(John.GetAge());
