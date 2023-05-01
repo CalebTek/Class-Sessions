@@ -39,4 +39,18 @@ class Person
     {
         Console.WriteLine($"Hi, i am {name}!");
     }
+
+    public void SayHi(string otherName)
+    {
+        Console.WriteLine($"Hi {otherName}!, i am {name}!");
+    }
+
+    public int GetAge() => DateTime.Now.Year - this.YOB;
+    
 }
+
+#!csharp
+
+Person John = new Person("John Wesley", 1980, 185);
+John.SayHi("James");
+Console.WriteLine(John.GetAge());
