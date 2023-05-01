@@ -29,15 +29,17 @@ class Person
         {
             return _name;
         }
-        set
-        {
-            this._name = value;
-        }
+        set => this._name = value;
     }
 
     public bool IsAlive
     {
         get => _isAlive;
+    }
+
+    public int Age
+    {
+        get => DateTime.Now.Year - this._YOB;
     }
 
 
@@ -92,4 +94,7 @@ Person Juliet = new Person("Juliet McCall", 1993, 175);
 Console.WriteLine(John.Info());
 John.Info();
 John.Name = "James Wesley";
+Console.WriteLine(John.Name);
+John.Name = "John Wesley";
+Console.WriteLine(John.Name);
 John.GetAge();
