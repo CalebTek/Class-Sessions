@@ -12,10 +12,25 @@ class Person
 {
     // Fields
     public string name;
-    public int age;
+    public int YOB; // Year Of Birth
     public double height;
     public bool isAlive;
-    public bool isStudent;
+    //public bool isStudent;
 
     // Constructors
+
+    public Person(string name, int YOB, double height)
+    {
+        this.name = name;
+        this.YOB = YOB;
+        this.height = height;
+
+        int currentYear = DateTime.Now.Year;
+
+        this.isAlive = true;
+        if(YOB > currentYear)
+        {
+            this.isAlive = false;
+        }
+    }
 }
