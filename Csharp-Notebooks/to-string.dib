@@ -66,3 +66,7 @@ class Person
 Person John = new Person("John Wesley", 1980, 185);
 Person Juliet = new Person("Juliet McCall", 1993, 175);
 Console.WriteLine(John.Info());
+
+#!csharp
+
+John.Info()
