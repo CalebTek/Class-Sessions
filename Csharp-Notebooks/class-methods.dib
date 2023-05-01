@@ -39,7 +39,7 @@ class Person
     
     public void SayHi(string otherName) => Console.WriteLine($"Hi {otherName}!, i am {name}!");
 
-    public void SayHi(Person otherName) => Console.WriteLine($"Hi {otherName.name}!, i am {name}!");
+    public void SayHi(Person otherNAME) => Console.WriteLine($"Hi {otherNAME.name}!, i am {name}!");
     
     public int GetAge() => DateTime.Now.Year - this.YOB;
     
@@ -48,6 +48,12 @@ class Person
 #!csharp
 
 Person John = new Person("John Wesley", 1980, 185);
+Person Juliet = new Person("Juliet McCall", 1993, 175);
 John.SayHi();
-John.SayHi("James");
-Console.WriteLine(John.GetAge());
+Juliet.SayHi();
+John.SayHi("Juliet");
+Juliet.SayHi("John");
+John.SayHi(Juliet);
+Juliet.SayHi(John);
+
+Console.WriteLine($"{John.name} is {(John.GetAge())} years");
