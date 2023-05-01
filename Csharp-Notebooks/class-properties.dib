@@ -23,6 +23,7 @@ class Person
 
 
     // Properties
+    //public string Name { get; set; }
     public string Name
     {
         get
@@ -98,3 +99,5 @@ Console.WriteLine(John.Name);
 John.Name = "John Wesley";
 Console.WriteLine(John.Name);
 John.GetAge();
+Console.WriteLine(John.Age);
+//John.Age;
