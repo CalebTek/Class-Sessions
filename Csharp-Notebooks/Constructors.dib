@@ -34,3 +34,8 @@ class Person
         }
     }
 }
+
+#!csharp
+
+Person Olawale = new Person("Odeyemi Olawale", 1994, 175);
+Console.Write(Olawale.isAlive);
