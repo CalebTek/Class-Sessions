@@ -12,11 +12,11 @@
 1. Identifiers  
 2. Variables
 3. Data Types  
-    i. Integer  
-    ii. Character  
-    iii. Boolean  
-    iv. Double/Float/Decimal  
-    v. Strings 
+    *   `Integer`  
+    *   `Character`  
+    *   `Boolean`  
+    *   `Double/Float/Decimal`  
+    *   `Strings` 
 
 #!markdown
 
@@ -47,7 +47,7 @@ In addition to the rules, there are many identifier naming conventions used thro
 
 #!markdown
 
-Example
+`Example`
 
 #!csharp
 
@@ -68,7 +68,7 @@ Variable is a placeholder of the information which can be changed at runtime. An
 ### Declaring (Creating) Variables
 To create a variable, you must specify the type and assign it a value:
 
-Syntax
+`Syntax`
 
 #!csharp
 
@@ -77,7 +77,7 @@ int testScore = 25;
 
 #!markdown
 
-Example  
+`Example`  
 Create a variable called **name** of type **string** and assign it the **value** `"John"`:
 
 #!csharp
@@ -96,7 +96,7 @@ In C#, there are different types of variables (defined with different keywords),
 *   `string` - stores text, such as "Hello World". String values are surrounded by double quotes
 *   `bool` - stores values with two states: true or false  
 
-Example
+`Example`
 
 #!csharp
 
