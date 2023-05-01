@@ -57,3 +57,7 @@ John.SayHi(Juliet);
 Juliet.SayHi(John);
 
 Console.WriteLine($"{John.name} is {(John.GetAge())} years");
+
+#!markdown
+
+# ToString() Method
