@@ -46,7 +46,8 @@ class Person
     public string Info() 
     {
         // multiline interpolated string
-        string info = $$"""
+        string info = 
+        $$"""
         {
             Name: {{this.name}}
             Year of Birth: {{this.YOB}}
