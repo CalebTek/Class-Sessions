@@ -1,0 +1,21 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+/// <summary>
+/// This is a class that will define the properties
+/// and functionality of Person objects.
+/// </summary>
+class Person
+{
+    // Fields
+    public string name;
+    public int age;
+    public double height;
+    public bool isAlive;
+    public bool isStudent;
+
+    // Constructors
+}
