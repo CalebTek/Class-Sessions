@@ -1,0 +1,23 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Static Members
+
+#!csharp
+
+// Static Properties
+public static int MaxAge = 100;
+
+Console.WriteLine(MaxAge);
+
+#!csharp
+
+// Static METHODS
+/* public static int ComputeAgeDiff(Person one, Person two)
+{
+    int diff = one.Age - two.Age;
+    return Math.Abs(diff);
+} */
