@@ -61,3 +61,7 @@ Console.WriteLine($"{John.name} is {(John.GetAge())} years");
 #!markdown
 
 # ToString() Method
+
+#!markdown
+
+Continued in ToString.dib script
