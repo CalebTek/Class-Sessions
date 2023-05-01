@@ -115,7 +115,7 @@ public class Numeric
      
     public static void Print(string str)
     {
-            Console.Write(str);
+            Console.WriteLine(str);
     }
 }
 
@@ -125,3 +125,5 @@ double[] arr = Numeric.NumericSeries(1,15,2);
 Numeric.Print(arr);
 Numeric.Print("");
 Numeric.Print(Numeric.Average(arr));
+Numeric.Print("");
+Numeric.Print(Numeric.Sum(arr));
