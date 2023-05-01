@@ -8,7 +8,6 @@
 /// This is a class that will define the properties
 /// and functionality of Person objects.
 /// </summary>
-
 class Person
 {
     // Fields
@@ -43,5 +42,13 @@ class Person
     public void SayHi(Person otherNAME) => Console.WriteLine($"Hi {otherNAME.name}!, i am {name}!");
     
     public int GetAge() => DateTime.Now.Year - this.YOB;
+
+    public string Info() => $"Name: {this.name}, Year of Birth: {this.YOB}, Age: {GetAge()}, Still Alive: {this.isAlive}";
     
 }
+
+#!csharp
+
+Person John = new Person("John Wesley", 1980, 185);
+Person Juliet = new Person("Juliet McCall", 1993, 175);
+Console.WriteLine(John.Info());
