@@ -48,10 +48,10 @@ class Person
         // multiline interpolated string
         string info = $$"""
         {
-            Name: {this.name}
-            Year of Birth: {this.YOB}
-            Age: {GetAge()}
-            Still Alive: {this.isAlive}
+            Name: {{this.name}}
+            Year of Birth: {{this.YOB}}
+            Age: {{GetAge()}}
+            Still Alive: {{this.isAlive}}
         }
         """;
         return info;
