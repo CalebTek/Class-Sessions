@@ -10,7 +10,8 @@
 
 ### Outline
 1. Identifiers  
-2. Data Types  
+2. Variables
+3. Data Types  
     i. Integer  
     ii. Character  
     iii. Boolean  
@@ -25,3 +26,39 @@ Identifiers are used for identification purposes. Or in other words, identifiers
 In C#, an identifier can be a class name, method name, variable name, or label. 
 All C# variables must be identified with unique names.   
 Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+#!markdown
+
+### Identifier Naming rules
+Valid identifiers must follow these rules:  
+
+*   Identifiers must start with a letter or underscore (_).  
+*   Identifiers may contain Unicode letter characters, decimal digit characters, Unicode connecting characters, Unicode combining characters, or Unicode formatting characters.
+
+#!markdown
+
+### Naming conventions
+In addition to the rules, there are many identifier naming conventions used throughout the .NET APIs. By convention, C# programs use PascalCase for type names, namespaces, and all public members. In addition, the following conventions are common:
+
+*   Interface names start with a capital I.
+*   Attribute types end with the word Attribute.
+*   Enum types use a singular noun for non-flags, and a plural noun for flags.
+*   Identifiers shouldn't contain two consecutive underscore (_) characters. Those names are reserved for compiler-generated identifiers.
+
+#!markdown
+
+Example
+
+#!csharp
+
+// Good
+int minutesPerHour = 60;
+
+// OK, but not so easy to understand what m actually is
+int m = 60;
+
+#!markdown
+
+## C# Variables  
+Variables are containers for storing data values.  
+Variable is a placeholder of the information which can be changed at runtime. And variables allows to Retrieve and Manipulate the stored information.
