@@ -41,7 +41,7 @@ Class with different methods
 
 #!csharp
 
-class Numeric
+public class Numeric
 {
     ///<summary>
     /// Method return sum of element in an array.
@@ -49,7 +49,7 @@ class Numeric
     ///<param name = "array">The array of numeric elements</param>
     ///<returns>The sum of all element in an array.</returns>
 
-    static double Sum(double[] array)
+    public static double Sum(double[] array)
     {
         if(array.Length == 0)
         {
@@ -70,7 +70,7 @@ class Numeric
     ///<param name = "exponent">Exponent Power</param>
     ///<returns>The power.</returns>
 
-    static double Pow(double baseValue, double exponent)
+    public static double Pow(double baseValue, double exponent)
     {
         if (exponent == 0)
         {
@@ -84,13 +84,13 @@ class Numeric
         return value;
     }
 
-    static double Average(double[] array)
+    public static double Average(double[] array)
     {
         double average = Sum(array)/array.Length;
         return average;
     }
 
-    static double[] NumericSeries(double start, int end, double steps)
+    public static double[] NumericSeries(double start, int end, double steps)
     {
         double[] array = new double[end];
         for(int i = 0; i < end; i++)
@@ -100,11 +100,28 @@ class Numeric
         return array;
     }
 
-    static void Print(double[] array)
+    public static void Print(double[] array)
     {
         foreach (int item in array)
         {
             Console.Write($"{item} ");
         }
     }
+
+    public static void Print(double obj)
+    {
+            Console.Write(obj);
+    }
+     
+    public static void Print(string str)
+    {
+            Console.Write(str);
+    }
 }
+
+#!csharp
+
+double[] arr = Numeric.NumericSeries(1,15,2);
+Numeric.Print(arr);
+Numeric.Print("");
+Numeric.Print(Numeric.Average(arr));
