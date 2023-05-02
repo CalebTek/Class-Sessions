@@ -122,4 +122,6 @@ x.Info()
 
 #!csharp
 
-int number = 
+int number = 50;
+Increase(number);
+Console.Write(number);
