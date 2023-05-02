@@ -1,0 +1,125 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### Struct
+
+#!csharp
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Complex x = new Complex(3,-4);
+        Console.WriteLine(x);
+    }
+}
+
+#!csharp
+
+public class Complex
+{
+    public double Real {get; set;}
+
+    public double Imaginary {get; set;}
+
+    public Complex (double real, double imaginary)
+    {
+        this.Real = real;
+        this.Imaginary = imaginary;
+    }
+
+    public string Info() => $"{Real} {Imaginary}i";
+}
+
+#!csharp
+
+public struct Complex
+{
+    public double Real {get; set;}
+
+    public double Imaginary {get; set;}
+
+    public Complex (double real, double imaginary)
+    {
+        this.Real = real;
+        this.Imaginary = imaginary;
+    }
+
+    public string Info() => $"{Real} {Imaginary}i";
+}
+
+#!csharp
+
+Complex x = new Complex(3,-4);
+Console.WriteLine(x);
+x.Info();
+x.Imaginary = -9;
+x.Info();
+x.Imaginary
+
+#!csharp
+
+public class Person
+{
+    // Fields
+    public string _name {get; set;} //attributes / properties..
+    public int _age {get; set;} //attributes / properties..
+
+    
+    // Constructors
+
+    public Person(string name, int age)
+    {
+        this._name = name;
+        this._age = age;
+    }
+
+    public string Info() => 
+    $$"""
+    Name:   {{this._name}}
+    Age:    {{this._age}}
+    """;
+
+    //public static void Increase(Person p) => p._age++;
+}
+
+#!markdown
+
+Passing by Reference vs. Value
+
+#!csharp
+
+// Passed by reference .... Classes
+
+//Person.Increase(ceo);
+public static void Increase(Person p) => p._age++;
+
+// passed by value.... variable
+
+public static void Increase(int num) => num++;
+
+// passed by value.... variable
+
+public static void Increase(Complex comp) => comp.Real++;
+
+#!csharp
+
+Person ceo = new Person("Caleb Olawale", 20);
+Console.WriteLine(ceo.Info());
+Console.Write(ceo._name);
+Increase(ceo);
+ceo.Info()
+
+#!csharp
+
+Complex x = new Complex(7,-9);
+x.Info();
+Increase(x);
+x.Info()
+
+#!csharp
+
+int number = 
