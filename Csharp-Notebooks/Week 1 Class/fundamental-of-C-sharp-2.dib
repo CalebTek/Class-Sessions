@@ -239,3 +239,8 @@ class IfHasNeighbourTask
             Console.WriteLine(IfHasNeighbour("PRT")); // False
         }
     }
+
+#!csharp
+
+Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("DCA")); // True
+Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("PRT")); // False
