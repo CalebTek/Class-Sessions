@@ -1,0 +1,114 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+## Type Casting, Control Structures, Array, List, String and Operators 
+
+#!markdown
+
+### Type Casting
+
+#!csharp
+
+int a = 'a';
+int b = 'j';
+long sum = 4;
+int sum2 = (int)(5.6);
+int sum3 = Convert.ToInt32(5.6);
+double sum4 = Math.Floor(5.6);
+double sum5 = Math.Ceiling(5.6);
+Console.WriteLine(a);
+Console.WriteLine(b);
+Console.WriteLine(sum2);
+Console.WriteLine(sum3);
+Console.WriteLine(sum4);
+Console.WriteLine(sum5);
+// Convert.ToBoolean to bool
+string bull = "true";
+bool bul = Convert.ToBoolean(bull);
+Console.WriteLine(bul);
+string cat = "false";
+bool dog = Convert.ToBoolean(cat);
+Console.WriteLine(dog);
+// convert string to integer
+string score = "30.25";
+double scores = (int)(Convert.ToDouble(score));
+Console.WriteLine(scores);
+
+#!csharp
+
+int x = 5;
+int y = 2;
+int z = x / y;
+string xa = "John";
+//string spaces = " ";
+string xb = "Andrew";
+Console.WriteLine(xa + " " + xb);
+Console.WriteLine(z);
+
+#!markdown
+
+Heat Index Formula
+
+#!markdown
+
+ c1 = −42.379
+c2 = 2.04901523
+c3 = 10.14333127
+c4 = −0.22475541
+c5 = −6.83783 × 10−3
+c6 = −5.481717 × 10−2
+c7 = 1.22874 × 10−3
+c8 = 8.5282 × 10−4
+c9 = −1.99 × 10−6
+
+HI = c1 + c2T + c3R + c4TR + c5T2 + c6R2 + c7T2R + c8TR2 + c9T2R2
+
+#!csharp
+
+double c1 = -42.379, c2 = 2.04901523, c3 = 10.14333127, c4 = -0.22475541;
+double c5 = -6.83783E-3, c6 = -5.481717E-2, c7 = 1.22874E-3;
+double c8 = 8.5282E-4, c9 = -1.99E-6;
+double temp = 32, humidity = 75;
+
+double heatIndex = c1 + c2*temp + c3*humidity + c4*temp*humidity
+ + c5*temp*temp + c6*humidity*humidity + c7*temp*temp*humidity
+  + c8*temp*humidity*humidity + c9*temp*temp*humidity*humidity;
+
+Console.WriteLine(heatIndex);
+
+#!markdown
+
+Relational Operators
+
+== check equality
+> check if one is greater than the other
+< check if one is less than the other
+
+#!csharp
+
+int a = 70;
+int b = 50;
+bool z = (a!=b);
+//Console.WriteLine(z);
+//Console.WriteLine(a>=b);
+//int c = 30;
+int score = 47;
+
+
+bool w = score > 30  && score < 39;
+Console.WriteLine(w);
+
+string grade;
+if (score > 30  && score < 39) // condition
+{
+    // expression
+    grade = "E";
+} else if(score > 39 && score < 49)
+{
+    grade = "D";
+}
+
+Console.WriteLine(grade);
