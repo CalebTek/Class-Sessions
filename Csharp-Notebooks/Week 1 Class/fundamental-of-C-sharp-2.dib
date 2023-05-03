@@ -54,7 +54,7 @@ Heat Index Formula
 
 #!markdown
 
- c1 = −42.379
+c1 = −42.379
 c2 = 2.04901523
 c3 = 10.14333127
 c4 = −0.22475541
@@ -215,3 +215,27 @@ if (multiply > intArray[2] || addition > intArray[2])
     isGreater = true;
 }
 Console.WriteLine(isGreater);
+
+#!markdown
+
+If has neighbour
+Given three letter long string, write a method that checks if at least one neighbour of middle letter is its neighbour in the alphabet.
+Expected input and output
+IsLonelyIsland("XYZ") → True
+IsLonelyIsland("GWK") → False
+
+#!csharp
+
+class IfHasNeighbourTask
+    {
+        public static bool IfHasNeighbour(string word)
+        {
+            return word[0] == word[1] - 1 || word[0] == word[1] + 1 || word[2] == word[1] - 1 || word[2] == word[1] + 1;
+        }
+
+        public static void Main()
+        {
+            Console.WriteLine(IfHasNeighbour("DCA")); // True
+            Console.WriteLine(IfHasNeighbour("PRT")); // False
+        }
+    }
