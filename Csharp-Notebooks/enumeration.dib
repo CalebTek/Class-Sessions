@@ -18,8 +18,8 @@ enum Status
 
 #!csharp
 
-Status pkgStatus = Status.Delivered;
-string msg = $"Package status is: {pkgStatus}";
+Status pkgStatus = Status.InTransit;
+string msg = $"Package is: {pkgStatus}";
 string errMsg = $"Package status not known";
 switch(pkgStatus)
 {
