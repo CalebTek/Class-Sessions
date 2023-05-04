@@ -8,7 +8,7 @@
 
 #!csharp
 
-int floors = 3, aptPerFloor = 2;
+int floors = 5, aptPerFloor = 4;
 // create 2 dimensional array
 string[,] apartments = new string[floors, aptPerFloor];
 bool[,] hasMail = new bool[floors, aptPerFloor];
@@ -33,6 +33,6 @@ for (int f = 0; f < floors; f++)
 {
     for (int a = 0; a < aptPerFloor; a++)
     {
-        Console.WriteLine($"{apartments[f,a]} has mail: {f}{a+1}");
+        Console.WriteLine($"{apartments[f,a]} has mail: {hasMail[f,a]}");
     }
 }
