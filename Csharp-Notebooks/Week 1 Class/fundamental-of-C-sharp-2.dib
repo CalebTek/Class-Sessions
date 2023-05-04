@@ -244,3 +244,124 @@ class IfHasNeighbourTask
 
 Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("DCA")); // True
 Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("PRT")); // False
+
+#!markdown
+
+## String
+
+#!csharp
+
+string alph = "S,T,U"; // declare a variable alph that store a string with the S,T,U
+string isneighbour = alph; // make a copy of alph
+string alph2 = "A,H,K"; // declare another variable alph2 that store a string with the A,H,K
+ if (alph == isneighbour) // // Condition here is basically comparing original and the copy
+     {
+        Console.WriteLine("True");
+    } else
+    {
+        Console.WriteLine("False");
+     }
+
+#!markdown
+
+String indexing
+// declare a string
+string alph = "XYZ";
+alph[index]
+
+// String stores data in memory with the illustration below
+alph = alph[0] + alph[1]...+..alph[n-1]
+
+#!csharp
+
+string alph = "JOHN";
+Console.WriteLine(alph[1]);
+int firstAlph = alph[0];
+Console.WriteLine(firstAlph);
+int secondAlph = alph[1];
+Console.WriteLine(secondAlph)
+
+#!markdown
+
+James Solution
+
+#!csharp
+
+string str = "GWK";
+char middLeLetter = str[1];
+            if (((int)--middLeLetter == (int)str[0]) || (int)++middLeLetter == (int)str[2])
+            {
+                return "Is NOT an island";
+            }
+            else
+            {
+                return "Is an island";
+            }
+
+#!csharp
+
+Console.WriteLine(56 > 'B');
+
+#!csharp
+
+string str = "XYZ";
+int middLeLetter = str[1]; 
+if (middLeLetter - 1 == (int)str[0] || middLeLetter + 1 == (int)str[2])
+ {
+    return "Is an island";
+ }
+ else
+ {
+    return "Is NOT an island";
+ }
+
+#!csharp
+
+bool IsLonelyIsland(string str, string str2)
+{
+    char middLeLetter = str[1];
+    bool isLonelyIsland = false;
+    if (((int)middLeLetter-- == (int)str[0]) || (int)++middLeLetter == (int)str[2])
+    {
+    isLonelyIsland = true;
+    }
+    return isLonelyIsland;
+    //Console.WriteLine(isLonelyIsland);
+
+}
+
+#!csharp
+
+Console.WriteLine(IsLonelyIsland("XYZ", "GWK"));
+//IsLonelyIsland("XYZ");
+
+#!markdown
+
+Decrement -- and Increment ++ Operator // by one
+
+#!csharp
+
+int initalValue = 4;
+++ initalValue;
+Console.WriteLine(initalValue)
+
+#!csharp
+
+/* namespace Shalom
+{
+    class Gar
+    {
+        static void Main(string[] args)
+        {
+            
+        }
+    }
+} */
+
+#!markdown
+
+Ingredent of a method
+
+The return type
+The arguments
+The name of the method
