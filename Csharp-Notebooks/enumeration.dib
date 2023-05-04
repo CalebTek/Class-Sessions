@@ -1,3 +1,45 @@
 #!meta
 
 {"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Shipping Status
+
+#!csharp
+
+enum Status
+{
+    InStore,
+    InTransit,
+    OutForDelivery,
+    Delivered
+}
+
+#!csharp
+
+Status pkgStatus = Status.Delivered;
+string msg = $"Package status is: {pkgStatus}";
+string errMsg = $"Package status not known";
+switch(pkgStatus)
+{
+    case Status.InStore:
+        Console.WriteLine(msg);
+        break;
+
+    case Status.InTransit:
+        Console.WriteLine(msg);
+        break;
+    
+    case Status.OutForDelivery:
+        Console.WriteLine(msg);
+        break;
+
+    case Status.Delivered:
+        Console.WriteLine(msg);
+        break;
+    
+    default:
+        Console.WriteLine(errMsg);
+        break;
+}
