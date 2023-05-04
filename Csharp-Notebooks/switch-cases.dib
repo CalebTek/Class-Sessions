@@ -13,9 +13,9 @@ bool keepReadingKey = true;
 while(keepReadingKey)
 {
     Console.Write("Enter a key: ");
-    //ConsoleKeyInfo input = Console.ReadKey();
-    //char letterInput = input.KeyChar;
-    char letterInput = 'w';
+    ConsoleKeyInfo input = Console.ReadKey();
+    char letterInput = input.KeyChar;
+    //char letterInput = 'w';
     string msg = $$"""
     {
         posX: {{posX}}
