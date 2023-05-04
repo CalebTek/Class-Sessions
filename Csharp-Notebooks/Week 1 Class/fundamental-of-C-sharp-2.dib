@@ -249,6 +249,10 @@ Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("PRT")); // False
 
 ## String
 
+#!markdown
+
+Martha Solotion
+
 #!csharp
 
 string alph = "S,T,U"; // declare a variable alph that store a string with the S,T,U
