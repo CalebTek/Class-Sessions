@@ -369,3 +369,168 @@ Ingredent of a method
 The return type
 The arguments
 The name of the method
+
+#!markdown
+
+Factorial
+
+#!csharp
+
+int n;
+int factorial = 1;
+int num = 4;
+
+for (n = 1; n < num+1; n++)
+{
+    factorial *= n;
+}
+
+Console.WriteLine(factorial)
+
+#!csharp
+
+static int Factorial(int num)
+        {
+            if(num <= 1) return 1;
+            else
+              return Factorial(num - 1) * (num);
+
+            // 4 = 4 3 2 1
+        }
+
+#!csharp
+
+Factorial(4)
+
+#!csharp
+
+static int Factorial2(int num)
+{
+    return num == 0 || num == 1 ? 1 : num * Factorial(num-1);
+}
+
+#!csharp
+
+Factorial2(4)
+
+#!csharp
+
+static int Factorial3(int num) => num == 0 || num == 1 ? 1 : num * Factorial(num-1);
+
+#!csharp
+
+Factorial3(4)
+
+#!markdown
+
+Regular Expression
+
+#!csharp
+
+using System.Text.RegularExpressions;
+//Regex
+// verbatim string literal @
+string pattern = @"\d{2}";
+string msg = "The answer is 43.";
+Match match = Regex.Match(msg,pattern);
+if (match.Success)
+{
+    Console.WriteLine(match.Value);
+} else
+{
+    Console.WriteLine("No Match");
+}
+
+#!csharp
+
+using System.Text.RegularExpressions;
+public static bool CheckPhoneNumber(string phoneNumber)
+{
+    string pattern = @"^\+\d{2}\s(\d{3}\-){2}(\d{3})";
+    Match match = Regex.Match(phoneNumber,pattern);
+    return match.Success;
+}
+
+#!csharp
+
+CheckPhoneNumber("+48 592-045-990");
+CheckPhoneNumber("+48 59-2045-99-0");
+CheckPhoneNumber("+489 592-045-990");
+CheckPhoneNumber("+489 592-045-990");
+
+#!csharp
+
+static bool CheckPhoneNumber2(string phoneNumber)
+        {
+            // phone number must start with a plus sign
+            //followd by the fist two digit numbers
+            // then followed by a space
+            // Console.WriteLine(num[3]);
+
+            if (@phoneNumber[0] == '+' && @phoneNumber[3] == ' ') {
+                if (@phoneNumber[7] == '-' && @phoneNumber.Length == 15 )
+                    if (@phoneNumber[11] == '-')
+                {
+                        return true;
+                }
+            }         
+
+             return false;
+        }
+
+#!csharp
+
+CheckPhoneNumber2("+48 592-045-990")
+// CheckPhoneNumber2("+48 59-2045-99-0")
+// CheckPhoneNumber2("+489 592-045-990")
+// CheckPhoneNumber2("+489 592-045-990");
+
+#!csharp
+
+static int[] TopFiveNumber(int[] arr)
+        {
+            int temp; // create a container for the next element of the array
+
+            for (int j = 0; j <= arr.Length - 1; j++)
+            {
+                for (int i = 0; i <= arr.Length - 2; i++)
+                {
+                    if (arr[i] > arr[i + 1])
+                    {
+                        temp = arr[i + 1]; // hold the ith + 1 element of the array
+                        arr[i + 1] = arr[i]; // hold the ith element of the array
+                        arr[i] = temp; // swap the ith with the ith + 1 element of the array
+                    }
+                }
+            }
+            int[] arr2 = new int[5];
+            for (int i = arr.Length-5; i < arr.Length; i++)
+                {
+                    arr2[i-(arr.Length-5)] = arr[i];
+                    // Console.WriteLine(i);
+                }
+                //int[] arr3 = Array.(arr2);
+            return arr2;
+        }
+
+#!csharp
+
+int[] arr = {78, -9, 0, 23, 54,  21, 7, 86};
+TopFiveNumber(arr)
+
+#!csharp
+
+static void TopFiveNumbers(int[] arr)
+{
+    var top5 = arr.OrderByDescending(x => x).Take(5);
+    
+    foreach (int i in top5)
+    {
+        Console.Write($"{i} ");
+    }
+}
+
+#!csharp
+
+int[] arr = {78, -9, 0, 23, 54,  21, 7, 86};
+TopFiveNumbers(arr)
