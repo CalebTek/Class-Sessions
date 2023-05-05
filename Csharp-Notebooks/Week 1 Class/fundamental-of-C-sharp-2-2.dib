@@ -369,3 +369,124 @@ Ingredent of a method
 The return type
 The arguments
 The name of the method
+
+#!csharp
+
+static long Factorial(int num)
+{
+    return num == 0 || num == 1 ? 1 : num * Factorial(num - 1);
+}
+
+#!csharp
+
+Factorial(4)
+
+#!csharp
+
+static long Factorial2(int num)
+{
+    if (num == 0 || num == 1 )
+    {
+        return 1;
+    } else
+    return num * Factorial2(num - 1);
+}
+
+#!csharp
+
+Factorial2(5)
+
+#!csharp
+
+static long Factorial3(int num)
+{
+    int factorial = 1; // initialize the factorial to 1
+
+    for (int i = 1; i <= num; i++)
+    {
+        factorial *= i; // multiply the factorial by each number from 1 to num
+    }
+    return factorial;
+}
+
+#!csharp
+
+Factorial3(13)
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+
+string pattern = @"\d+"; // regular expression pattern to match one or more digits
+        string input = "The answer is 42.";
+
+        Match match = Regex.Match(input, pattern); // search for the pattern in the input string
+        if (match.Success) // check if the pattern was found
+        {
+            Console.WriteLine("Found '{0}' at position {1}.", match.Value, match.Index);
+        }
+        else
+        {
+            Console.WriteLine("No match found.");
+        }
+
+#!csharp
+
+public static bool CheckPhoneNumber(string phoneNumber)
+        {
+            Regex regex = new Regex(@"^\+\d{2}\s(\d{3}\-){2}(\d{3})");
+            Match match = regex.Match(phoneNumber);
+
+            return match.Success;
+        }
+
+#!csharp
+
+Console.WriteLine(CheckPhoneNumber("+48 592-045-990"));    // True
+Console.WriteLine(CheckPhoneNumber("+999 543-000-305"));   // False
+Console.WriteLine(CheckPhoneNumber("00 204-145-722"));     // False
+Console.WriteLine(CheckPhoneNumber("+47 420-053-934"));    // True
+
+#!csharp
+
+static int[] TopFiveNumber(int[] arr)
+        {
+            int temp; // create a container for the next element of the array
+
+            for (int j = 0; j <= arr.Length - 1; j++)
+            {
+                for (int i = 0; i <= arr.Length - 2; i++)
+                {
+                    if (arr[i] > arr[i + 1])
+                    {
+                        temp = arr[i + 1]; // hold the ith + 1 element of the array
+                        arr[i + 1] = arr[i]; // hold the ith element of the array
+                        arr[i] = temp; // swap the ith with the ith + 1 element of the array
+                    }
+                }
+            }
+            int[] arr2 = new int[5];
+            for (int i = arr.Length-5; i < arr.Length; i++)
+                {
+                    arr2[i-(arr.Length-5)] = arr[i];
+                    // Console.WriteLine(i);
+                }
+                //int[] arr3 = Array.(arr2);
+            return arr2;
+        }
+
+#!csharp
+
+//int[] arr = { 90, 75, 95, 98, 13, 20, 50, 14, 12, 13};
+int[] arr = { 78, -9, 0, 23, 54, 21, 7, 86};
+TopFiveNumber(arr)
+
+#!csharp
+
+int[] arr2 = new int[5];
+for (int i = arr.Length-5; i < arr.Length; i++)
+{
+    arr2[i-(arr.Length-5)] = arr[i];
+    //Console.WriteLine(i);
+}
