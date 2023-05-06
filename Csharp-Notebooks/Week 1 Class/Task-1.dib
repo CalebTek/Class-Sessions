@@ -35,9 +35,21 @@ class Course
 #!csharp
 
 Course mth101 = new Course("MTH101", 5, 4);
-Course gs101 = new Course("GS101", 5, 4);
-Course net101 = new Course("NET101", 5, 4);
+Course gs101 = new Course("GS101", 3, 5);
+Course net101 = new Course("NET101", 5, 3);
 Course cs101 = new Course("C#101", 5, 4);
-Course hct101 = new Course("HCI101", 5, 4);
+Course hct101 = new Course("HCI101", 3, 0);
 
-mth101.weightPoint
+#!csharp
+
+//hct101.remarks;
+//net101.remarks
+gs101.weightPoint
+
+#!csharp
+
+Console.WriteLine("       |------------------|----------------|------------|--------------|--------------|------------|");
+Console.WriteLine("       |  COURSE & CODE   |   COURSE UNIT  |    GRADE   |  GRADE-UNIT  |   WEIGHT Pt. |   REMARK   |");
+Console.WriteLine("       |------------------|----------------|------------|--------------|--------------|------------|");
+Console.WriteLine($"       |     {gs101.weightPoint}             |----------------|------------|--------------|--------------|------------|");
+Console.WriteLine("       |------------------|----------------|------------|--------------|--------------|------------|");
