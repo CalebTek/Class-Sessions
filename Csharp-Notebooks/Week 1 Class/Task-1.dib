@@ -35,9 +35,9 @@ class Course
 #!csharp
 
 Course mth101 = new Course("MTH101", 5, 4);
-Course mth101 = new Course("MTH101", 5, 4);
-Course mth101 = new Course("MTH101", 5, 4);
-Course mth101 = new Course("MTH101", 5, 4);
-Course mth101 = new Course("MTH101", 5, 4);
+Course gs101 = new Course("GS101", 5, 4);
+Course net101 = new Course("NET101", 5, 4);
+Course cs101 = new Course("C#101", 5, 4);
+Course hct101 = new Course("HCI101", 5, 4);
 
 mth101.weightPoint
