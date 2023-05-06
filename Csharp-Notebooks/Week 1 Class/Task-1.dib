@@ -7,8 +7,8 @@
 class Course
 {
     // Fields
-    public string courseCode;
-    public double courseUnit, gradeUnit;
+    public string courseCode, grade, remarks;
+    public double courseUnit, gradeUnit, weightPoint;
 
     // Constructors
     public Course(string courseCode, double courseUnit, double gradeUnit)
@@ -18,16 +18,21 @@ class Course
         this.gradeUnit = gradeUnit;
 
         // set grade category
-        string grade = gradeUnit == 5 ? "A" : gradeUnit == 4 ? "B" : gradeUnit == 3 ? "C" : 
+        this.grade = gradeUnit == 5 ? "A" : gradeUnit == 4 ? "B" : gradeUnit == 3 ? "C" : 
         gradeUnit == 2 ? "D" : gradeUnit == 1 ? "E" : gradeUnit == 0 ? "F" : "No Grade";
 
         // calculate Weight Point
-        double weightPoint = courseUnit * gradeUnit;
+        this.weightPoint = courseUnit * gradeUnit;
 
         // set remarks category
-        string remarks = gradeUnit == 5 ? "Excellent" : gradeUnit == 4 ? "Very Good" : gradeUnit == 3 ? "Good" : 
+        this.remarks = gradeUnit == 5 ? "Excellent" : gradeUnit == 4 ? "Very Good" : gradeUnit == 3 ? "Good" : 
         gradeUnit == 2 ? "Fair" : gradeUnit == 1 ? "Poor" : gradeUnit == 0 ? "Fail" : "No Remarks";
 
     }
 
 }
+
+#!csharp
+
+Course mth101 = new Course("MTH101", 5, 4);
+mth101.remarks
