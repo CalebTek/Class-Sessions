@@ -51,5 +51,19 @@ gs101.weightPoint
 Console.WriteLine("       |------------------|----------------|------------|--------------|--------------|------------|");
 Console.WriteLine("       |  COURSE & CODE   |   COURSE UNIT  |    GRADE   |  GRADE-UNIT  |   WEIGHT Pt. |   REMARK   |");
 Console.WriteLine("       |------------------|----------------|------------|--------------|--------------|------------|");
-Console.WriteLine($"       |     {gs101.weightPoint}             |----------------|------------|--------------|--------------|------------|");
+Console.WriteLine($"       |    {gs101.courseCode}         |----------------|------------|--------------|--------------|------------|");
 Console.WriteLine("       |------------------|----------------|------------|--------------|--------------|------------|");
+
+#!csharp
+
+//string[] courseCodes;
+
+int length = 3;
+Course[] courseArray;
+for (int i = 0; i < length; i++)
+{
+    string courseCode = Console.ReadLine();
+    double courseUnit = Convert.ToDouble(Console.ReadLine());
+    double gradeUnit = Convert.ToDouble(Console.ReadLine());
+    courseArray[i] = new Course(courseCode, courseUnit, gradeUnit);
+}
