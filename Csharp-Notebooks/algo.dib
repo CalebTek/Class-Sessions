@@ -39,7 +39,7 @@ public bool CheckUnique(string str) {
       string two = "";
       for (int i = 0; i < str.Length; i++) {
          one = str.Substring(i, 1);
-         for (int j = 0; j < str.Length; j++) {
+         for (int j = 0; j < str.Length; j++) { 
             two = str.Substring(j, 1);
             if ((one == two) && (i != j))
             return false;
@@ -50,4 +50,49 @@ public bool CheckUnique(string str) {
 
 #!csharp
 
-CheckUnique("ddd8ueiso")
+CheckUnique("AAaald")
+
+#!csharp
+
+string sub = "dfe".Substring(0, 2);
+sub
+
+#!csharp
+
+public bool CheckUnique(string str) {
+         str.ToLower();
+
+      for(int i = 0; i < str.Length - 1; i++){
+        if((int) str[i] + 1 != (int) str[i + 1]){
+            return true;
+        }
+      }
+      return false;
+   }
+
+#!csharp
+
+CheckUnique("AaaAhhdcbca")
+
+#!csharp
+
+static bool CheckUnique(string input)
+    {
+        bool[] seenChars = new bool[256];
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            int charCode = Convert.ToInt32(input[i]);
+            if (seenChars[charCode])
+            {
+                return false;
+            }
+            seenChars[charCode] = true;
+        }
+
+        return true;
+    }
+
+#!csharp
+
+CheckUnique("Abc")
