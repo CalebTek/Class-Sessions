@@ -1,0 +1,135 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Create Utility functions
+
+#!markdown
+
+Power Method
+
+#!csharp
+
+static double Pow(double baseValue, double exponent)
+{
+    if (exponent == 0)
+    {
+        return 1;
+    }
+    double value = baseValue;
+    for (int i = 0; i < exponent-1; i++)
+    {
+        value *= baseValue;
+    }
+    return value;
+}
+
+#!csharp
+
+Console.Write(Pow(15,2));
+
+#!csharp
+
+// function that calculate the area of a circle
+static double CircleArea(double radius) => Math.PI * Pow(radius,2);
+
+#!csharp
+
+double radius = 6;
+Console.Write(CircleArea(radius));
+
+#!markdown
+
+Distance between two points
+
+#!csharp
+
+static double DistPoint(double x0, double y0, double x1, double y1)
+{
+    double dx = x1 - x0, dy = y1 - y0;
+    double dist = Math.Sqrt(Pow(dx,2) + Pow(dy,2));
+    return dist;
+}
+
+#!csharp
+
+double distance = DistPoint(3,5,3,6);
+Console.Write(distance);
+
+#!markdown
+
+Array functions
+
+#!csharp
+
+static double Sum(double[] array)
+{
+    if(array.Length == 0)
+    {
+        return 0;
+    }
+    double sum = 0;
+    foreach (double item in array)
+    {
+        sum += item;
+    }
+    return sum;
+}
+
+#!csharp
+
+static double Average(double[] array)
+{
+    double average = Sum(array)/array.Length;
+    return average;
+}
+
+#!csharp
+
+double[] arr = {1,5.2,4,0,-1};
+Console.Write(Sum(arr));
+
+#!csharp
+
+Console.Write(Average(arr));
+
+#!markdown
+
+Numerical Series
+
+#!csharp
+
+static double[] NumericSeries(double start, int end, double steps)
+{
+    double[] array = new double[end];
+    for(int i = 0; i < end; i++)
+    {
+        array[i] = start + i * steps;
+    }
+    return array;
+}
+
+#!markdown
+
+Print element in an array
+
+#!csharp
+
+static void Print(double[] array)
+{
+    foreach (int item in array)
+    {
+        Console.Write($"{item} ");
+    }
+}
+
+#!csharp
+
+Print(arr);
+
+#!csharp
+
+double[] arr = NumericSeries(0,20,2.5);
+Print(arr);

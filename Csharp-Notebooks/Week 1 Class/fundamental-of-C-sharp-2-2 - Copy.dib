@@ -1,0 +1,492 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+## Type Casting, Control Structures, Array, List, String and Operators 
+
+#!markdown
+
+### Type Casting
+
+#!csharp
+
+int a = 'a';
+int b = 'j';
+long sum = 4;
+int sum2 = (int)(5.6);
+int sum3 = Convert.ToInt32(5.6);
+double sum4 = Math.Floor(5.6);
+double sum5 = Math.Ceiling(5.6);
+Console.WriteLine(a);
+Console.WriteLine(b);
+Console.WriteLine(sum2);
+Console.WriteLine(sum3);
+Console.WriteLine(sum4);
+Console.WriteLine(sum5);
+// Convert.ToBoolean to bool
+string bull = "true";
+bool bul = Convert.ToBoolean(bull);
+Console.WriteLine(bul);
+string cat = "false";
+bool dog = Convert.ToBoolean(cat);
+Console.WriteLine(dog);
+// convert string to integer
+string score = "30.25";
+double scores = (int)(Convert.ToDouble(score));
+Console.WriteLine(scores);
+
+#!csharp
+
+int x = 5;
+int y = 2;
+int z = x / y;
+string xa = "John";
+//string spaces = " ";
+string xb = "Andrew";
+Console.WriteLine(xa + " " + xb);
+Console.WriteLine(z);
+
+#!markdown
+
+Heat Index Formula
+
+#!markdown
+
+c1 = −42.379
+c2 = 2.04901523
+c3 = 10.14333127
+c4 = −0.22475541
+c5 = −6.83783 × 10−3
+c6 = −5.481717 × 10−2
+c7 = 1.22874 × 10−3
+c8 = 8.5282 × 10−4
+c9 = −1.99 × 10−6
+
+HI = c1 + c2T + c3R + c4TR + c5T2 + c6R2 + c7T2R + c8TR2 + c9T2R2
+
+#!csharp
+
+double c1 = -42.379, c2 = 2.04901523, c3 = 10.14333127, c4 = -0.22475541;
+double c5 = -6.83783E-3, c6 = -5.481717E-2, c7 = 1.22874E-3;
+double c8 = 8.5282E-4, c9 = -1.99E-6;
+double temp = 32, humidity = 75;
+
+double heatIndex = c1 + c2*temp + c3*humidity + c4*temp*humidity
+ + c5*temp*temp + c6*humidity*humidity + c7*temp*temp*humidity
+  + c8*temp*humidity*humidity + c9*temp*temp*humidity*humidity;
+
+Console.WriteLine(heatIndex);
+
+#!markdown
+
+Relational Operators
+
+== check equality
+> check if one is greater than the other
+< check if one is less than the other
+
+#!csharp
+
+int a = 70;
+int b = 50;
+bool z = (a!=b);
+//Console.WriteLine(z);
+//Console.WriteLine(a>=b);
+//int c = 30;
+int score = 47;
+
+
+bool w = score > 30  && score < 39;
+Console.WriteLine(w);
+
+string grade;
+if (score > 30  && score < 39) // condition
+{
+    // expression
+    grade = "E";
+} else if(score > 39 && score < 49)
+{
+    grade = "D";
+}
+
+Console.WriteLine(grade);
+
+#!markdown
+
+## Control Structures
+
+#!markdown
+
+Pseudo code
+
+leap year is year that repeat itself in 4 years interval, year divisible by 4 without remainder
+
+if (year divide 4 has no remainder)
+// expression
+(it is a leap year) true/false
+
+#!csharp
+
+int year = 2011;
+Console.WriteLine(year%4);
+//Console.WriteLine(year%400);
+//Console.WriteLine(year%800);
+Console.WriteLine(year/100);
+
+#!markdown
+
+if (Condition 1) {  
+    // block of codes...statement 1....operation 1  expression 1  
+} else if (condition 2) {  
+    // codes...statement 2... operation 2  
+} else if (condition 3) {  
+
+}
+
+#!csharp
+
+int year = 1716;
+if ((year%4) == 0) 
+{
+    Console.WriteLine("True");
+} else {
+    Console.WriteLine("False");
+}
+
+#!csharp
+
+bool isLeapYear = false;
+if (year%4 == 0)
+{
+    isLeapYear = true;
+}
+
+Console.WriteLine(isLeapYear);
+
+#!markdown
+
+## If greater than third one
+Given an array of 3 integers, write a method that checks if multiplication or sum of two first numbers is greater than third one.
+`Expected input and output`
+IfGreaterThanThirdOne([2, 7, 12]) → `true`
+IfGreaterThanThirdOne([-5, -8, 50]) → `false`
+
+#!markdown
+
+pseudo code
+first varibale (multiplication) equals first element of the array times second element of the array
+second variable (addition) equals first element of the array plus second element of the array
+if (the multiplication or addition is greater that the third element in the array)
+// statement
+true;
+else
+false;
+
+#!markdown
+
+## Array
+
+Array declaration
+datatype[] variableName = {element1, element2, element3....elementn};
+
+Example
+Array of integers
+int[] intArray = {1,2,4,5,6};
+
+Index an array
+Array[index] ...//index are integers 
+
+#!csharp
+
+int[] intArray = {19,23,43,56,62};
+//Console.WriteLine(intArray);
+Console.WriteLine(intArray[1]);
+
+#!csharp
+
+int[] intArray = {-5, -8, 50};
+int multiply = intArray[0] * intArray[1];
+int addition = intArray[0] + intArray[1];
+bool isGreater = false;
+if (multiply > intArray[2] || addition > intArray[2])
+{
+    isGreater = true;
+}
+Console.WriteLine(isGreater);
+
+#!markdown
+
+If has neighbour
+Given three letter long string, write a method that checks if at least one neighbour of middle letter is its neighbour in the alphabet.
+Expected input and output
+IsLonelyIsland("XYZ") → True
+IsLonelyIsland("GWK") → False
+
+#!csharp
+
+class IfHasNeighbourTask
+    {
+        public static bool IfHasNeighbour(string word)
+        {
+            return word[0] == word[1] - 1 || word[0] == word[1] + 1 || word[2] == word[1] - 1 || word[2] == word[1] + 1;
+        }
+
+        public static void Main()
+        {
+            Console.WriteLine(IfHasNeighbour("DCA")); // True
+            Console.WriteLine(IfHasNeighbour("PRT")); // False
+        }
+    }
+
+#!csharp
+
+Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("DCA")); // True
+Console.WriteLine(IfHasNeighbourTask.IfHasNeighbour("PRT")); // False
+
+#!markdown
+
+## String
+
+#!markdown
+
+Martha Solotion
+
+#!csharp
+
+string alph = "S,T,U"; // declare a variable alph that store a string with the S,T,U
+string isneighbour = alph; // make a copy of alph
+string alph2 = "A,H,K"; // declare another variable alph2 that store a string with the A,H,K
+ if (alph == isneighbour) // // Condition here is basically comparing original and the copy
+     {
+        Console.WriteLine("True");
+    } else
+    {
+        Console.WriteLine("False");
+     }
+
+#!markdown
+
+String indexing
+// declare a string
+string alph = "XYZ";
+alph[index]
+
+// String stores data in memory with the illustration below
+alph = alph[0] + alph[1]...+..alph[n-1]
+
+#!csharp
+
+string alph = "JOHN";
+Console.WriteLine(alph[1]);
+int firstAlph = alph[0];
+Console.WriteLine(firstAlph);
+int secondAlph = alph[1];
+Console.WriteLine(secondAlph)
+
+#!markdown
+
+James Solution
+
+#!csharp
+
+string str = "GWK";
+char middLeLetter = str[1];
+            if (((int)--middLeLetter == (int)str[0]) || (int)++middLeLetter == (int)str[2])
+            {
+                return "Is NOT an island";
+            }
+            else
+            {
+                return "Is an island";
+            }
+
+#!csharp
+
+Console.WriteLine(56 > 'B');
+
+#!csharp
+
+string str = "XYZ";
+int middLeLetter = str[1]; 
+if (middLeLetter - 1 == (int)str[0] || middLeLetter + 1 == (int)str[2])
+ {
+    return "Is an island";
+ }
+ else
+ {
+    return "Is NOT an island";
+ }
+
+#!csharp
+
+bool IsLonelyIsland(string str, string str2)
+{
+    char middLeLetter = str[1];
+    bool isLonelyIsland = false;
+    if (((int)middLeLetter-- == (int)str[0]) || (int)++middLeLetter == (int)str[2])
+    {
+    isLonelyIsland = true;
+    }
+    return isLonelyIsland;
+    //Console.WriteLine(isLonelyIsland);
+
+}
+
+#!csharp
+
+Console.WriteLine(IsLonelyIsland("XYZ", "GWK"));
+//IsLonelyIsland("XYZ");
+
+#!markdown
+
+Decrement -- and Increment ++ Operator // by one
+
+#!csharp
+
+int initalValue = 4;
+++ initalValue;
+Console.WriteLine(initalValue)
+
+#!csharp
+
+/* namespace Shalom
+{
+    class Gar
+    {
+        static void Main(string[] args)
+        {
+            
+        }
+    }
+} */
+
+#!markdown
+
+Ingredent of a method
+
+The return type
+The arguments
+The name of the method
+
+#!csharp
+
+static long Factorial(int num)
+{
+    return num == 0 || num == 1 ? 1 : num * Factorial(num - 1);
+}
+
+#!csharp
+
+Factorial(4)
+
+#!csharp
+
+static long Factorial2(int num)
+{
+    if (num == 0 || num == 1 )
+    {
+        return 1;
+    } else
+    return num * Factorial2(num - 1);
+}
+
+#!csharp
+
+Factorial2(5)
+
+#!csharp
+
+static long Factorial3(int num)
+{
+    int factorial = 1; // initialize the factorial to 1
+
+    for (int i = 1; i <= num; i++)
+    {
+        factorial *= i; // multiply the factorial by each number from 1 to num
+    }
+    return factorial;
+}
+
+#!csharp
+
+Factorial3(13)
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+
+string pattern = @"\d+"; // regular expression pattern to match one or more digits
+        string input = "The answer is 42.";
+
+        Match match = Regex.Match(input, pattern); // search for the pattern in the input string
+        if (match.Success) // check if the pattern was found
+        {
+            Console.WriteLine("Found '{0}' at position {1}.", match.Value, match.Index);
+        }
+        else
+        {
+            Console.WriteLine("No match found.");
+        }
+
+#!csharp
+
+public static bool CheckPhoneNumber(string phoneNumber)
+        {
+            Regex regex = new Regex(@"^\+\d{2}\s(\d{3}\-){2}(\d{3})");
+            Match match = regex.Match(phoneNumber);
+
+            return match.Success;
+        }
+
+#!csharp
+
+Console.WriteLine(CheckPhoneNumber("+48 592-045-990"));    // True
+Console.WriteLine(CheckPhoneNumber("+999 543-000-305"));   // False
+Console.WriteLine(CheckPhoneNumber("00 204-145-722"));     // False
+Console.WriteLine(CheckPhoneNumber("+47 420-053-934"));    // True
+
+#!csharp
+
+static int[] TopFiveNumber(int[] arr)
+        {
+            int temp; // create a container for the next element of the array
+
+            for (int j = 0; j <= arr.Length - 1; j++)
+            {
+                for (int i = 0; i <= arr.Length - 2; i++)
+                {
+                    if (arr[i] > arr[i + 1])
+                    {
+                        temp = arr[i + 1]; // hold the ith + 1 element of the array
+                        arr[i + 1] = arr[i]; // hold the ith element of the array
+                        arr[i] = temp; // swap the ith with the ith + 1 element of the array
+                    }
+                }
+            }
+            int[] arr2 = new int[5];
+            for (int i = arr.Length-5; i < arr.Length; i++)
+                {
+                    arr2[i-(arr.Length-5)] = arr[i];
+                    // Console.WriteLine(i);
+                }
+                //int[] arr3 = Array.(arr2);
+            return arr2;
+        }
+
+#!csharp
+
+//int[] arr = { 90, 75, 95, 98, 13, 20, 50, 14, 12, 13};
+int[] arr = { 78, -9, 0, 23, 54, 21, 7, 86};
+TopFiveNumber(arr)
+
+#!csharp
+
+int[] arr2 = new int[5];
+for (int i = arr.Length-5; i < arr.Length; i++)
+{
+    arr2[i-(arr.Length-5)] = arr[i];
+    //Console.WriteLine(i);
+}

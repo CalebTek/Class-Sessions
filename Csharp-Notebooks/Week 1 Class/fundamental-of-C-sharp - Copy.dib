@@ -1,0 +1,141 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Fundamental of C# Language
+
+#!markdown
+
+### Outline
+1. Identifiers  
+2. Variables
+3. Data Types  
+    *   `Integer`  
+    *   `Character`  
+    *   `Boolean`  
+    *   `Double/Float/Decimal`  
+    *   `Strings` 
+
+#!markdown
+
+## C# Identifier  
+An identifier is the name you assign to a type (class, interface, struct, record, delegate, or enum), member, variable, or namespace.  
+Identifiers are used for identification purposes. Or in other words, identifiers are the user-defined name of the program components.  
+In C#, an identifier can be a class name, method name, variable name, or label. 
+All C# variables must be identified with unique names.   
+Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+
+#!markdown
+
+### Identifier Naming rules
+Valid identifiers must follow these rules:  
+
+*   Identifiers must start with a letter or underscore (_).  
+*   Identifiers may contain Unicode letter characters, decimal digit characters, Unicode connecting characters, Unicode combining characters, or Unicode formatting characters.
+
+#!csharp
+
+int myAge = 17;
+double myAge2 = 16;
+string _strings = "John";
+float my_float = 3.666F;
+int myAGe_ = 76;
+double theSquareRootOfTheNum = 788;
+double sum_Of_Age = myAge + myAge2;
+
+#!markdown
+
+### Naming conventions
+In addition to the rules, there are many identifier naming conventions used throughout the .NET APIs. By convention, C# programs use PascalCase for type names, namespaces, and all public members. In addition, the following conventions are common:
+
+*   Interface names start with a capital I.
+*   Attribute types end with the word Attribute.
+*   Enum types use a singular noun for non-flags, and a plural noun for flags.
+*   Identifiers shouldn't contain two consecutive underscore (_) characters. Those names are reserved for compiler-generated identifiers.
+
+#!markdown
+
+`Example`
+
+#!csharp
+
+// Good
+int minutesPerHour = 60;
+int _mph_ = 60; // minutes per hour.
+
+// OK, but not so easy to understand what m actually is
+
+int m = 60; // m is minutes per hour.
+
+#!markdown
+
+## C# Variables  
+Variables are containers for storing data values.  
+Variable is a placeholder of the information which can be changed at runtime. And variables allows to Retrieve and Manipulate the stored information.
+
+#!markdown
+
+### Declaring (Creating) Variables
+To create a variable, you must specify the type and assign it a value:
+
+`Syntax`
+
+#!csharp
+
+// type variableName = value;
+int testScore = 25;
+Console.WriteLine(testScore+testScore);
+testScore = 50;
+Console.Write(testScore+testScore);
+//var myAGe = 2.1;
+
+#!markdown
+
+`Example`  
+Create a variable called **name** of type **string** and assign it the **value** `"John"`:
+
+#!csharp
+
+string name = "John";
+char _name = '$';
+Console.WriteLine(name);
+
+#!markdown
+
+### C# Data types
+In C#, there are different types of variables (defined with different keywords), for example:
+
+*   `int` - stores integers (whole numbers), without decimals, such as 123 or -123
+*   `double` - stores floating point numbers, with decimals, such as 19.99 or -19.99
+*   `char` - stores single characters, such as 'a' or 'B'. Char values are surrounded by single quotes
+*   `string` - stores text, such as "Hello World". String values are surrounded by double quotes
+*   `bool` - stores values with two states: true or false  
+
+`Example`
+
+#!csharp
+
+int myNum = 5;                  // Integer (whole number)
+double myDoubleNum = 5.99D;     // Floating point number
+char myLetter = 'D';            // Character
+bool myBool = true;             // Boolean
+string myText = "Hello";        // String
+long myLong = 15000000L;        // Long
+float myFloat = 5.75F;          // float
+float f1 = 35e3F;               // Scientific Numbers
+double d1 = 12E4D;              // Scientific Numbers
+
+#!markdown
+
+A program that print out even numbers
+
+#!markdown
+
+Even numbers are numbers divisible by 2
+
+#!csharp
+
+// 2/2 1 remainder 0
+// 2%2 = 0

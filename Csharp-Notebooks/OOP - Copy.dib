@@ -1,0 +1,129 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Object Oriented Programming
+
+#!markdown
+
+Class Person
+
+#!csharp
+
+/// <summary>
+/// This is a class that will define the properties
+/// and functionality of Person objects.
+/// </summary>
+class Person
+{
+    // Fields
+    public string name;
+    public int age;
+    public double height;
+    public bool isAlive;
+    public bool isStudent;
+}
+
+#!csharp
+
+Person Olawale = new Person();
+Olawale.name = "Odeyemi Olawale"; Olawale.age = 20; 
+Olawale.height = 175; Olawale.isAlive = true; 
+Olawale.isStudent = true;
+
+Console.Write(Olawale.name);
+
+#!markdown
+
+Class with different methods
+
+#!csharp
+
+public class Numeric
+{
+    ///<summary>
+    /// Method return sum of element in an array.
+    ///</summary>
+    ///<param name = "array">The array of numeric elements</param>
+    ///<returns>The sum of all element in an array.</returns>
+
+    public static double Sum(double[] array)
+    {
+        if(array.Length == 0)
+        {
+            return 0;
+        }
+        double sum = 0;
+        foreach (double item in array)
+        {
+            sum += item;
+        }
+        return sum;
+    }
+
+     ///<summary>
+    /// Method return the .......
+    ///</summary>
+    ///<param name = "baseValue">Numeric base element</param>
+    ///<param name = "exponent">Exponent Power</param>
+    ///<returns>The power.</returns>
+
+    public static double Pow(double baseValue, double exponent)
+    {
+        if (exponent == 0)
+        {
+            return 1;
+        }
+        double value = baseValue;
+        for (int i = 0; i < exponent-1; i++)
+        {
+            value *= baseValue;
+        }
+        return value;
+    }
+
+    public static double Average(double[] array)
+    {
+        double average = Sum(array)/array.Length;
+        return average;
+    }
+
+    public static double[] Series(double start, int end, double steps)
+    {
+        double[] array = new double[end];
+        for(int i = 0; i < end; i++)
+        {
+            array[i] = start + i * steps;
+        }
+        return array;
+    }
+
+    public static void Print(double[] array)
+    {
+        foreach (int item in array)
+        {
+            Console.Write($"{item} ");
+        }
+    }
+
+    public static void Print(double obj)
+    {
+            Console.Write(obj);
+    }
+     
+    public static void Print(string str)
+    {
+            Console.WriteLine(str);
+    }
+}
+
+#!csharp
+
+double[] arr = Numeric.Series(1,31,2);
+Numeric.Print(arr);
+Numeric.Print("");
+Numeric.Print(Numeric.Average(arr));
+Numeric.Print("");
+Numeric.Print(Numeric.Sum(arr));

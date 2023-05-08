@@ -1,0 +1,58 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+## Switch Case
+
+#!csharp
+
+int posX = 0, posY = 0;
+bool keepReadingKey = true;
+while(keepReadingKey)
+{
+    Console.Write("Enter a key: ");
+    ConsoleKeyInfo input = Console.ReadKey();
+    char letterInput = input.KeyChar;
+    //char letterInput = 'w';
+    string msg = $$"""
+    {
+        posX: {{posX}}
+        posY: {{posY}}
+    }
+    """;
+    switch(letterInput)
+    {
+        case 'd':
+        case 'D':
+            posX += 1;
+            break;
+        
+        case 'a':
+        case 'A':
+            posX -= 1;
+            break;
+        
+        case 'w':
+        case 'W':
+            posY += 1;
+            break;
+        
+        case 's':
+        case 'S':
+            posY -= 1;
+            break;
+        
+        case 'q':
+        case 'Q':
+            Console.Write("Exiting the program!");
+            keepReadingKey = false;
+            break;
+        
+        default:
+            Console.Write($"Key not set {letterInput}");
+            break;
+    }
+    Console.WriteLine(msg);
+}

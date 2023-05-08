@@ -1,0 +1,103 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+# Class properties 
+
+#!csharp
+
+/// <summary>
+/// This is a class that will define the properties
+/// and functionality of Person objects.
+/// </summary>
+class Person
+{
+    // Fields
+    private string _name;
+    private int _YOB; // Year Of Birth
+    private double _height;
+    private bool _isAlive;
+    //private bool isStudent;
+
+
+    // Properties
+    //public string Name { get; set; }
+    public string Name
+    {
+        get
+        {
+            return _name;
+        }
+        set => this._name = value;
+    }
+
+    public bool IsAlive
+    {
+        get => _isAlive;
+    }
+
+    public int Age
+    {
+        get => DateTime.Now.Year - this._YOB;
+    }
+
+
+    // Constructors
+
+    public Person(string name, int YOB, double height)
+    {
+        this._name = name;
+        this._YOB = YOB;
+        this._height = height;
+
+        int currentYear = DateTime.Now.Year;
+
+        this._isAlive = true;
+        if(YOB > currentYear)
+        {
+            this._isAlive = false;
+        }
+    }
+
+    // METHODS
+    public void SayHi() => Console.WriteLine($"Hi, i am {_name}!");
+    
+    public void SayHi(string otherName) => Console.WriteLine($"Hi {otherName}!, i am {_name}!");
+
+    public void SayHi(Person otherNAME) => Console.WriteLine($"Hi {otherNAME._name}!, i am {_name}!");
+    
+    public int GetAge() => DateTime.Now.Year - this._YOB;
+
+    public string Info() 
+    {
+        // multiline interpolated string
+        string info = 
+        $$"""
+        {
+            Name: {{this._name}}
+            Year of Birth: {{this._YOB}}
+            Age: {{GetAge()}}
+            Still Alive: {{this._isAlive}}
+        }
+        """;
+        return info;
+    }
+    
+    
+}
+
+#!csharp
+
+Person John = new Person("John Wesley", 1980, 185);
+Person Juliet = new Person("Juliet McCall", 1993, 175);
+Console.WriteLine(John.Info());
+John.Info();
+John.Name = "James Wesley";
+Console.WriteLine(John.Name);
+John.Name = "John Wesley";
+Console.WriteLine(John.Name);
+John.GetAge();
+Console.WriteLine(John.Age);
+//John.Age;
