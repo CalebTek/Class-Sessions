@@ -51,6 +51,11 @@ public bool CheckUnique(string str) {
 
 #!csharp
 
+Console.WriteLine(CheckUnique("abcd"));
+Console.WriteLine(CheckUnique("abbcdefgg"));
+
+#!csharp
+
 // Mine
 public bool CheckUnique(string str) 
 {
@@ -107,16 +112,16 @@ CheckUnique("AaaAhhdcbca")
 // GPT
 static bool CheckUnique(string input)
     {
-        bool[] seenChars = new bool[256];
+        bool[] seenChars = new bool[256]; // create boolean array of 256 false elements to keep each character in the ASCII character
 
         for (int i = 0; i < input.Length; i++)
         {
-            int charCode = Convert.ToInt32(input[i]);
-            if (seenChars[charCode])
+            int charCode = Convert.ToInt32(input[i]); // get ASCII value of each character in input
+            if (seenChars[charCode]) // check if ASCII value of the character exist 
             {
-                return false;
+                return false; // If exist return false
             }
-            seenChars[charCode] = true;
+            seenChars[charCode] = true; // set checked value to true for another check
         }
 
         return true;
@@ -124,4 +129,30 @@ static bool CheckUnique(string input)
 
 #!csharp
 
-CheckUnique("Abghjiic")
+CheckUnique("Abghji")
+
+#!csharp
+
+//string input = "Abghjiic";
+bool[] seenChars = new bool[256];
+seenChars
+
+#!csharp
+
+string input = "Abghjiic";
+for (int i = 0; i < input.Length; i++)
+        {
+            int charCode = Convert.ToInt32(input[i]);
+            Console.WriteLine(charCode);
+            /* if (seenChars[charCode])
+            {
+                //Console.WriteLine($"Character {input[i]}, value is {charcode}");
+            } */
+        }
+
+#!csharp
+
+bool[] seen = new bool[5];
+int check = 1;
+seen[check] = true;
+seen[check]
