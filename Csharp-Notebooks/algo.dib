@@ -31,3 +31,23 @@ for (int i = 0; i < n; i+=3)
         Console.WriteLine(sum);
     }
 }
+
+#!csharp
+
+public bool CheckUnique(string str) {
+      string one = "";
+      string two = "";
+      for (int i = 0; i < str.Length; i++) {
+         one = str.Substring(i, 1);
+         for (int j = 0; j < str.Length; j++) {
+            two = str.Substring(j, 1);
+            if ((one == two) && (i != j))
+            return false;
+         }
+      }
+      return true;
+   }
+
+#!csharp
+
+CheckUnique("ddd8ueiso")
