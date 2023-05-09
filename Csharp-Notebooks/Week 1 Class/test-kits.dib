@@ -1,0 +1,121 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+// Create Class
+
+class Course
+    {
+        // Fields
+        public string courseCode, grade, remarks;
+        public double courseUnit, gradeUnit, weightPoint, courseScore;
+
+        // Constructors
+        public Course(string courseCode, double courseUnit, double courseScore)
+        {
+            this.courseCode = courseCode;
+            this.courseUnit = courseUnit;
+            this.courseScore = courseScore;
+
+            // set grade unit category
+            this.gradeUnit = courseScore >= 0 && courseScore < 40 ? 0 :
+                courseScore >= 40 && courseScore < 45 ? 1 :
+                courseScore >= 45 && courseScore < 50 ? 2 :
+                courseScore >= 50 && courseScore < 60 ? 3 :
+                courseScore >= 60 && courseScore < 70 ? 4 :
+                courseScore >= 70 && courseScore <= 100 ? 5 : 6;
+
+            // set grade category
+            this.grade = gradeUnit == 5 ? "A" : gradeUnit == 4 ? "B" : gradeUnit == 3 ? "C" :
+            gradeUnit == 2 ? "D" : gradeUnit == 1 ? "E" : gradeUnit == 0 ? "F" : "No Grade";
+
+            // calculate Weight Point
+            this.weightPoint = courseUnit * gradeUnit;
+
+            // set remarks category
+            this.remarks = gradeUnit == 5 ? "Excellent" : gradeUnit == 4 ? "Very Good" : gradeUnit == 3 ? "Good" :
+            gradeUnit == 2 ? "Fair" : gradeUnit == 1 ? "Poor" : gradeUnit == 0 ? "Fail" : "No Remarks";
+
+           
+        }
+            // Methods
+            public string Info()
+            {
+                string courseInfo = $$"""
+                {
+                    Course Code:            {{courseCode}}
+                    Course Unit:            {{courseUnit}}
+                    Course Score:           {{courseScore}}
+                    Course Grade:           {{grade}}
+                    Course Grade Unit:      {{gradeUnit}}
+                    Course Weight Point:    {{weightPoint}}
+                    Course Remarks:         {{remarks}}
+                }
+                """;
+                return courseInfo;
+            }
+
+    }
+
+#!csharp
+
+// test class course
+Course mts101 = new Course("MTS101", 4, 56);
+mts101.Info()
+
+#!csharp
+
+// create Authenticate
+class Authenticate
+    {
+        // Field
+        Course[] _course { get; set; }
+        
+        // Constructor
+        public Authenticate(Course[] course) 
+        {
+            this._course = course;
+        }
+
+        // Method
+        public bool Exist(string courseCode)
+        {
+            bool exist = false;
+            foreach (Course course in _course) 
+            {
+                if (course != null && course.courseCode == courseCode)
+                {
+                    exist = true;
+                    break;
+                }
+            }
+            return exist;
+        }
+    }
+
+#!csharp
+
+Course mts101 = new Course("MTS101", 4, 56);
+Course mts103 = new Course("MTS103", 3, 67);
+Course mts105 = new Course("MTS105", 2, 90);
+
+Course[] courseArray = {mts101, mts103, mts105};
+// test Authenticate
+Authenticate check = new Authenticate(courseArray);
+
+#!csharp
+
+// test method exist
+check.Exist("MTS104");
+
+if(check.Exist("MTS104"))
+{
+    Console.WriteLine("found");
+} else {Console.WriteLine("not found");}
+
+#!csharp
+
+using System.Text.RegularExpressions;
+Regex coursePattern = new Regex(@"^[A-z]{3}\d{3}$");
