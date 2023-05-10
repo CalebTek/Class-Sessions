@@ -1,0 +1,62 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+class Array_Arithmetic
+{
+    // Fields .. attributes
+    public double[] series {get; set;}
+    public double sum {get; set;}
+
+    // Constructor
+    public Array_Arithmetic(double[] series)
+    {
+        this.series = series;
+        double sum = 0;
+        foreach(var item in series)
+        {
+            sum += item;
+        }
+        this.sum = sum;
+
+    }
+
+    /* // Methods
+    public double Sum()
+    {
+        double sum = 0;
+        foreach(var item in this.series)
+        {
+            sum += item;
+        }
+        return sum;
+    } */
+
+}
+
+#!csharp
+
+double[] arr = {33,52,64,75};
+int num = 5;
+Array_Arithmetic numbers = new Array_Arithmetic(arr);
+
+#!csharp
+
+//numbers.Sum();
+//arr.Min();
+numbers.series
+
+#!csharp
+
+// List
+List<int> list = new List<int>{3,4,6};
+list.Add(5);
+list[1]
+
+#!csharp
+
+// Array
+//int[] arr;
+//arr.Append<int>(5);

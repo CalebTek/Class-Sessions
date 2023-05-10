@@ -63,7 +63,9 @@ class Course
 
 // test class course
 Course mts101 = new Course("MTS101", 4, 56);
-mts101.Info()
+Course mts103 = new Course("MTS103", 3, 76);
+mts101.Info();
+mts103.Info()
 
 #!csharp
 
@@ -119,3 +121,4 @@ if(check.Exist("MTS104"))
 
 using System.Text.RegularExpressions;
 Regex coursePattern = new Regex(@"^[A-z]{3}\d{3}$");
+coursePattern.IsMatch("mts343")
