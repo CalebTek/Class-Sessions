@@ -1,0 +1,327 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Write a function that takes an array of numbers (integers for the tests) and a target number. It should find two different items in the array that, when added together, give the target value. The indices of these items should then be returned in a tuple / list (depending on your language) like so: (index1, index2).
+
+For the purposes of this kata, some tests may have multiple answers; any valid solutions will be accepted.
+
+The input will always be valid (numbers will be an array of length 2 or greater, and all of the items will be numbers; target will always be the sum of two different items from that array).
+
+Based on: http://oj.leetcode.com/problems/two-sum/
+
+two_sum([1, 2, 3], 4) == {0, 2}
+
+#!csharp
+
+public class Kata
+{
+  public static int[] TwoSum(int[] numbers, int target)
+  {
+    
+    int[] indexes = new int[2];
+
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        for (int j = i + 1; j < numbers.Length; j++)
+        {
+            if (numbers[i] + numbers[j] == target)
+            {
+                indexes[0] = i;
+                indexes[1] = j;
+                return indexes;
+            }
+        }
+    }
+
+    return null;
+}
+
+  
+}
+
+#!csharp
+
+int[] arr = {1,2,3};
+int target = 4;
+Kata.TwoSum(arr, target)
+
+#!markdown
+
+DESCRIPTION:
+Summation
+Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+For example (Input -> Output):
+
+2 -> 3 (1 + 2)
+8 -> 36 (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8)
+
+#!csharp
+
+public static int summation(int num)
+    {
+      //Code here
+      int sum = 0;
+      for (int i = 1; i < num+1; i++)
+      {
+        sum += i;
+      }
+      return sum;
+    }
+
+#!csharp
+
+summation(56)
+
+#!markdown
+
+Cool Solutions
+
+#!csharp
+
+// Cool solutions
+public static int summation(int num)
+    {
+      return Enumerable.Range(1, num).Sum();
+    }
+
+#!csharp
+
+public static int summation(int num)
+    {
+      return num*(num+1)/2;
+    }
+
+#!csharp
+
+public static int summation(int n) => n * ++n / 2;
+
+#!markdown
+
+DESCRIPTION:
+Your task is to make two functions ( max and min, or maximum and minimum, etc., depending on the language ) that receive a list of integers as input, and return the largest and lowest number in that list, respectively.
+
+Examples (Input -> Output)
+* [4,6,2,1,9,63,-134,566]         -> max = 566, min = -134
+* [-52, 56, 30, 29, -54, 0, -110] -> min = -110, max = 56
+* [42, 54, 65, 87, 0]             -> min = 0, max = 87
+* [5]                             -> min = 5, max = 5
+
+#!csharp
+
+using System.Collections.Generic;
+public int Min(int[] list)
+  {
+    return list.Min();
+  }
+  
+  public int Max(int[] list)
+  {
+    return list.Max();
+  }
+
+#!csharp
+
+int[] arr = {4,6,2,1,9,63,-134,566};
+Min(arr);
+Max(arr);
+Max(new[] {4,6,2,1,9,63,-134,566})
+
+#!csharp
+
+public int Min(int[] list)
+  {
+    int temp;
+    for (int i = 0; i <= list.Length-2; i++)
+    {
+        for (int j = 0; j <= list.Length-2; j++)
+        {
+            if(list[j] > list[j+1])
+            {
+                temp = list[j+1];
+                list[j+1] = list[j];
+                list[j] = temp;
+            }
+        }
+    }
+    return list[0];
+  }
+  
+  public int Max(int[] list)
+  {
+    int temp;
+    for (int i = 0; i <= list.Length-2; i++)
+    {
+        for (int j = 0; j <= list.Length-2; j++)
+        {
+            if(list[j] > list[j+1])
+            {
+                temp = list[j+1];
+                list[j+1] = list[j];
+                list[j] = temp;
+            }
+        }
+    }
+    return list[list.Length-1];
+  }
+
+#!csharp
+
+Max(new[] {4,6,2,1,9,63,-134,566});
+Min(new[] {4,6,2,1,9,63,-134,566})
+
+#!markdown
+
+DESCRIPTION:
+Write function bmi that calculates body mass index (bmi = weight / height**2).
+
+if bmi <= 18.5 return "Underweight"
+
+if bmi <= 25.0 return "Normal"
+
+if bmi <= 30.0 return "Overweight"
+
+if bmi > 30 return "Obese"
+
+#!csharp
+
+public static string Bmi(double weight, double height)
+  {
+    double bmi = weight/(height*height);
+    string bmiCategory = bmi < 18.5 ? "Underweight" :
+        bmi > 18.5 && bmi < 25.0 ? "Normal" :
+        bmi > 25.0 && bmi < 30.0 ? "Overweight" : "Obese";
+    return bmiCategory;
+  }
+
+#!csharp
+
+Bmi(56,6)
+
+#!markdown
+
+DESCRIPTION:
+You are given two interior angles (in degrees) of a triangle.
+
+Write a function to return the 3rd.
+
+Note: only positive integers will be tested.
+
+https://en.wikipedia.org/wiki/Triangle
+
+FUNDAMENTALS
+
+#!csharp
+
+ public static int OtherAngle(int a, int b)
+  {
+    //throw new NotImplementedException();
+    return 180 - (a+b);
+  }
+
+#!markdown
+
+DESCRIPTION:
+We need a function that can transform a number (integer) into a string.
+
+What ways of achieving this do you know?
+
+Examples (input --> output):
+123  --> "123"
+999  --> "999"
+-100 --> "-100"
+
+#!csharp
+
+public static string NumberToString(int num)
+  {
+    // code here
+    return Convert.ToString(num);
+  }
+
+#!csharp
+
+NumberToString(832)
+
+#!markdown
+
+DESCRIPTION:
+Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+Note: a and b are not ordered!
+
+Examples (a, b) --> output (explanation)
+(1, 0) --> 1 (1 + 0 = 1)
+(1, 2) --> 3 (1 + 2 = 3)
+(0, 1) --> 1 (0 + 1 = 1)
+(1, 1) --> 1 (1 since both are same)
+(-1, 0) --> -1 (-1 + 0 = -1)
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+
+#!csharp
+
+ public int GetSum(int a, int b)
+     {
+       //Good Luck!
+       if (a == b)
+       {
+        return a;
+       } else
+       
+       if (b < 0)
+       {
+            int sumB =0;
+            for (int i = a; i >= b-1; i--)
+                {
+                    sumB += i;
+                    return sumB;
+                }
+       } else
+       {
+            int sum = 0;
+       for (int i = a; i <= b; i++)
+       {
+
+         sum += i;
+         return sum;
+       }
+       }
+       
+       return 0;
+     }
+
+#!csharp
+
+int sum = 0;
+for (int i = 0; i >= -1; i--)
+    {
+        sum +=i;
+    }
+
+sum
+
+#!csharp
+
+GetSum(0,-1)
+
+#!csharp
+
+string sentence = "This is a string";
+string word = sentence.Split()[3];
+int third = 5;
+//word
+/* for (int i = 0; i < third-1; i++)
+{
+    word += "-"+word;
+}
+word */
+word+"-"
+
+#!csharp
+
+string bar = "abc-";
+string foo = string.Concat(Enumerable.Repeat(bar,4));
+foo
