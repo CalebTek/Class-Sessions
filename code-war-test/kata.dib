@@ -477,6 +477,69 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
 #!csharp
 
+  using System.Globalization;
+  public static string ToJadenCase(this string phrase)
+  {
+    if (phrase != null) {return CultureInfo.InvariantCulture.TextInfo.ToTitleCase(phrase.ToLower());}
+    return String.Empty;
+  }
+
+#!csharp
+
+  using System.Globalization;
+  public static string ToJadenCase(this string phrase) =>phrase != null ? CultureInfo.InvariantCulture.TextInfo.ToTitleCase(phrase.ToLower()) : String.Empty;
+
+#!csharp
+
+ToJadenCase("this is john wesley")
+
+#!csharp
+
+// other cool solutions
+using System;
+using System.Linq;
+public static class JadenCase
+{
+  public static string ToJadenCase(string phrase)
+  {
+    return String.Join(" ", phrase.Split().Select(i => Char.ToUpper(i[0]) + i.Substring(1)));
+  }
+}
+
+#!csharp
+
+using System;
+using System.Text;
+public static class JadenCase
+{
+  public static string ToJadenCase(string phrase)
+  {
+    var chars = phrase.ToCharArray();
+    var res = new StringBuilder(phrase.Length);
+    bool previousWhitespace = true;
+    foreach (var c in chars)
+    {
+        if (char.IsWhiteSpace(c))
+        {
+            previousWhitespace = true;
+            res.Append(c);
+        }
+        else if (previousWhitespace && Char.IsLetter(c))
+        {
+            res.Append(Char.ToUpper(c));
+            previousWhitespace = false;
+        }
+        else
+        {
+            res.Append(c);
+        }
+    }
+    return res.ToString();
+  }
+}
+
+#!csharp
+
 string str = "JOHNN"; // length = 5
 //str[2]
 for (int a = 0; a < str.Length; a++) // picker a = 0, 1, 2, 3, 4
@@ -504,3 +567,146 @@ while (stopper)
         stopper = false;
     }
 }
+
+#!markdown
+
+Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers.
+
+#!csharp
+
+public class SolutionClass
+  {
+     public static string EvenOrOdd(int number)
+     {
+        if (number % 2 == 0)
+        {
+        return "Even";
+      }
+      else
+        {
+        return "Odd";
+      }
+     }
+     
+  }
+
+#!csharp
+
+public class SolutionClass
+  {
+    public static string EvenOrOdd(int number) => number % 2 == 0? "Even" : "Odd";
+
+  }
+
+#!markdown
+
+DESCRIPTION:
+Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the "instructions" for the development and functioning of living organisms.
+
+If you want to know more: http://en.wikipedia.org/wiki/DNA
+
+In DNA strings, symbols "A" and "T" are complements of each other, as "C" and "G". Your function receives one side of the DNA (string, except for Haskell); you need to return the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).
+
+More similar exercise are found here: http://rosalind.info/problems/list-view/ (source)
+
+Example: (input --> output)
+
+"ATTGC" --> "TAACG"
+"GTAT" --> "CATA"
+
+#!csharp
+
+public class DnaStrand 
+    {
+        public static string[] MakeComplement(string dna)
+        {
+            //Your code
+            if (dna != null)
+            {
+                string[] dnaSplits = dna.Split();
+                //string dNA = "";
+                for(int i = 0; i < dna.Length-2; i++)
+                {
+                    dnaSplits[i] = dna[i] == 'A' ? "T": dna[i] == 'T' ? "A" : dna[i] == 'G' ? "C" : "G";
+                    //dNA +=dnaSplits[i];
+                    
+                }
+                return dnaSplits;
+            }
+            
+
+            return null;
+        }
+    }
+
+#!csharp
+
+DnaStrand.MakeComplement("ATTGC")
+
+#!csharp
+
+string str = "ATTGC";
+str[3]
+
+#!csharp
+
+public int[] Withdraw(int amount)
+{
+    int r100 = amount%100;// return the remainder of the division of amount by 100
+    int d100 = amount/100; // division between amount and 100
+    int r50 = r100%50; // 
+    int d50 = r100/50;
+    int r20 = r50%20;
+    int d20 = r50/20;
+    int[] withdraw = {d100, d50, d20};
+    return withdraw;   
+}
+
+#!csharp
+
+public int[] Withdraw(int amount)
+{
+    int howMany100InAmount = amount/100;
+    int howManyAmountLeftAfter100 = amount%100;
+    int howMany50InAmountLeftAfter100 = howManyAmountLeftAfter100/50;  
+    int howManyAmountLeftAfter50 = howManyAmountLeftAfter100%50;
+    int howMany20InAmountLeftAfter50 = howManyAmountLeftAfter50/20;
+    int howManyAmountLeftAfter20 = howManyAmountLeftAfter50%20;
+    int[] withdraw = {howMany100InAmount, howMany50InAmountLeftAfter100, howMany20InAmountLeftAfter50};
+    return withdraw;   
+}
+
+#!csharp
+
+Withdraw(450)
+
+#!markdown
+
+You probably know the "like" system from Facebook and other pages. People can "like" blog posts, pictures or other items. We want to create the text that should be displayed next to such an item.
+Implement the function which takes an array containing the names of people that like an item. It must return the display text as shown in the examples:
+
+[]                                -->  "no one likes this"
+["Peter"]                         -->  "Peter likes this"
+["Jacob", "Alex"]                 -->  "Jacob and Alex like this"
+["Max", "John", "Mark"]           -->  "Max, John and Mark like this"
+["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
+
+Note: For 4 or more names, the number in "and 2 others" simply increases.
+
+#!csharp
+
+public string Likes(string[] names)
+{
+    int length = names.Length;
+    string msg1 = "likes this", msg2 = "like this";
+    string likes = length == 0 || names[0].Length < 2 ? $"no one {msg1}" : 
+                    length == 1 && names[0].Length > 1 ? $"{names[0]} {msg1}" :
+                    length == 2 ? $"{names[0]} and {names[1]} {msg2}" : 
+                    length == 3 ? $"{names[0]}, {names[1]} and {names[2]} {msg2}" :
+                    $"{names[0]}, {names[1]} and {length-2} others {msg2}";
+    return likes;
+}
+
+#!csharp
+
+Likes(new string[] {"Alex", "Jacob", "Mark", "Max", "John"})
