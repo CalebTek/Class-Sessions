@@ -23,9 +23,9 @@ public class Kata
     
     int[] indexes = new int[2];
 
-    for (int i = 0; i < numbers.Length; i++)
+    for (int i = 0; i < numbers.Length; i++) // picker
     {
-        for (int j = i + 1; j < numbers.Length; j++)
+        for (int j = i + 1; j < numbers.Length; j++) // additional
         {
             if (numbers[i] + numbers[j] == target)
             {
@@ -36,7 +36,7 @@ public class Kata
         }
     }
 
-    return null;
+    return new int[0];
 }
 
   
@@ -46,7 +46,8 @@ public class Kata
 
 int[] arr = {1,2,3};
 int target = 4;
-Kata.TwoSum(arr, target)
+//Kata.TwoSum(arr, target)
+Kata.TwoSum(new int [] {1,4,5,3,5,7}, 6)
 
 #!markdown
 
@@ -176,7 +177,7 @@ Min(new[] {4,6,2,1,9,63,-134,566})
 #!markdown
 
 DESCRIPTION:
-Write function bmi that calculates body mass index (bmi = weight / height**2).
+Write function bmi that calculates body mass index (bmi = weight / height^2).
 
 if bmi <= 18.5 return "Underweight"
 
@@ -325,3 +326,181 @@ word+"-"
 string bar = "abc-";
 string foo = string.Concat(Enumerable.Repeat(bar,4));
 foo
+
+#!csharp
+
+public string EvenOrOdd(int number) => number % 2 == 0 ? "Even" : "Odd";
+
+#!csharp
+
+EvenOrOdd(5)
+
+#!csharp
+
+public string EvenOrOdd(int number)
+{
+    if (number % 2 == 0)
+    {
+        return "Even";
+    } else {return "Odd";}
+}
+
+#!csharp
+
+EvenOrOdd(-1)
+
+#!markdown
+
+Implement a function that accepts 3 integer values a, b, c. The function should return true if a triangle can be built with the sides of given length and false in any other case.
+
+(In this case, all triangles must have surface greater than 0 to be accepted).
+
+#!csharp
+
+ public static bool IsTriangle(int a, int b, int c)
+    {
+        
+        // formula steps
+        // a + b > c
+        // a + c > b
+        // b + c > a
+      return a+b > c && a+c > b && b+c>a ? true:false;
+    }
+
+#!csharp
+
+IsTriangle(2,3,5)
+
+#!csharp
+
+// other solutions
+public class Triangle
+{
+    public static bool IsTriangle(int a, int b, int c) => 
+      a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a;
+}
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+
+public class Triangle
+{
+    public static bool IsTriangle(int a, int b, int c)
+    {
+    		var lengths = new List<int>() {a, b, c};
+        lengths.Sort();
+        return lengths[0] + lengths[1] > lengths[2];
+    }
+}
+
+#!markdown
+
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+
+#!csharp
+
+  using System.Collections.Generic;
+  using System.Linq;
+  public static int FindShort(string s)
+  {
+    string[] splits = s.Split();
+    int length = splits.Length;
+    int[] intSplits = new int[length];
+    if (length > 0)
+    {
+        for(int i = 0; i <length; i ++)
+        {
+          intSplits[i] = splits[i].Length;
+        }
+        return intSplits.Min();
+    }
+    return 0;
+  }
+
+#!csharp
+
+FindShort("John is the Best")
+
+#!csharp
+
+/* using System.Collections.Generic;
+string s = "John is coming home";
+string[] splits = s.Split();
+int[] intSplits = new int[4];
+intSplits[0] = splits[0].Length;
+intSplits.Min() */
+
+#!csharp
+
+// other cool solutions
+using System.Linq;
+public class Kata
+{
+  public static int FindShort(string s)
+  {
+    return s.Split(' ').Min(x => x.Length);
+  }
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public class Kata
+{
+  public static int FindShort(string s)
+  {
+    return s.Split(' ').OrderBy(i => i.Length).Select(i=>i.Length).First();
+  }
+}
+
+#!csharp
+
+Kata.FindShort("John is the Best")
+
+#!markdown
+
+DESCRIPTION:
+Jaden Smith, the son of Will Smith, is the star of films such as The Karate Kid (2010) and After Earth (2013). Jaden is also known for some of his philosophy that he delivers via Twitter. When writing on Twitter, he is known for almost always capitalizing every word. For simplicity, you'll have to capitalize each word, check out how contractions are expected to be in the example below.
+
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+
+Example:
+
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+#!csharp
+
+string str = "JOHNN"; // length = 5
+//str[2]
+for (int a = 0; a < str.Length; a++) // picker a = 0, 1, 2, 3, 4
+{
+    for (int b = a+1; b < str.Length; b++) // searcher/ compare b = 1,2,3,4
+    {
+        for (int c = b+1; c < str.Length; c++) // 2,3,4
+        {
+            Console.WriteLine($"{str[a]}, {str[b]}, {str[c]}");
+        }
+    }
+    
+}
+
+#!csharp
+
+bool stopper = true;
+int counter = 0;
+while (stopper)
+{
+    Console.WriteLine($"I'm {counter} and still less than 10 ");
+    ++counter;
+    if (counter == 10)
+    {
+        stopper = false;
+    }
+}
