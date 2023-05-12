@@ -827,3 +827,77 @@ public class Printer
         return null;
     }
 }
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+
+
+string input = "The quick brown fox jumps over the lazy dog near New Zealand.";
+string pattern = @"\b[n-z]\w*\b"; // match any word that starts with a letter between n and z
+
+MatchCollection matches = Regex.Matches(input, pattern, RegexOptions.Multiline);
+foreach (Match match in matches) {
+    Console.WriteLine($"Found '{match.Value}' at position {match.Index}");
+}
+Console.WriteLine($"Total matches: {matches.Count}");
+
+#!csharp
+
+string input = "foxesnearNewZealandjump";
+string pattern = @"[n-z]\w*"; // match any word that starts with a letter between n and z
+
+MatchCollection matches = Regex.Matches(input, pattern);
+foreach (Match match in matches) {
+    Console.WriteLine($"Found '{match.Value}' at position {match.Index}");
+}
+Console.WriteLine($"Total matches: {matches.Count}");
+
+#!csharp
+
+string input = "foxesnearNewZealandjump";
+string pattern = @"[n-z]\w*"; // match any word that starts with a letter between n and z
+
+MatchCollection matches = Regex.Matches(input, pattern);
+int matchCount = 0;
+foreach (Match match in matches) {
+    Console.WriteLine($"Found '{match.Value}' at position {match.Index}");
+    matchCount += 1;
+}
+Console.WriteLine($"Total matches: {matchCount}");
+
+#!csharp
+
+string input = "foxesnearNewZealandjump";
+string pattern = @"(?i)\b[n-z]\w*\b"; // match any word that starts with a letter between n and z
+
+MatchCollection matches = Regex.Matches(input, pattern);
+int matchCount = 0;
+foreach (Match match in matches) {
+    Console.WriteLine($"Found '{match.Value}' at position {match.Index}");
+    matchCount += 1;
+}
+Console.WriteLine($"Total matches: {matchCount}");
+
+#!csharp
+
+string input = "foxesnearNewZealandjump";
+string pattern = @"\b[n-z]\w*\b"; // match any word that starts with a letter between n and z
+
+MatchCollection matches = Regex.Matches(input, pattern, RegexOptions.IgnoreCase);
+int matchCount = 0;
+foreach (Match match in matches) {
+    Console.WriteLine($"Found '{match.Value}' at position {match.Index}");
+    matchCount += 1;
+}
+Console.WriteLine($"Total matches: {matchCount}");
+
+#!csharp
+
+string input = "aaaxbbbbyyhwawiwjjjwwm";
+string pattern = @"[n-z]"; // match any letter between n and z
+
+MatchCollection matches = Regex.Matches(input, pattern, RegexOptions.IgnoreCase);
+int matchCount = matches.Count;
+Console.WriteLine($"Total matches: {matchCount}");
