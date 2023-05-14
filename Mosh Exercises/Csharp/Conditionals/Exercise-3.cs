@@ -15,8 +15,15 @@ namespace Exercise_3
             int height = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter the image width");
             int width = int.Parse(Console.ReadLine());
-            string orientation = height < width ? "Landscape" : "Portrait";
+            //string orientation = height < width ? "Landscape" : "Portrait";
+            string orientation = height < width ? ImageOrientation.Landscape : ImageOrientation.Portrait;
             Console.WriteLine($"Image Orientation is {orientation}");
         }
+    }
+
+    public enum ImageOrientation
+    {
+        Landscape,
+        Portrait
     }
 }

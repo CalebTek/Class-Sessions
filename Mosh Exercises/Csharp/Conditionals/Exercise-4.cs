@@ -21,7 +21,7 @@ namespace Exercise_4
             int speedLimit = int.Parse(Console.ReadLine());
             Console.Write("Enter the car speed: ");
             int carSpeed = int.Parse(Console.ReadLine());
-            string message = carSpeed <= speedLimit ? "Speed OK" : 
+            /* string message = carSpeed <= speedLimit ? "Speed OK" : 
                                 carSpeed > (speedLimit) && carSpeed <= (speedLimit + 5) ? "1 demerit points incurred" :
                                 carSpeed > (speedLimit + 5) && carSpeed <= (speedLimit + 10) ? "2 demerit points incurred" :
                                 carSpeed > (speedLimit + 10) && carSpeed <= (speedLimit + 15) ? "3 demerit points incurred" :
@@ -33,7 +33,10 @@ namespace Exercise_4
                                 carSpeed > (speedLimit + 40) && carSpeed <= (speedLimit + 45) ? "9 demerit points incurred" :
                                 carSpeed > (speedLimit + 45) && carSpeed <= (speedLimit + 50) ? "10 demerit points incurred" :
                                 carSpeed > (speedLimit + 50) && carSpeed <= (speedLimit + 55) ? "11 demerit points incurred" :
-                                carSpeed > (speedLimit + 55) && carSpeed <= (speedLimit + 60) ? "12 demerit points incurred" : "License Suspended";
+                                carSpeed > (speedLimit + 55) && carSpeed <= (speedLimit + 60) ? "12 demerit points incurred" : "License Suspended"; */
+            int speedPerDemerit = 5;
+            var demeritPoint = (carSpeed-speedLimit)/speedPerDemerit;
+            string message = carSpeed <= speedLimit ? "Speed OK" : demeritPoint > 12 ? "License Suspended" : $"{demeritPoint} demerit points incurred";
                                 
             Console.WriteLine($"{carSpeed}Km/hr: {message}");
         }
