@@ -14,7 +14,7 @@ namespace Exercise_1
             Console.WriteLine("Enter a number between 1 and 10");
             int number = int.Parse(Console.ReadLine());
             string message = number > 0 && number < 11 ? "Valid" : "Invalid";
-            Console.WriteLine(message);
+            Console.WriteLine($"{number} is {message}");
         }
     }
 }
