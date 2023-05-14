@@ -989,7 +989,7 @@ public static class Kata
 
 #!csharp
 
-Kata.RowSumOddNumbers(3)
+Kata.RowSumOddNumbers(72)
 
 #!csharp
 
@@ -1204,3 +1204,28 @@ public static class Kata
     return 0;
   }
 }
+
+#!csharp
+
+// test splits
+int sum = 0;
+string numbers = new string("1,  5,  6,      7");
+string[] nums = numbers.Split(",".ToCharArray());
+foreach(var item in nums)
+{
+    sum += Convert.ToInt32(item);
+}
+//sum
+
+var number = new List<int>();
+foreach(var item in nums)
+{
+    number.Add(Convert.ToInt32(item));
+}
+number.Max()
+//number
+
+#!csharp
+
+var name = "John waley";
+//name.Split()
