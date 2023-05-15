@@ -745,7 +745,7 @@ public int[] Withdraw(int amount)
 
 #!csharp
 
-public int[] Withdraw(int amount)
+public List<int> Withdraw(int amount)
 {
     int howMany100InAmount = amount/100;
     int howManyAmountLeftAfter100 = amount%100;
@@ -753,13 +753,13 @@ public int[] Withdraw(int amount)
     int howManyAmountLeftAfter50 = howManyAmountLeftAfter100%50;
     int howMany20InAmountLeftAfter50 = howManyAmountLeftAfter50/20;
     //int howManyAmountLeftAfter20 = howManyAmountLeftAfter50%20;
-    int[] withdraw = {howMany100InAmount, howMany50InAmountLeftAfter100, howMany20InAmountLeftAfter50};
+    var withdraw = new List<int>{howMany100InAmount, howMany50InAmountLeftAfter100, howMany20InAmountLeftAfter50};
     return withdraw;   
 }
 
 #!csharp
 
-Withdraw(4765)
+Withdraw(5670055)
 
 #!markdown
 
@@ -1268,3 +1268,142 @@ static int Main()
 #!csharp
 
 Main()
+
+#!markdown
+
+DESCRIPTION:
+Write a function that removes the spaces from the string, then return the resultant string.
+
+Examples:
+
+Input -> Output
+"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r     " -> "8aaaaaddddr"
+
+#!csharp
+
+public static class SpacesRemover
+  {
+    public static string NoSpace(string input)
+    {
+        //Code it!
+        //string noSpace = string.Join("", input.ToCharArray());
+        string noSpace = input.Trim().Replace(" ","");
+        return noSpace;
+    }  
+  }
+
+#!csharp
+
+SpacesRemover.NoSpace("8 j 8   mBliB8g  imjB8B8  jl  B" )
+
+#!csharp
+
+"8 j 8   mBliB8g  imjB8B8  jl  B".Trim().Replace(" ","")
+
+#!csharp
+
+public List<int> Withdraw(int amount)
+{
+    // Check how many 100 dollar we can get in the amount
+    int _100Bills = amount/100;
+    amount %= 100; // remainder of the division
+    // Check how many 50 dollar we can get in the amount
+    int _50Bills = amount/50;
+    amount %= 50; // remainder of the division
+    // Check how many 20 dollar we can get in the amount
+    int _20Bills = amount/20;
+    var withdrawal = new List<int>{_100Bills, _50Bills, _20Bills};
+    return withdrawal;
+}
+
+#!csharp
+
+Withdraw(440)
+
+#!csharp
+
+//60/100
+int amount = 60;
+amount %= 100;
+amount
+
+#!csharp
+
+public static string NoSpace(string input)
+{
+    //Code it!
+    var noSpace = input.Replace(" ",""); // .Trim()
+    return noSpace;
+}  
+
+#!csharp
+
+NoSpace("8 j 8   mBliB8g  imjB8B8  jl  B")
+
+#!markdown
+
+All of the animals are having a feast! Each animal is bringing one dish. There is just one rule: the dish must start and end with the same letters as the animal's name. For example, the great blue heron is bringing garlic naan and the chickadee is bringing chocolate cake.
+Write a function feast that takes the animal's name and dish as arguments and returns true or false to indicate whether the beast is allowed to bring the dish to the feast.
+Assume that beast and dish are always lowercase strings, and that each has at least two letters. beast and dish may contain hyphens and spaces, but these will not appear at the beginning or end of the string. They will not contain numerals.
+
+#!csharp
+
+public bool Feast(string beast, string dish)
+{
+    // substring(start, Length)
+    return beast.Substring(0,1) == dish.Substring(0,1) && 
+            beast.Substring(beast.Length-1,1) == dish.Substring(dish.Length-1,1) ? 
+            true:false;
+}
+
+#!csharp
+
+Feast("Victor", "Burger")
+
+#!markdown
+
+DESCRIPTION:
+Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+
+[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+
+#!csharp
+
+  public static int Grow(int[] x)
+  {
+    
+    return 0;
+  }
+
+#!markdown
+
+Your task is to find the first element of an array that is not consecutive.
+By not consecutive we mean not exactly 1 larger than the previous element of the array.
+E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not, so that's the first non-consecutive number.
+If the whole array is consecutive then return null2.
+The array will always have at least 2 elements1 and all elements will be numbers. The numbers will also all be unique and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too!
+
+#!csharp
+
+public object Consecutive(int[] numbers)
+{
+   
+    for(var i = 0; i < numbers.Length; i++)
+    {
+        if(numbers[i]+1 != numbers[i+1])
+        {
+            return numbers[i+1];
+        } else if(numbers[i]+1 == numbers[i+1])
+        {
+            return null;
+        }
+    }
+    return null;
+    
+}
+
+#!csharp
+
+Consecutive(new int[] {1,2,3,4,5,6,7,8})

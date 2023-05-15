@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Algorithm_Practice_Class
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var withdrawal = Withdraw(440);
+            foreach (var item in withdrawal)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+        }
+
+        public static List<int> Withdraw(int amount)
+        {
+            // Check how many 100 dollar we can get in the amount
+            int _100Bills = amount / 100;
+            amount %= 100; // remainder of the division
+                           // Check how many 50 dollar we can get in the amount
+            int _50Bills = amount / 50;
+            amount %= 50; // remainder of the division
+                          // Check how many 20 dollar we can get in the amount
+            int _20Bills = amount / 20;
+            var withdrawal = new List<int> { _100Bills, _50Bills, _20Bills };
+            return withdrawal;
+        }
+    }
+}
