@@ -1539,3 +1539,29 @@ Example: (Input --> Output)
 isIsogram "Dermatoglyphics" = true
 isIsogram "moose" = false
 isIsogram "aba" = false
+
+#!csharp
+
+  public static bool IsIsogram(string str) 
+  {
+    // Code on you crazy diamond!
+    char picker;
+    char searcher;
+    for (var i = 0; i < str.Length; i++)
+    {
+        picker = str[i];
+        for(var j = i; j < str.Length; j++)
+        {
+            searcher = str[j];
+            if(picker == searcher && i != j)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+  }
+
+#!csharp
+
+IsIsogram("Dermatoglyphics")
