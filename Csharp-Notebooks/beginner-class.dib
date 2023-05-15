@@ -146,3 +146,12 @@ public int Abs(int number)
 #!csharp
 
 Abs(-23)
+
+#!csharp
+
+string str = "Pythonia";// P - 0, y - 1, t - 2, h - 3, o - 4, n - 5, i - 6, a - 7...Length = 8
+// ythonP
+// Substring(start, Length)
+str.Substring(str.Length-1,1) // n
+//str.Substring(0,1); // P
+//str.Substring(1,str.Length-2);
