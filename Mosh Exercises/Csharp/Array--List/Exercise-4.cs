@@ -7,7 +7,7 @@ The list of numbers may include duplicates. Display the unique numbers that the 
 using System;
 using System.Collections.Generic;
 
-namespace Exercise_3
+namespace Exercise_4
 {
     class UniqueNumbers
     {

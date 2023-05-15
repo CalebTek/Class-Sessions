@@ -26,7 +26,7 @@ namespace Exercise_1
             {
                 Console.Write("Enter a name: ");
                 var name = Console.ReadLine();
-                if (name == "")
+                if (String.IsNullOrWhiteSpace(name)) // use String.IsNullOrWhiteSpace instead of "".....
                 {
                     break;
                 }

@@ -1209,7 +1209,7 @@ public static class Kata
 
 // test splits
 int sum = 0;
-string numbers = new string("1,  5,  6,      7");
+string numbers = new string("1,      5,      6,      7");
 string[] nums = numbers.Split(",".ToCharArray());
 foreach(var item in nums)
 {
@@ -1222,10 +1222,49 @@ foreach(var item in nums)
 {
     number.Add(Convert.ToInt32(item));
 }
-number.Max()
-//number
+//number.Max()
+number
+//nums
+//sum
 
 #!csharp
 
-var name = "John waley";
-//name.Split()
+var name = "John";
+var reverseName = name.ToCharArray().Reverse<char>();
+String.Join("", reverseName)
+
+#!csharp
+
+var myList = new List<int> {1,4,6,8};
+myList.Clear();
+myList
+
+#!csharp
+
+int sum = 0;
+for (int i = 0; i < 3; i++)
+{
+    sum += i*i;
+}
+sum
+
+#!csharp
+
+bool result = false;
+if(4==5)
+{
+    result = true;
+}
+result
+
+#!csharp
+
+static int Main()
+{
+   Console.WriteLine("I'm a method");
+    return 1;
+}
+
+#!csharp
+
+Main()
