@@ -1,0 +1,91 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+class Course
+{
+    // fields
+    public string CourseCode, remark;
+    public char Grade;
+    public double CourseUnit, CourseScore, GPA, GradeUnit, weightPoint;
+
+    // Constructor
+    public Course(string Course, double unit, double score)
+    {
+        CourseCode = Course;
+        CourseUnit = unit;
+        CourseScore = score;
+        // calculate Grade, GradeUnit and Remark
+        if(score >=0 && score < 40)
+        {
+            Grade = 'F';
+            GradeUnit = 0;
+            remark = "Fail";
+        } else if(score >=40 && score < 45)
+        {
+            Grade = 'E';
+            GradeUnit = 1;
+            remark = "Pass";
+        } else if(score >=45 && score < 50)
+        {
+            Grade = 'D';
+            GradeUnit = 2;
+            remark = "Fair";
+        } else if(score >=50 && score < 60)
+        {
+            Grade = 'C';
+            GradeUnit = 3;
+            remark = "Good";
+        } else if(score >=60 && score < 70)
+        {
+            Grade = 'B';
+            GradeUnit = 4;
+            remark = "Very Good";
+        } else
+        {
+            Grade = 'A';
+            GradeUnit = 5;
+            remark = "Excellent";
+        }
+        // Calculate WeightPoint
+        weightPoint = GradeUnit*CourseUnit;
+        // Calculate GPA
+        GPA = weightPoint/CourseUnit;
+    }
+
+    // Methods
+    public double WeightPoint()
+    {
+        return 48;
+    }
+
+    public double TotalCourseUnit()
+    {
+        return 11;
+    }
+
+    public double Gpa()
+    {
+        return Math.Round(WeightPoint()/TotalCourseUnit(),2);
+    }
+
+    public double Gpa(double wt, double cU)
+    {
+        return Math.Round(wt/cU,2);
+    }
+}
+
+#!csharp
+
+// type variablename = new 
+int[] array = new int[7];
+Course subject = new Course("MTS101", 3, 78);
+subject.WeightPoint();
+subject.Gpa();
+//array.Max();
+//array.Length
+//subject.Gpa(56,30)
+
+subject
