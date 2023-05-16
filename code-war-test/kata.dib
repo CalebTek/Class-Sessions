@@ -1774,7 +1774,11 @@ public List<int> Withdraw(int amount)
 
 #!csharp
 
-Withdraw(260)
+//Withdraw(40)
+//Withdraw(60)
+//Withdraw(250)
+Withdraw(230)
+//Withdraw(260)
 
 #!csharp
 
