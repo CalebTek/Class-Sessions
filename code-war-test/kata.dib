@@ -1545,14 +1545,14 @@ isIsogram "aba" = false
   public static bool IsIsogram(string str) 
   {
     // Code on you crazy diamond!
-    char picker;
-    char searcher;
+    string picker;
+    string searcher;
     for (var i = 0; i < str.Length; i++)
     {
-        picker = str[i];
+        picker = str.Substring(i,1).ToUpper();
         for(var j = i; j < str.Length; j++)
         {
-            searcher = str[j];
+            searcher = str.Substring(j,1).ToUpper();
             if(picker == searcher && i != j)
             {
                 return false;
@@ -1565,3 +1565,49 @@ isIsogram "aba" = false
 #!csharp
 
 IsIsogram("Dermatoglyphics")
+
+#!csharp
+
+string str = "Dermatoglyphics";
+string picker;
+    string searcher;
+    for (var i = 0; i < str.Length; i++)
+    {
+        picker = str.Substring(i,1).ToUpper();
+        for(var j = i; j < str.Length; j++)
+        {
+            searcher = str.Substring(j,1).ToUpper();
+            Console.WriteLine($"{picker} {searcher}");
+        }
+    }
+
+#!csharp
+
+static bool IsIsogram(string input)
+    {
+        bool[] seenChars = new bool[256]; // create boolean array of 256 false elements to keep each character in the ASCII character
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            int charCode = Convert.ToInt32(Convert.ToChar(input.Substring(i,1).ToUpper())); // get ASCII value of each character in input
+            if (seenChars[charCode] == true) // check if ASCII value of the character exist 
+            {
+                return false; // If exist return false
+            }
+            seenChars[charCode] = true; // set checked value to true for another check
+        }
+
+        return true;
+    }
+
+#!csharp
+
+IsIsogram("Dermatoglyphics")
+
+#!csharp
+
+var seenChars = new bool[256];
+//seenChars
+var input = "moOse";
+seenChars[Convert.ToInt32(Convert.ToChar(input.Substring(0,1).ToUpper()))]
+//seenChars[109]
