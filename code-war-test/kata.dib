@@ -1320,6 +1320,35 @@ public List<int> Withdraw(int amount)
 
 #!csharp
 
+public List<int> Withdraw(int amount)
+{
+    // Check how many 100 dollar we can get in the amount
+    int _100Bills = amount/100;
+    amount %= 100; // remainder of the division
+    // Check how many 50 dollar we can get in the amount
+    int _50Bills = amount/50;
+    amount %= 50; // remainder of the division
+    // Check how many 20 dollar we can get in the amount
+    int _20Bills = amount/20;
+    var withdrawal = new List<int>{_100Bills, _50Bills, _20Bills};
+    return withdrawal;
+}
+
+#!csharp
+
+int withdrawalAmount = 60;
+
+int hundredBills = Math.Min(withdrawalAmount / 100, 1);
+withdrawalAmount -= hundredBills * 100;
+
+int fiftyBills = Math.Min(withdrawalAmount / 50, 1);
+withdrawalAmount -= fiftyBills * 50;
+
+int twentyBills = withdrawalAmount / 20;
+new int[] {hundredBills, fiftyBills, twentyBills}
+
+#!csharp
+
 Withdraw(440)
 
 #!csharp
@@ -1611,3 +1640,144 @@ var seenChars = new bool[256];
 var input = "moOse";
 seenChars[Convert.ToInt32(Convert.ToChar(input.Substring(0,1).ToUpper()))]
 //seenChars[109]
+
+#!markdown
+
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+For example, for [1, 2, 2] it should return 9 because 
+1
+2
++
+2
+2
++
+2
+2
+=
+9
+1 
+2
+ +2 
+2
+ +2 
+2
+ =9.
+
+#!csharp
+
+public static int SquareSum(int[] numbers)
+{ 
+    
+    //return numbers.Aggregate((a,b) => a*a+b*b);
+    var aggregate = 0;
+    foreach(var item in numbers)
+    {
+        aggregate += item*item;
+
+    }
+    return aggregate;
+}
+
+#!csharp
+
+SquareSum(new int[] {5,3,4})
+
+#!csharp
+
+using System.Linq;
+public static class Kata
+{
+  public static int SquareSum(int[] n) => n.Sum(i => i * i);
+}
+
+#!csharp
+
+Kata.SquareSum(new int[] {5,3,4})
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static int SquareSum(int[] n)
+  { 
+    return (int)n.Sum(i => Math.Pow(i, 2));
+  }
+}
+
+#!csharp
+
+//230/10
+60/10
+
+#!csharp
+
+public List<int> Withdraw(int amount)
+{
+    int _100Bills = 0, _50Bills = 0, _20Bills = 0;
+    
+    while(amount >= 20)
+    {
+        if(amount >=100)
+        {
+            amount -= 100;
+            _100Bills++;
+        }
+        else if(amount >= 50)
+        {
+            amount -= 50;
+            _50Bills++;
+        }
+        else
+        {
+            amount -= 20;
+            _20Bills++;
+        }
+
+    }
+    return new List<int>{_100Bills, _50Bills, _20Bills};
+
+}
+
+#!csharp
+
+Withdraw(230)
+
+#!csharp
+
+public List<int> Withdraw(int amount)
+{
+    int _100Bills = 0, _50Bills = 1, _20Bills = 0;
+    
+    while(amount > 149)
+    {
+        amount -= 100;
+        _100Bills++;
+    }
+
+    if((amount-50)%20 != 0)
+    {
+        _50Bills = 0;
+        _20Bills = (amount)/20;
+    } else
+    {
+        _20Bills = (amount-50)/20;
+    }
+    
+
+    return new List<int>{_100Bills, _50Bills, _20Bills};
+
+}
+
+#!csharp
+
+Withdraw(260)
+
+#!csharp
+
+var myList = new List<int> {1,2,4};
+myList[0] = 4;
+myList
