@@ -1802,3 +1802,18 @@ numSplit
 
 int[] numbers = Enumerable.Range(10,2).ToArray();
 numbers
+
+#!csharp
+
+float ft = 45.64F;
+int inFt = (int)(ft);
+inFt
+
+#!csharp
+
+string dateString = "09:00";
+DateTime date;
+if(DateTime.TryParse(dateString, out date))
+{
+    Console.WriteLine("Valid");
+}

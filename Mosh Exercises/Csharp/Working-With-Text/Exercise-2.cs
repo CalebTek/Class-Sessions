@@ -20,24 +20,23 @@ namespace Exercise_2
             string numbers = Console.ReadLine();
             if (String.IsNullOrWhiteSpace(numbers))
             {
-                
+                Environment.Exit(0);
             }
             var numSplit = numbers.Split('-').Select(int.Parse).ToArray();
-
+            var numSeen = new bool[numSplit.Max()+numbers.Length];
             for (int i = 0; i < numSplit.Length - 1; i++)
             {
-                var front = numSplit[i];
-                var end = numSplit[i + 1];
-                if (Math.Abs(front - end) != 1)
+
+                if (numSeen[numSplit[i]])
                 {
-                    msg = "Not Consecutive";
+                    msg = "Duplicate";
                     break;
-                }
-                else
+                } else
                 {
-                    msg = "Consecutive";
-                    continue;
+                    msg = "No Duplicate";
                 }
+                numSeen[numSplit[i]] = true;
+                
             }
             Console.WriteLine(msg);
         }
