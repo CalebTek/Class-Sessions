@@ -1783,7 +1783,7 @@ public List<int> Withdraw(int amount)
 //Withdraw(40)
 //Withdraw(60)
 //Withdraw(250)
-Withdraw(231)
+Withdraw(230)
 //Withdraw(260)
 
 #!csharp
@@ -1791,3 +1791,14 @@ Withdraw(231)
 var myList = new List<int> {1,2,4};
 myList[0] = 4;
 myList
+
+#!csharp
+
+var numbers = "4-6-7-5-4";
+var numSplit = numbers.Split('-');
+numSplit
+
+#!csharp
+
+int[] numbers = Enumerable.Range(10,2).ToArray();
+numbers
