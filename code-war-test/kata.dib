@@ -1811,9 +1811,24 @@ inFt
 
 #!csharp
 
-string dateString = "09:00";
+string dateString = "00:09";
 DateTime date;
 if(DateTime.TryParse(dateString, out date))
 {
     Console.WriteLine("Valid");
 }
+date.TimeOfDay
+
+#!csharp
+
+var _09 = DateTime.Parse("09:00").TimeOfDay;
+var _23 = DateTime.Parse("23:00").TimeOfDay;
+
+_09>_23
+
+#!csharp
+
+var testArray = new int[] {1,4,5,2};
+var sum = testArray.Aggregate((x,y) => x+y);
+var sum2 = testArray.Sum();
+sum
