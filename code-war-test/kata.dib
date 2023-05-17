@@ -1752,6 +1752,12 @@ public List<int> Withdraw(int amount)
 {
     int _100Bills = 0, _50Bills = 1, _20Bills = 0;
     
+    string _amount =amount.ToString();
+    int lastDigit = Convert.ToInt32(_amount.Substring(_amount.Length-1,1));
+    if (lastDigit > 0)
+    {
+        amount -= lastDigit;
+    }
     while(amount > 149)
     {
         amount -= 100;
@@ -1777,7 +1783,7 @@ public List<int> Withdraw(int amount)
 //Withdraw(40)
 //Withdraw(60)
 //Withdraw(250)
-Withdraw(230)
+Withdraw(231)
 //Withdraw(260)
 
 #!csharp
