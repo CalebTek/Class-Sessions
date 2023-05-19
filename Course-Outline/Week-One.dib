@@ -1,0 +1,53 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+### `WEEK 1`  
+#### Fundamentals of C# Language 
+ 
+- Introduction: What is .NET Framework and Architecture? 
+- C# and .NET version history 
+- How to Download and Install Visual Studio for C# 
+- Identifiers 
+- Data Types 
+- integer 
+- character 
+- boolean 
+- double / float / decimal 
+- enum 
+- arrays 
+- strings 
+- Variables 
+- Literals 
+- Operators 
+- Keywords / Reserved words 
+- Control structures (If statements and loops) 
+- Your first console application program 
+- Class 
+- Partial classes 
+- Structure 
+- Static 
+- Methods 
+- Method parameters 
+- Method overloading 
+
+#!markdown
+
+### Introduction: What is .NET Framework and Architecture? 
+#### .NET Framework  
+`.Net Framework` is a  free, cross-platform, open source software development platform developed by Microsoft for building and running Windows applications. It consists of developer tools, programming languages, and libraries to build for web, mobile, desktop, games applications, IoT, and more.
+
+#### Languages
+You can write .NET apps in C#, F#, or Visual Basic.
+
+- C# is a simple, modern, object-oriented, and type-safe programming language.
+- F# is a programming language that makes it easy to write succinct, robust, and performant code.
+- Visual Basic is an approachable language with a simple syntax for building type-safe, object-oriented apps.
+
+#### Advantages of C#
+- `Easy Syntax:` C# is a simple syntax that is easy to learn for a beginner.
+- `Object-oriented Programming language:` It is an object-oriented programming language used to make classes and objects.
+- `Versatile language:` It is used to develop software, web applications, mobile apps, and games.
+- `Platform Independent:` C# can be used to make apps that work on Windows, macOS, and mobile devices.

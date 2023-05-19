@@ -1783,8 +1783,36 @@ public List<int> Withdraw(int amount)
 //Withdraw(40)
 //Withdraw(60)
 //Withdraw(250)
-Withdraw(230)
+Withdraw(200)
 //Withdraw(260)
+
+#!csharp
+
+/* public List<int> Withdraw(int amount)
+{
+    int _100Bills = 0, _50Bills = 0, _20Bills = 0;
+    
+    string _amount =amount.ToString();
+    int lastDigit = Convert.ToInt32(_amount.Substring(_amount.Length-1,1));
+    if (lastDigit > 0)
+    {
+        amount -= lastDigit;
+    }
+
+    if ((amount/10)%2 != 0)
+    {
+        amount -= 50;
+        _100Bills = amount/100;
+        amount %= 100;
+        _50Bills = 1;
+        _20Bills = amount/20;
+    } else 
+    {
+
+    }
+    return new List<int>{_100Bills, _50Bills, _20Bills};
+
+} */
 
 #!csharp
 
