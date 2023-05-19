@@ -1832,3 +1832,57 @@ var testArray = new int[] {1,4,5,2};
 var sum = testArray.Aggregate((x,y) => x+y);
 var sum2 = testArray.Sum();
 sum
+
+#!csharp
+
+var word = "inadequate";
+word.Count(x=>x == 'a' || x == 'e' || x == 'i' || x == 'o' || x == 'u')
+
+#!csharp
+
+enum Days
+{
+Monday,
+Tuesday,
+Wednesday,
+Thursday,
+Friday,
+Saturday,
+Sunday
+}
+
+Console.WriteLine($"{(int)Days.Thursday}, {Days.Thursday}");
+
+#!csharp
+
+string name = "John";
+string name2 = " John ".Trim().Substring(0,2);
+string name3 = name2.Trim();
+Console.Write($"{name.Length} and {name2.Length} and {name3.Length}");
+Console.WriteLine();
+Console.Write("{0} and {1} and {2}", name.Length, name2.Length,  name3.Length);
+Console.WriteLine();
+Console.Write(name.Length + " and " + name2.Length + " and " + name3.Length);
+name.Contains("o")
+
+#!csharp
+
+string test = "add";
+if(test =="add")
+{
+    Console.Write("Yes");
+}
+Console.WriteLine();
+if(test.Equals("add"))
+{
+    Console.Write("yes");
+}
+
+#!csharp
+
+// tuple
+//Tuple<string, int , string> ourTuple;
+var ourTuple = Tuple.Create<string, int, string>("A", 70, "Excellent");
+//ourTuple.Item1
+var myArr = new int[4];
+byte number = 1;
