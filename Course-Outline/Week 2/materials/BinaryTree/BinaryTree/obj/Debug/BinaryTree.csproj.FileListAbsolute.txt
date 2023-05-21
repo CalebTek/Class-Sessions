@@ -1,0 +1,5 @@
+C:\Users\craft\Desktop\materials\BinaryTree\BinaryTree\bin\Debug\BinaryTree.dll
+C:\Users\craft\Desktop\materials\BinaryTree\BinaryTree\bin\Debug\BinaryTree.pdb
+C:\Users\craft\Desktop\materials\BinaryTree\BinaryTree\obj\Debug\BinaryTree.csprojAssemblyReference.cache
+C:\Users\craft\Desktop\materials\BinaryTree\BinaryTree\obj\Debug\BinaryTree.dll
+C:\Users\craft\Desktop\materials\BinaryTree\BinaryTree\obj\Debug\BinaryTree.pdb

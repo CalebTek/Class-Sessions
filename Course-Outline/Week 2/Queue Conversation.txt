@@ -1,0 +1,90 @@
+## User
+Explain Queues in C#
+## Bing
+In C#, a queue is a collection of elements that are stored in FIFO (First In First Out) order. The C# queue is a FIFO queue collection class in the System.Collection namespace. Storing elements in FIFO style, the C# queue contains elements in precisely the order they were added, with objects added at one end and removed from the opposite end. This is the opposite order of the Stack collection.
+C# includes generic Queue<T>
+ and non-generic Queue collection. It is recommended to use the generic Queue<T>
+ collection.
+Queues and stacks are useful when you need temporary storage for information; that is, when you might want to discard an element after retrieving its value. Use Queue if you need to access the information in the same order that it is stored in the collection. Use Stack if you need to access the information in reverse order.
+I hope this helps! Let me know if you have any other questions.
+## User
+C# types of queues
+## Bing
+C# includes generic Queue<T>
+ and non-generic Queue collection. The generic Queue<T>
+ collection is recommended to use.
+I hope this helps! Let me know if you have any other questions.
+## User
+What is the difference between generic Queue<T>
+ and non-generic Queue collection?
+## Bing
+The non-generic Queue collection is a collection of objects that are stored in FIFO (First In First Out) order. The generic Queue<T>
+ collection is a collection of elements that are stored in FIFO (First In First Out) order. The generic Queue<T>
+ collection is recommended to use.
+I hope this helps! Let me know if you have any other questions.
+## User
+C# example code that best explain queues
+## User
+why i want to know more about queues in C#
+## Bing
+I see. Is there anything specific you want to know about queues in C#? I'm here to help.
+## User
+give me C# code examples that best explain queues
+## User
+Okay.! give me advantages and disadvantages of queues
+## Bing
+Queues have the benefit of being able to handle a variety of data kinds and being both flexible and speedy. Operations such as insertion and deletion can be performed with ease as it follows the first in first out rule. Queues are useful when a particular service is used by multiple consumers. Queues are fast in speed for data inter-process communication.
+Disadvantages of queues include the need to delete other elements in order to add a new element to the queue. 
+I hope this helps! Let me know if you have any other questions.
+## User
+realistic uses of queues
+## Bing
+Queues are used to manage data flow and handle tasks in various applications, such as operating systems, network protocols, and data processing systems. They are also used to implement algorithms like breadth-first search, which involves exploring nodes in a graph level-by-level. 
+Here are some practical applications of queues in real life:
+ - Organ Transplant Waiting List
+ - Government License Issuing
+ - Ticket Sale Queue
+ - Order Scheduling
+ - Priority Queue
+ - Holding Patterns By Planes
+ - Processing Of Prospective Immigrants
+ - Toll Tax Bridge
+
+I hope this helps! Let me know if you have any other questions.
+## User
+C# code examples that demonstrate a Ticket Sale Queue application
+## Bing
+Here is an example of C# code that demonstrates a ticket sale queue application:
+
+[csharp]
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Queue<string> ticketQueue = new Queue<string>();
+        ticketQueue.Enqueue("Person 1");
+        ticketQueue.Enqueue("Person 2");
+        ticketQueue.Enqueue("Person 3");
+        ticketQueue.Enqueue("Person 4");
+
+        Console.WriteLine("People in line for tickets:");
+        foreach (string person in ticketQueue)
+        {
+            Console.WriteLine(person);
+        }
+
+        Console.WriteLine("\nSelling tickets...\n");
+
+        while (ticketQueue.Count > 0)
+        {
+            Console.WriteLine("Selling ticket to " + ticketQueue.Dequeue());
+        }
+
+        Console.WriteLine("\nEveryone has their tickets!");
+    }
+}
+This code creates a queue of people waiting in line for tickets. The program then sells tickets to each person in the queue until everyone has their tickets.
+I hope this helps! Let me know if you have any other questions.

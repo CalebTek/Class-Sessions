@@ -1,0 +1,8 @@
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\bin\Debug\WordSorter.exe
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\bin\Debug\WordSorter.pdb
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\bin\Debug\BinaryTree.dll
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\bin\Debug\BinaryTree.pdb
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\obj\x86\Debug\WordSorter.csprojAssemblyReference.cache
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\obj\x86\Debug\WordSorter.csproj.CopyComplete
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\obj\x86\Debug\WordSorter.exe
+C:\Users\craft\Desktop\materials\BinaryTree\WordSorter\obj\x86\Debug\WordSorter.pdb
