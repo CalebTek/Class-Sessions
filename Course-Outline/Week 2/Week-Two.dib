@@ -138,3 +138,232 @@ secondList.Remove(3);
 #!markdown
 
 <h2>LinkedList</h2>
+
+A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. LinkedList is a generic type of collection which is defined in `System.Collections.Generic` namespace. LinkedList is different from other data structures like arrays and ArrayList because it is not indexed. Instead, it uses pointers to link each element to the next one in the list.
+<p>Linked list is a collection of nodes where each node has a reference to the next node in the list. It provides fast insertion and removal of elements at any position in the list, but accessing elements by index can be slow becauase you have to traverse the list from the beginning to find the element you want.</p>
+
+<p>Here's a diagram of a Linked List</p>
+
+![alt Linked List](images/Linkedlist.png)  
+[Linked List](https://www.geeksforgeeks.org/data-structures/linked-list/)
+
+#!markdown
+
+### Type of Linked List
+
+- `Singly Linked List (SLL):` is a collection of nodes where each node has a reference to the next node in the list. The last node in the list has a reference to null. It can be traversed only in forward direction.
+
+<p>Here's a diagram of a Singly Linked List</p>
+
+![alt Singly Linked List](images/Singly%20Linkedlist.png)  
+[*Singly Linked List*](https://www.geeksforgeeks.org/data-structures/linked-list/singly-linked-list/)
+
+
+### Pros and Cons of Linked List.
+
+
+| | Pros |
+|-|-----------|
+| `Dynamic data structure` | 1. It's dynamic arrangment so it can grow and shrink at runtime by allocating and deallocating memory |
+| | 2. There is no need to give the initial size of the linked list |
+| `Efficient memory utilization` | It's efficient in utilizing memory since it allocates memory as per the requirment |
+| `Insertion and Deletion Operations` | Insertion and deletion operations are easier because there is no need to shift elements after insertion or deletion of an element. |  
+
+<p></p>
+
+| | Cons |
+|-|-----------|
+| `Random access` | Random access is not possible, there is need to traverse the list from the beginning to find the element we want |
+| `Extra memory space for pointers` | Extra memory space is required for storing pointers with each element of the list |
+
+#!csharp
+
+//Here is an example of a singly linked list in C#:
+
+class Node
+{
+    public int data;
+    public Node next;
+    public Node(int d)
+    {
+        data = d;
+        next = null;
+    }
+}
+
+class LinkedList
+{
+    Node head;
+
+    public void push(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        new_node.next = head;
+        head = new_node;
+    }
+}
+
+#!markdown
+
+- `Doubly Linked List (DLL):` is a special type of linked list in which each node contains a pointer to the previous node as well as the next node of the linked list. It can be traversed in forward and backward direction
+
+<p>Here's a diagram of a doubly Linked List</p>
+
+![alt Doubly Linked List](images/Doubly%20Linkedlist.png)  
+[*Doubly Linked List*](https://www.geeksforgeeks.org/data-structures/linked-list/doubly-linked-list/)
+
+#!csharp
+
+// Here is an example of a doubly linked list in C#:
+
+class Node
+{
+    public int data;
+    public Node next;
+    public Node prev;
+    public Node(int d)
+    {
+        data = d;
+        next = null;
+        prev = null;
+    }
+}
+
+class DoublyLinkedList
+{
+    Node head;
+
+    public void push(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        new_node.next = head;
+        new_node.prev = null;
+
+        if (head != null)
+            head.prev = new_node;
+
+        head = new_node;
+    }
+}
+
+#!markdown
+
+- `Singly Circular Linked List (SCLL):` is a linked list where the last node points to the first node. The last element contains link to the first element as next.
+
+<p>Here's a diagram of a Singly Circular Linked List</p>
+
+![alt Singly Circular Linked List](images/CircularSinglyLinkedList.png)  
+[*Singly Circular Linked List*](https://www.geeksforgeeks.org/circular-singly-linked-list-insertion/)
+
+#!csharp
+
+// Here is an example of a singly circular linked list in C#:
+
+class Node
+{
+    public int data;
+    public Node next;
+    public Node(int d)
+    {
+        data = d;
+        next = null;
+    }
+}
+
+class SinglyCircularLinkedList
+{
+    Node head;
+
+    public void push(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        Node temp = head;
+
+        new_node.next = head;
+
+        if (head != null)
+        {
+            while (temp.next != head)
+                temp = temp.next;
+
+            temp.next = new_node;
+        }
+        else
+            new_node.next = new_node;
+
+        head = new_node;
+    }
+}
+
+#!markdown
+
+- `Doubly Circular Linked List (DCLL):` is a linked list that has the features of both the doubly linked list and the circular linked list. In a doubly circular linked list, two nodes are connected or linked together by the previous and the next pointers, and the last node of the doubly circular linked list is connected to the first node of the list.
+
+<p>Here's a diagram of a Doubly Circular Linked List </p>
+
+![alt Doubly Circular Linked List](images/doubly-660x177.jpg)  
+[*Doubly Circular Linked List*](https://www.geeksforgeeks.org/insertion-in-doubly-circular-linked-list/)
+
+#!csharp
+
+// Here is an example of a doubly circular linked list in C#:
+
+class Node
+{
+    public int data;
+    public Node next;
+    public Node prev;
+    public Node(int d)
+    {
+        data = d;
+        next = null;
+        prev = null;
+    }
+}
+
+class DoublyCircularLinkedList
+{
+    Node head;
+
+    public void push(int new_data)
+    {
+        Node new_node = new Node(new_data);
+        new_node.next = head;
+
+        if (head != null)
+            head.prev = new_node;
+
+        head = new_node;
+
+        Node last = head;
+        while (last.next != null)
+            last = last.next;
+
+        last.next = head;
+        head.prev = last;
+    }
+}
+
+#!markdown
+
+| Linked List | Pros | Cons |
+|-|-----------|-------|
+| `Singly` | 1. Less memory is required for storing the members (2 members - data and next) | 1. It's not efficient for reverse traversing |
+| | 2. During excution, memory is easily allocated and deallocated | 2. Cannot be iterated in reverse |
+| | 3. Insertion and Deletion don't require the shifting of all elements | 3. Requires more memory to store pointers |
+| | 4. Requires less access time  |  |
+| `Doubly` | 1. Efficient traversal in both forward and backward directions. | 1.Traversing can be slower than singly linked list |
+| | 2. Insertion and Deletion operations are easier to implement than singly linked lists | 2. Implementing and maintaining can be more complex than singly linked list |
+| | 3. Can be used for implementing stacks and queues. | |
+| `Singly Circular` | 1. Can be used for implementing queues. | 1. Traversing can be slower than singly linked list | 
+| | 2. Can be used for implementing round-robin scheduling | 2. Implementing and maintaining can be more complex than singly linked list |
+| `Doubly Circular` | 1. `Efficient traversal:` Allow efficient traversal in both forward and backward directions. This makes it useful for applications where bidirectional traversal is required, such as in music playlists or video players | 1. `Slower traversal:` Traversing can be slower than traversing a singly linked list | 
+| | 2. `Navigation systems:` It's used in navigation systems where front and back navigation is required | 2. `Complexity:` Implementing and maintaining can be more complex than singly linked lists |  
+
+#!markdown
+
+<h2>Stacks</h2>
+
+Stack is a special type of collection that stores elements in LIFO style (Last In First Out). It is recommended to use the generic Stack<`T`> collection. The Stack class represents a last-in, first-out (LIFO) stack of objects.  
+<p>When you add an item to the top of the stack, it is called pushing an item onto the stack. When you remove an item from the top of the stack, it is called popping an item off the stack. 
+<p>For example, if you push 1, 2, 3, 4 and 5 onto a stack, the order of items in the stack will be 5, 4, 3, 2 and 1. If you pop an item off the stack, it will remove 5 from the stack.</p>
