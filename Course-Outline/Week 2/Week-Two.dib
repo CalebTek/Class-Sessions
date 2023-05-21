@@ -1,3 +1,75 @@
 #!meta
 
 {"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+<center> <h1> Complex Data Structures  </h1> </center>
+
+<h2> Data Structures </h2>
+<p> Data structure can be categorized into two types: <i>primitive</i> data structures and <i>non-primitive</i> data strucures  </p>
+
+- **`Primitive data structures`** are the most basic data structure available in a programming language, such as integers, floating-point numbers, characters, and booleans.
+- **`Non-primitve data structures`** are more complex and can be divided into four categories:
+    - **_Linear data structures_** are those in which the elements are arranged in sequential manner, such as arrays, lists, stacks and queue.
+    - **_Tree data structures_** are those in which the elements are arranged in hierarchical manner, such as binary trees, AVL trees and B-trees.
+    - **_Hash data structures_** are those that use a hash function to compute an index into an array of buckets or slots, such as hash tables and hash maps.
+    - **_Graph data structures_** are those that represent a set of objects where some pairs of the objects are connected by links, such as directed graphs, undirectedd graphs and weighted graphs.
+
+#!markdown
+
+<h3>Data Structures in C#</h3>
+<p>A data structure is a way of organizing and storing data in a computer so that it can be accessed and modified efficiently.</p>
+<p>Complex data structures are those that are composed of other data structures.</p>
+<p>C# provides several built-in data structures that can be used to store collections of related data:</p>  
+
+- **`Arrays:`** are the simplest data structure. They are used to store a fixed-size sequential collection of elements of the same type.
+
+#!csharp
+
+// Example on how to create Array using the Array class in C#
+int[] myArray = {}; // empty integer array
+var myArray2 = new int[]{1,2,4}; // integer array of three elements
+var myArray3 = new string[9]; // an array of size 9 that can store collection of string data
+myArray3[0] = "John"; // store John as the first element of myArray3
+
+#!markdown
+
+- **`Lists:`** are similar to arrays but can grow or shrink dynamically as elements are added or removed.
+
+#!csharp
+
+// Example on how to create List using the Generic List<T> class in C#
+List<int> myList = new List<int>(); // empty list that can store collection of integer data
+var myList2 = new List<string>(); // empty list that can store collection of string data
+var myList3 = new List<string>
+{
+    "John", "McCall"
+};// a list that contains two element 
+
+// Add element to a list
+myList.Add(6); // add a single element to myList
+myList.AddRange(new List<int>{2,4,5}); // add more than one element to myList
+myList2.Add("Michael"); // add a single element to myList
+myList2.AddRange(new List<string> {"Kyle", "Declan"});
+
+#!markdown
+
+- **`Dictionaries and hash talbes:`** are used to store key-value pairs. They allow a quick look up of values based ono their keys.
+
+#!csharp
+
+// Example on how to create List using the Generic Dictionary<TKey, TValue> class in C#
+var dict = new Dictionary<int, int>(); // an empty Dictionary with an integer key and value.
+dict.Add(1,89);
+//dict.Add("John", 98);
+
+// Example on how to create List using the Generic Hashtable<TKey, TValue> class in C#
+var hash = new Hashtable();
+hash.Add(1,89);
+hash.Add("John", 98);
+
+#!markdown
+
+<p>There are also more complex data structures like <b>trees, graphs, and heaps</b> that can be implemented using C#.
+These data structures are used in more advanced algorithms and applications.</p>
