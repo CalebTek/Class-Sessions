@@ -1914,3 +1914,167 @@ var ourTuple = Tuple.Create<string, int, string>("A", 70, "Excellent");
 //ourTuple.Item1
 var myArr = new int[4];
 byte number = 1;
+
+#!markdown
+
+DESCRIPTION:
+Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+
+Examples
+Input: [1, 5.2, 4, 0, -1]
+Output: 9.2
+
+Input: []
+Output: 0
+
+Input: [-2.398]
+Output: -2.398
+
+Assumptions
+You can assume that you are only given numbers.
+You cannot assume the size of the array.
+You can assume that you do get an array and if the array is empty, return 0.
+What We're Testing
+We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
+Advanced users may find this extremely easy and can easily write this in one line.
+
+#!csharp
+
+  public static double SumArray(double[] array)
+  {
+    if(array.Length == 0)
+    {
+      return 0;
+    }
+    var sum = 0.0;
+    foreach(var item in array)
+    {
+      sum += item;
+    }
+    return sum;
+  }
+
+#!csharp
+
+SumArray(new double[] {1, 5.2, 4, 0, -1})
+
+#!markdown
+
+DESCRIPTION:
+Create a function taking a positive integer between 1 and 3999 (both included) as its parameter and returning a string containing the Roman Numeral representation of that integer.
+
+Modern Roman numerals are written by expressing each digit separately starting with the left most digit and skipping any digit with a value of zero. In Roman numerals 1990 is rendered: 1000=M, 900=CM, 90=XC; resulting in MCMXC. 2008 is written as 2000=MM, 8=VIII; or MMVIII. 1666 uses each Roman symbol in descending order: MDCLXVI.
+
+Example:
+
+RomanConvert.Solution(1000) -- should return "M"
+Help:
+
+Symbol    Value
+I          1
+V          5
+X          10
+L          50
+C          100
+D          500
+M          1,000
+
+Remember that there can't be more than 3 identical symbols in a row.
+
+#!markdown
+
+Solution from Michael
+Split number to Thousand, hundred, tens and unit.
+
+#!csharp
+
+	public static string Solution(int n)
+	{
+		StringBuilder roman = new StringBuilder();
+		// thousand part
+		while (n >= 1000)
+		{
+			roman.Append("M");
+			n -= 1000;
+		}
+		// nine hundred
+		while (n >= 900)
+		{
+			roman.Append("CM");
+			n -= 900;
+		}
+
+		// five hundred
+		while (n >= 500)
+		{
+			roman.Append("D");
+			n -= 500;
+		}
+
+		// four hundred
+		while (n >= 400)
+		{
+			roman.Append("CD");
+			n -=400;
+		}
+
+		// hundred
+		while (n >= 100)
+		{
+			roman.Append("C");
+			n -= 100;
+		}
+
+		// ninety
+		while (n >= 90)
+		{
+			roman.Append("XC");
+			n -= 90;
+		}
+
+		// fifty
+		while (n >=50)
+		{
+			roman.Append("L");
+			n -= 50;
+		}
+
+		// forty
+		while (n >=40)
+		{
+			roman.Append("XL");
+			n -= 40;
+		}
+
+		// ten
+		while (n >= 10)
+		{
+			roman.Append("X");
+			n -= 10;
+		}
+
+		// nine
+		while (n >= 9)
+		{
+			roman.Append("IX");
+			n -= 9;
+		}
+
+		//
+
+        
+        //throw new NotImplementedException();
+		return roman.ToString();
+	}
+
+#!csharp
+
+Solution(2008)
+
+#!csharp
+
+// list
+var myList = new List<int>();
+myList.Add(8);
+myList.Add(8);
+myList
