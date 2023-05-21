@@ -4,6 +4,22 @@
 
 #!markdown
 
+<h2>.Net week 2 Course Outline</h2>
+<h3> Complex Data Structures</h3>
+
+- ArrayList   
+- LinkedList  
+- Stacks 
+- Queues  
+- HashTable  
+- Indexer  
+- Delegates
+- Lambda  
+- Generics  
+- Events 
+
+#!markdown
+
 <center> <h1> Complex Data Structures  </h1> </center>
 
 <h2> Data Structures </h2>
@@ -28,6 +44,8 @@
 #!csharp
 
 // Example on how to create Array using the Array class in C#
+using System.Collections;
+
 int[] myArray = {}; // empty integer array
 var myArray2 = new int[]{1,2,4}; // integer array of three elements
 var myArray3 = new string[9]; // an array of size 9 that can store collection of string data
@@ -40,6 +58,8 @@ myArray3[0] = "John"; // store John as the first element of myArray3
 #!csharp
 
 // Example on how to create List using the Generic List<T> class in C#
+using System.Collections.Generic;
+
 List<int> myList = new List<int>(); // empty list that can store collection of integer data
 var myList2 = new List<string>(); // empty list that can store collection of string data
 var myList3 = new List<string>
@@ -60,6 +80,8 @@ myList2.AddRange(new List<string> {"Kyle", "Declan"});
 #!csharp
 
 // Example on how to create List using the Generic Dictionary<TKey, TValue> class in C#
+using System.Collections.Generic;
+
 var dict = new Dictionary<int, int>(); // an empty Dictionary with an integer key and value.
 dict.Add(1,89);
 //dict.Add("John", 98);
@@ -73,3 +95,46 @@ hash.Add("John", 98);
 
 <p>There are also more complex data structures like <b>trees, graphs, and heaps</b> that can be implemented using C#.
 These data structures are used in more advanced algorithms and applications.</p>
+
+#!markdown
+
+<h2>ArrayList</h2>
+
+An `ArrayList` is a non-generic collection of objects whose size increases dynamically. It is the same as an array except that its size increases dynamically. An ArrayList can be used to add unknown data where you don't know the types and the size of the data. 
+
+#!csharp
+
+// Example of how to create an ArrayList using the ArrayList class in C#:
+using System.Collections.Generic;
+
+ArrayList firstList = new ArrayList();
+var secondList = new ArrayList(){"Hello", 3, true};
+
+firstList.Add(true);
+secondList.Remove(3);
+
+#!markdown
+
+### ArrayList `vs` Array
+<p>The primary difference between ArrayList and Array is the flexibility and type safety, with ArrayList offering dynamic resizing and storage of multiple data types, array provides better performance and type safety but have a fixed size.
+
+| | ArrayList | Array |
+|-|-----------|-------|
+| `Implementation` | Dynamic-sized array | Simple fixed-sized array |
+| `Data types` | Contain only object elements | Contain both primitives and objects |
+| `Data manipulation` | Has methods for data manipulation | Requires manual resizing | 
+
+#!markdown
+
+### ArrayList `vs` List
+<p>The primary difference between ArrayList and Array is that ArrayList is a <b>non-generic</b> collection class that can store objects of any type, while List is a <b>generic</b> collection class that can store objects of specific type.</p>
+
+| | ArrayList | List |
+|-|-----------|-------|
+| `Type Safety` | It's not type-safe because it is a non-generic collection class | It's type-safe because it is a generic collection class |
+| `Performance` | Require boxing and unboxing operations | Better performance because it does not require boxing and unboxing operations |
+| `Data manipulation` | Requires manual resizing | Has methods for data manipulation | 
+
+#!markdown
+
+<h2>LinkedList</h2>
