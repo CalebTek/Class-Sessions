@@ -2060,7 +2060,27 @@ Split number to Thousand, hundred, tens and unit.
 			n -= 9;
 		}
 
-		//
+		// five
+		while (n >= 5)
+		{
+			roman.Append("V");
+			n -= 5;
+		}
+
+		// four
+
+		while (n >= 4)
+		{
+			roman.Append("IV");
+			n -= 4;
+		}
+
+		// one
+		while (n >= 1)
+		{
+			roman.Append("I");
+			n -=1;
+		}
 
         
         //throw new NotImplementedException();
@@ -2069,7 +2089,7 @@ Split number to Thousand, hundred, tens and unit.
 
 #!csharp
 
-Solution(2008)
+Solution(1999)
 
 #!csharp
 
@@ -2078,3 +2098,10 @@ var myList = new List<int>();
 myList.Add(8);
 myList.Add(8);
 myList
+
+#!csharp
+
+public int ScoreWord(string str)
+{
+    return 0;//str.ToLower().ToCharArray().Sum<>();
+}
