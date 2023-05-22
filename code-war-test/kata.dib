@@ -2166,39 +2166,240 @@ public static uint Pack(byte[] bytes)
 
 #!csharp
 
+public int Pack2(int[] bytes)
+{
+    int result = 0;
+    for (int i = 0; i < bytes.Length; i++)
+    {
+        result |= (int)bytes[i] << (i * 8);
+    }
+
+    return result;
+}
+
+#!csharp
+
+85 << 8
+
+#!csharp
+
+Pack2(new int[] {24, 85, 0})
+
+#!csharp
+
 Pack(new byte[] {24, 85, 0})
+
+#!markdown
+
+Algorithm
+Task
+Given an array of 2k integers (for some integer k, which will be betwen 0 and 5 inclusive), perform the following operations until the array contains only one element:
+
+On the 1st, 3rd, 5th, etc. iterations (1-based) replace each pair of consecutive elements with their sum;
+On the 2nd, 4th, 6th, etc. iterations replace each pair of consecutive elements with their product.
+After the algorithm has finished, there will be a single element left in the array. Return that element.
+
+Specification
+Challenge.PackArray(arr)
+Parameters
+arr: int[] - An array of integers to be packed
+
+Return Value
+int - The final product
+
+Constraints
+arr.length == 2k
+
+0 ≤ k ≤ 5
+
+-9 ≤ arr[i] ≤ 99
+
+Example
+For arr = [1, 2, 3, 4, 5, 6, 7, 8], the output should be 186.
+We have [1, 2, 3, 4, 5, 6, 7, 8] -> [3, 7, 11, 15] -> [21, 165] -> [186], so the answer is 186.
 
 #!csharp
 
 // Solution 2
 public static int PerformOperations(int[] arr)
 {
-    for (int i = 1; i <= 5; i++)
+    for (int i = 1; i <= 5; i++) // iteration 
     {
         if (arr.Length == 1)
         {
             break;
         }
 
-        int[] temp = new int[arr.Length / 2];
+        int[] temp = new int[arr.Length / 2]; // half the length of the array.
         for (int j = 0; j < temp.Length; j++)
         {
-            if (i % 2 == 1)
+            if (i % 2 == 1) // odd index
             {
-                temp[j] = arr[j * 2] + arr[j * 2 + 1];
+                temp[j] = arr[j * 2] + arr[j * 2 + 1]; // y1 = 2y + (2y + 1)
             }
             else
             {
-                temp[j] = arr[j * 2] * arr[j * 2 + 1];
+                temp[j] = arr[j * 2] * arr[j * 2 + 1]; // y1 = 2y * (2y + 1)
             }
         }
 
-        arr = temp;
+        arr = temp; // store temp in array.
     }
 
+    return arr[0]; // return first element
+}
+
+#!csharp
+
+public int Pack3(int[] arr)
+{
+    int bytes = 0;
+    for (int i = 0; i < arr.Length; i++)
+    {
+        bytes |= arr[i] << (i*8);
+    }
+
+    return bytes;
+}
+
+#!csharp
+
+int x = 5;
+x |= 3 << 2;
+x
+
+#!csharp
+
+Pack(new byte[] {24, 85, 0})
+
+#!csharp
+
+public int PerformOps(int[] arr)
+{
+    for (int i = 1; i <= 5; i++)
+    {
+        if(arr.Length == 1)
+        {
+            break;   
+        }
+
+        int[] temp = new int[arr.Length/2];
+        for (int j = 0; j < temp.Length; j++)
+        {
+            if(i%2 == 1)
+            {
+                temp[j] = arr[j*2] + arr[j*2 + 1];
+            }
+            else
+            {
+                temp[j] = arr[j*2] * arr[j*2 + 1];   
+            }
+            
+        }
+        
+        arr = temp;
+    }
     return arr[0];
 }
 
 #!csharp
 
+public int PerformOp(int[] arr)
+{
+    for (int i = 1; i < 5; i++)
+    {
+        if (arr.Length ==1)
+        {
+            break;
+        }
+
+        var temp = new int[arr.Length/2];
+        for (int j = 0; j < temp.Length; j++)
+        {
+            if(i%2 == 1)
+            {
+                temp[j] = arr[j*2] + arr[j*2 + 1];
+            }
+            else
+            {
+                temp[j] = arr[j*2] * arr[j*2 +1];
+            }
+        }
+        arr = temp;
+    }
+    return arr[0];
+}
+
+#!csharp
+
+PerformOp(new int[] {1, 2, 3, 4, 5, 6, 7, 8})
+
+#!csharp
+
+PerformOps(new int[] {1, 2, 3, 4, 5, 6, 7, 8})
+
+#!csharp
+
 PerformOperations(new int[] {1, 2, 3, 4, 5, 6, 7, 8})
+
+#!csharp
+
+public static string ToOrdinal(int number)
+{
+    if (number <= 0) return number.ToString();
+    switch (number % 100)
+    {
+        case 11:
+        case 12:
+        case 13:
+            return number + "th";
+    }
+    switch (number % 10)
+    {
+        case 1:
+            return number + "st";
+        case 2:
+            return number + "nd";
+        case 3:
+            return number + "rd";
+        default:
+            return number + "th";
+    }
+}
+
+#!csharp
+
+public string Ordinal(int number)
+{
+    if(number <= 0) {return number.ToString();}
+    switch(number%100)
+    {
+        case 11:
+        case 12:
+        case 13:
+        return $"{number}th";
+    }
+    switch(number % 10)
+    {
+        case 1:
+        return $"{number}st";
+        case 2:
+        return $"{number}nd";
+        case 3:
+        return $"{number}rd";
+        default:
+        return $"{number}th";
+    }
+}
+
+#!csharp
+
+Ordinal(23)
+
+#!csharp
+
+11%100
+
+#!csharp
+
+ToOrdinal(11)
