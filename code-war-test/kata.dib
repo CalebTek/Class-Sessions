@@ -2105,3 +2105,100 @@ public int ScoreWord(string str)
 {
     return 0;//str.ToLower().ToCharArray().Sum<>();
 }
+
+#!csharp
+
+LinkedList<int> list = new LinkedList<int>();
+list.AddLast(1);
+list.AddLast(2);
+list.AddLast(3);
+
+int lastValue = list.Last.Value;
+list.RemoveLast();
+lastValue
+
+#!markdown
+
+You are given an array of up to four non-negative integers, each less than 256.
+
+Your task is to pack these integers into one number M so that the first element of the array occupies the first (or least significant) 8 bits of M; the second element occupies next 8 bits, and so on.
+
+Return the obtained integer M as unsigned integer.
+
+Note
+As indicated the first 8 bits are the least significant bits of M, meaning the right-most bits of the integer.
+For further clarification see the following example.
+
+Specification
+Challenge.ArrayPacking(array)
+Parameters
+array: List<int> - up to four unsigned integers
+
+Return Value
+int - an unsigned integer
+
+Constraints
+array.length == 3
+
+0 ≤ array[i] < 256
+
+Example
+For [24, 85, 0] the output should be 21784
+
+[24,       85,       0       ] - The initial array
+[00011000, 01010101, 00000000] - Translate each number to Binary
+   000000000101010100011000    - Compact to a single number
+            21784              - Translate to Decimal
+
+#!csharp
+
+// Solution 1
+
+public static uint Pack(byte[] bytes)
+{
+    uint result = 0;
+    for (int i = 0; i < bytes.Length; i++)
+    {
+        result |= (uint)bytes[i] << (i * 8);
+    }
+    return result;
+}
+
+#!csharp
+
+Pack(new byte[] {24, 85, 0})
+
+#!csharp
+
+// Solution 2
+public static int PerformOperations(int[] arr)
+{
+    for (int i = 1; i <= 5; i++)
+    {
+        if (arr.Length == 1)
+        {
+            break;
+        }
+
+        int[] temp = new int[arr.Length / 2];
+        for (int j = 0; j < temp.Length; j++)
+        {
+            if (i % 2 == 1)
+            {
+                temp[j] = arr[j * 2] + arr[j * 2 + 1];
+            }
+            else
+            {
+                temp[j] = arr[j * 2] * arr[j * 2 + 1];
+            }
+        }
+
+        arr = temp;
+    }
+
+    return arr[0];
+}
+
+#!csharp
+
+PerformOperations(new int[] {1, 2, 3, 4, 5, 6, 7, 8})
