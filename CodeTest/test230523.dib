@@ -1,0 +1,169 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+string newnode = "Orange";
+string head = "Apple";
+string nextNode = null;
+if (head == null)
+{
+    head = newnode;
+}else
+{
+    string current = head;
+    while (!(current == null))
+        {
+            current = nextNode;
+        }
+    nextNode = newnode;
+}
+
+#!csharp
+
+nextNode
+
+#!csharp
+
+class Node<T>
+{
+    //public Node<T> next;
+    public Node<T> next;
+    int count;
+    public Node<T> head;
+    public T value;
+
+    public Node(T data)
+    {
+        this.value = data;
+    }
+
+    public int Add(T value)
+    {
+
+        var node = new Node<T>(value);
+        if (head == null)
+        {
+            head = node;
+        }
+        else
+        {
+            node.next = head;
+            head = node;
+            /* var currentNode = head;
+                while (!(currentNode.next == null))
+                {
+                    currentNode = currentNode.next;
+                }
+                currentNode.next = head; */
+        }
+        count++;
+        return count;
+    }
+}
+
+#!csharp
+
+var list = new Node<string>("orange");
+
+#!csharp
+
+list.Add("Apple");
+list.Add("Lemon");
+list.Add("Strawberry");
+list
+
+#!csharp
+
+var node = new Node<string>("orange");
+//var currrentNode = node;
+var newnode = new Node<string>("Apple");
+var newnodenext = new Node<string>("Lemon");
+node.next = newnode;
+node.next.next = newnodenext;
+//node.next = node.next.next;
+
+#!csharp
+
+node
+
+#!csharp
+
+var list = new  Node<string>("Orange");
+
+#!csharp
+
+//list.Add("Orange");
+list
+
+#!csharp
+
+public static class Challenge
+	{
+
+		public static int[] UpArray(int[] num)
+		{
+			
+			string k = string.Join("",num);
+			int a = int.Parse(k); 
+			int b = a + 1;
+			string c = b.ToString();
+			//int[] x = c.Select(x=> int.Parse(x.ToString())).ToArray();
+            int[] x = new int[c.Length];
+            for(int i = 0; i < c.Length; i++)
+            {
+                x[i] = Convert.ToInt32(c[i].ToString());
+            }
+			return x;
+
+		}
+	}
+
+#!csharp
+
+Challenge.UpArray(new int[] {3,4,9})
+
+#!csharp
+
+class Node<T>
+{
+    public Node<T> next;
+    //public Node<T> head;
+    public T data;
+
+    public Node(T value)
+    {
+        this.data = value;
+    }
+
+    public void Add(T item)
+    {
+        var node = new Node<T>(item);
+        if (next == null)
+        {
+            next = node;
+        }
+        else
+        {
+            var currentNode = next;
+            next = node;
+            node.next = currentNode;
+        }
+    }
+}
+
+#!csharp
+
+Node<string> fruits = new Node<string>("Orange");
+/* var nextfruits = new Node<string>("Apple");
+var nextnextfruits = new Node<string>("Strawberry");
+fruits.next = nextfruits;
+fruits.next.next = nextnextfruits; */
+fruits.Add("Apple");
+fruits.Add("Strawberry");
+fruits.Add("Pine Apple");
+
+#!csharp
+
+fruits

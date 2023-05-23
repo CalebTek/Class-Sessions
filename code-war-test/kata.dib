@@ -2179,11 +2179,23 @@ public int Pack2(int[] bytes)
 
 #!csharp
 
+public int Pack3(int[] bytes)
+{
+    int result = 0;
+    for (int i=0; i<bytes.Length; i++)
+    {
+        result |= bytes[i] << (i*8);
+    }
+    return result;
+}
+
+#!csharp
+
 85 << 8
 
 #!csharp
 
-Pack2(new int[] {24, 85, 0})
+Pack3(new int[] {24, 85, 0})
 
 #!csharp
 
@@ -2248,6 +2260,38 @@ public static int PerformOperations(int[] arr)
 
     return arr[0]; // return first element
 }
+
+#!csharp
+
+public int PerfomOps(int[] arr)
+{
+    for (int i =1; i<= 5; i++)
+    {
+        if(arr.Length ==1)
+        {
+            break;
+        }
+
+        var temp = new int[arr.Length/2];
+        for (int j = 0; j < temp.Length; j++)
+        {
+            if(i %2 == 1)
+            {
+                temp[j] = arr[j*2] + arr[j*2 + 1];
+            }
+            else
+            {
+                temp[j] = arr[j*2] * arr[j*2+1];
+            }
+        }
+        arr = temp;
+    }
+    return arr[0];
+}
+
+#!csharp
+
+PerfomOps(new int[] {1, 2, 3, 4, 5, 6, 7, 8})
 
 #!csharp
 
@@ -2403,3 +2447,40 @@ Ordinal(23)
 #!csharp
 
 ToOrdinal(11)
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+
+public static class Challenge
+{
+    public static int[] UpArray(int[] num)
+    {
+ 
+      if(num.Length <= 0){
+        return num;
+      }
+
+      else
+      {
+        string joinedArray = string.Join("",(num));
+        int numIncrement = Convert.ToInt32(joinedArray) + 1;
+        int[] splitNumber = numIncrement.ToString().Select(x=> int.Parse(x.ToString())).ToArray();
+        
+         return splitNumber;                             
+      }
+      
+    }
+}
+
+#!csharp
+
+Challenge.UpArray(new int[] {1,1,2, 9})
+
+#!csharp
+
+var array = new int[] {1,2,3,5};
+array

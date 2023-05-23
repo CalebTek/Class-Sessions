@@ -1,0 +1,287 @@
+## User
+bing ai
+## Bing
+Searching for something specific? Our new engine has the answers you're looking for! We've improved on Microsoft Bing's rich results by adding AI for a more efficient experience.
+## User
+Explain this class
+    internal class SinglyNode<T>
+
+    {
+        public T Tvalue { get; set; }
+        public SinglyNode<T>
+ nextNode { get; set; }
+        public SinglyNode<T>
+ nodeHead { get; set; }
+        public SinglyNode<T>
+ nodeTail { get; set; }
+    }
+## Bing
+This is a class called SinglyNode in C#. It is a singly linked list node that contains a value of type T and a reference to the next node in the list. The class has four properties:
+ - Tvalue: A public property that gets or sets the value of the node.
+ - nextNode: A public property that gets or sets the reference to the next node in the list.
+ - nodeHead: A public property that gets or sets the head of the linked list.
+ - nodeTail: A public property that gets or sets the tail of the linked list.
+
+The class is used to create a singly linked list data structure. In this data structure, each node contains a value and a reference to the next node in the list. The last node in the list has a null reference for its next node. This data structure is useful for implementing stacks, queues, and other data structures.
+Is there anything else you would like me to help you with?
+## User
+Check the code and explain the property of the class SinglyNode
+## Bing
+I'm sorry but I cannot see the code you are referring to. Can you please provide more context or the code itself? I would be happy to help you understand the properties of the SinglyNode class.
+## User
+internal class SinglyNode<T>
+
+    {
+        public T Tvalue { get; set; }
+        public SinglyNode<T>
+ nextNode { get; set; }
+        public SinglyNode<T>
+ nodeHead { get; set; }
+        public SinglyNode<T>
+ nodeTail { get; set; }
+    }
+## Bing
+This is the code for the SinglyNode class. It is a generic class that has a type parameter T. The class has four properties:
+ - Tvalue: A public property that gets or sets the value of the node.
+ - nextNode: A public property that gets or sets the reference to the next node in the list.
+ - nodeHead: A public property that gets or sets the head of the linked list.
+ - nodeTail: A public property that gets or sets the tail of the linked list.
+
+The Tvalue property is of type T, which means it can hold any type of value. The nextNode property is of type SinglyNode<T>
+, which means it holds a reference to another SinglyNode object. The nodeHead and nodeTail properties are also of type SinglyNode<T>
+, which means they hold references to SinglyNode objects.
+Is there anything else you would like me to help you with?
+## User
+internal class SinglyLinkedList <T>
+ : SinglyNode<T>
+
+    {
+        private int listSize;
+}
+## Bing
+This is the code for the SinglyLinkedList class. It is a generic class that has a type parameter T. The class inherits from the SinglyNode class and has an additional private field called listSize.
+The listSize field is used to keep track of the number of nodes in the linked list.
+Is there anything else you would like me to help you with?
+## User
+public int Add(T Rvalue)
+        {
+            var node = new SinglyNode<T>
+ { Tvalue = Rvalue};
+            if (nodeHead == null)
+            {
+                nodeHead = node;
+            }
+            else
+            {
+                var currentValue = nodeHead;
+                while (!(currentValue.nextNode == null))
+                {
+                    currentValue = currentValue.nextNode;
+                }
+                currentValue.nextNode = node;
+            }
+            listSize++;
+            return listSize;
+        }
+## Bing
+This is the code for the Add method of the SinglyLinkedList class. The method takes a parameter of type T and returns an integer.
+The method creates a new SinglyNode object with the value of the parameter and adds it to the end of the linked list. If the linked list is empty, the new node becomes the head of the list. Otherwise, the method iterates through the list until it reaches the last node and then adds the new node as its next node.
+The method also increments the listSize field by 1 and returns its value.
+Is there anything else you would like me to help you with?
+## User
+public bool Remove(T Rvalue)
+        {
+            if (nodeHead == null)
+            {  return false; }
+            if (nodeHead.Tvalue.Equals(Rvalue))
+            {
+                nodeHead = nodeHead.nextNode;
+                listSize--;
+                return true;
+            }
+            var currentNode = nodeHead;
+            while (!(currentNode.nextNode == null))
+            {
+                if (currentNode.nextNode.Tvalue.Equals(Rvalue))
+                {
+                    currentNode = currentNode.nextNode;
+                    listSize--;
+                    return true;
+                }
+                currentNode = currentNode.nextNode;
+            }
+            return false;
+        }
+## Bing
+This is the code for the Remove method of the SinglyLinkedList class. The method takes a parameter of type T and returns a boolean.
+The method removes the first node in the linked list that has a value equal to the parameter. If the linked list is empty, the method returns false. If the head node has a value equal to the parameter, it is removed and the method returns true. Otherwise, the method iterates through the list until it finds a node with a value equal to the parameter and removes it.
+The method also decrements the listSize field by 1 if a node is removed and returns true. If no node is removed, the method returns false.
+Is there anything else you would like me to help you with?
+## User
+public bool Check(T Rvalue)
+        {
+            var currentNode = nodeHead;
+            while (!(currentNode == null))
+            {
+                if (currentNode.Tvalue.Equals(Rvalue))
+                {
+                    return true;
+                }
+                currentNode = currentNode.nextNode;
+            }
+            return false;
+        }
+## Bing
+This is the code for the Check method of the SinglyLinkedList class. The method takes a parameter of type T and returns a boolean.
+The method iterates through the linked list and returns true if it finds a node with a value equal to the parameter. Otherwise, the method returns false.
+Is there anything else you would like me to help you with?
+## User
+public int Index(T Rvalue)
+        {
+            var nodeIndex = 0; var currentNode = nodeHead;
+            while (!(currentNode == null))
+            {
+                if (currentNode.Tvalue.Equals(Rvalue))
+                {
+                    return nodeIndex;
+                }
+                nodeIndex++;
+                currentNode = currentNode.nextNode;
+            }
+            return -1;
+        }
+## Bing
+This is the code for the Index method of the SinglyLinkedList class. The method takes a parameter of type T and returns an integer.
+The method iterates through the linked list and returns the index of the first node with a value equal to the parameter. If no node is found with a value equal to the parameter, the method returns -1.
+Is there anything else you would like me to help you with?
+## User
+public int Count() { return listSize; }
+## Bing
+This is the code for the Count method of the SinglyLinkedList class. The method returns the value of the listSize field, which represents the number of nodes in the linked list.
+Is there anything else you would like me to help you with?
+## User
+internal class TaskStack<T>
+ : SinglyNode<T>
+
+    {
+        private int stackSize = 0;
+}
+## Bing
+This is the code for the TaskStack class. It is a generic class that has a type parameter T. The class inherits from the SinglyNode class and has an additional private field called stackSize.
+The stackSize field is used to keep track of the number of nodes in the stack.
+Is there anything else you would like me to help you with?
+## User
+public void Push(T Rvalue)
+        {
+            var node = new SinglyNode<T>
+() { Tvalue = Rvalue };
+            node.nextNode = nodeHead;
+            nodeHead = node;
+            stackSize++;
+        }
+## Bing
+This is the code for the Push method of the TaskStack class. The method takes a parameter of type T and does not return a value.
+The method creates a new SinglyNode object with the value of the parameter and adds it to the top of the stack. The new node becomes the head of the list and its next node is set to the previous head node.
+The method also increments the stackSize field by 1.
+Is there anything else you would like me to help you with?
+## User
+public T Pop()
+        {
+            if (nodeHead == null)
+            {
+                throw new InvalidOperationException("Empty stack");
+            }
+            var nodeValue = nodeHead.Tvalue;
+            nodeHead = nodeHead.nextNode;
+            stackSize--;
+            return nodeValue;
+        }
+## Bing
+This is the code for the Pop method of the TaskStack class. The method does not take any parameters and returns a value of type T.
+The method removes the top node from the stack and returns its value. If the stack is empty, the method throws an InvalidOperationException.
+The method also decrements the stackSize field by 1.
+Is there anything else you would like me to help you with?
+## User
+public T Peek()
+        {
+            if (nodeHead == null)
+            {
+                throw new InvalidOperationException("Empty stack");
+            }
+            return nodeHead.Tvalue;
+        }
+## Bing
+This is the code for the Peek method of the TaskStack class. The method does not take any parameters and returns a value of type T.
+The method returns the value of the top node in the stack without removing it. If the stack is empty, the method throws an InvalidOperationException.
+Is there anything else you would like me to help you with?
+## User
+public bool IsEmpty() { return nodeHead == null; }
+## Bing
+This is the code for the IsEmpty method of the TaskStack class. The method returns a boolean value indicating whether the stack is empty or not.
+The method returns true if the head node of the linked list is null, indicating that the stack is empty. Otherwise, the method returns false.
+Is there anything else you would like me to help you with?
+## User
+public int Size() { return stackSize; }
+## Bing
+This is the code for the Size method of the TaskStack class. The method returns an integer value indicating the number of nodes in the stack.
+The method returns the value of the stackSize field.
+Is there anything else you would like me to help you with?
+## User
+internal class TaskQueue<T>
+ : SinglyNode<T>
+
+    {
+        private int queueSize = 0;
+    }
+## Bing
+This is the code for the TaskQueue class. It is a generic class that has a type parameter T. The class inherits from the SinglyNode class and has an additional private field called queueSize.
+The queueSize field is used to keep track of the number of nodes in the queue.
+Is there anything else you would like me to help you with?
+## User
+public void Enqueue(T Rvalue)
+        {
+            var node = new SinglyNode<T>
+ { Tvalue = Rvalue };
+
+        if (nodeHead == null )
+        {
+            nodeHead = node;
+            nodeTail = node;
+        }
+        else
+        {
+            nodeTail.nextNode = node;
+            nodeTail = node;
+        }
+        queueSize++;
+    }
+## Bing
+This is the code for the Enqueue method of the TaskQueue class. The method takes a parameter of type T and does not return a value.
+The method creates a new SinglyNode object with the value of the parameter and adds it to the end of the queue. If the queue is empty, the new node becomes both the head and tail of the list.
+The method also increments the queueSize field by 1.
+Is there anything else you would like me to help you with?
+## User
+public T Dequeue()
+        {
+            if ( nodeHead == null )
+            {
+                throw new InvalidOperationException("Empty queue");
+            }
+            var nodeValue = nodeHead.Tvalue;
+            nodeHead = nodeHead.nextNode;
+            queueSize--;
+            return nodeValue;
+        }
+## Bing
+This is the code for the Dequeue method of the TaskQueue class. The method does not take any parameters and returns a value of type T.
+The method removes the first node from the queue and returns its value. If the queue is empty, the method throws an InvalidOperationException.
+The method also decrements the queueSize field by 1.
+Is there anything else you would like me to help you with?
+## User
+public bool IsEmpty() { return nodeHead == null;  }
+public int Size() { return queueSize; }
+## Bing
+These are the codes for the IsEmpty and Size methods of the TaskQueue class.
+The IsEmpty method returns a boolean value indicating whether the queue is empty or not. The method returns true if the head node of the linked list is null, indicating that the queue is empty. Otherwise, the method returns false.
+The Size method returns an integer value indicating the number of nodes in the queue. The method returns the value of the queueSize field.
+Is there anything else you would like me to help you with?
