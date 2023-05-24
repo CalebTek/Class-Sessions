@@ -58,6 +58,10 @@ Juliet.SayHi(John);
 
 Console.WriteLine($"{John.name} is {(John.GetAge())} years");
 
+#!csharp
+
+John.isAlive
+
 #!markdown
 
 # ToString() Method

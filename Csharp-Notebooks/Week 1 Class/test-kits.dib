@@ -138,8 +138,14 @@ Console.Write("John | \t45 | \tLagos")
 
 #!csharp
 
+// using tab \t
 Console.WriteLine();
 Console.WriteLine("|---------------|-------------|-------|------------|------------|-----------|");
 Console.WriteLine("| COURSE & CODE | COURSE UNIT | GRADE | GRADE-UNIT | WEIGHT Pt. |  REMARK   |");
 //Console.WriteLine("| COURSE & CODE\t| COURSE UNIT | GRADE | GRADE-UNIT | WEIGHT Pt. |  REMARK   |");
 Console.WriteLine("|---------------|-------------|-------|------------|------------|-----------|");
+
+#!csharp
+
+ConsoleKeyInfo addInput = Console.ReadKey();
+char isKey = addInput.KeyChar;
