@@ -367,3 +367,30 @@ class DoublyCircularLinkedList
 Stack is a special type of collection that stores elements in LIFO style (Last In First Out). It is recommended to use the generic Stack<`T`> collection. The Stack class represents a last-in, first-out (LIFO) stack of objects.  
 <p>When you add an item to the top of the stack, it is called pushing an item onto the stack. When you remove an item from the top of the stack, it is called popping an item off the stack. 
 <p>For example, if you push 1, 2, 3, 4 and 5 onto a stack, the order of items in the stack will be 5, 4, 3, 2 and 1. If you pop an item off the stack, it will remove 5 from the stack.</p>
+
+#!csharp
+
+//Here is an example of C# code that demonstrates LIFO using Stack class:
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        // create a stack
+        Stack<string> stack = new Stack<string>();
+
+        // push items onto the stack
+        stack.Push("apple");
+        stack.Push("banana");
+        stack.Push("cherry");
+
+        // pop items off the stack
+        while (stack.Count > 0)
+        {
+            string item = stack.Pop();
+            Console.WriteLine(item);
+        }
+    }
+}
