@@ -75,7 +75,7 @@ myList2.AddRange(new List<string> {"Kyle", "Declan"});
 
 #!markdown
 
-- **`Dictionaries and hash talbes:`** are used to store key-value pairs. They allow a quick look up of values based ono their keys.
+- **`Dictionaries and hash tables:`** are used to store key-value pairs. They allow a quick look up of values based ono their keys.
 
 #!csharp
 
@@ -403,6 +403,32 @@ class Program
 
 #!markdown
 
+## Indexer
+An indexer is a special type of property that allow elements of an object to be accessed like an array. Indexers are defined using the `this` keyword followed by `square brackets`[ ] containing the `index parameter` *int i*. The `get` and `set` accessors are used to retrieve and assign values to the indexer respectively.
+
+#!csharp
+
+//Here is an example of how to use an indexer in C#:
+
+class MyClass
+{
+    private int[] arr = new int[10];
+
+    public int this[int i]
+    {
+        get { return arr[i]; }
+        set { arr[i] = value; }
+    }
+}
+
+#!csharp
+
+MyClass obj = new MyClass();
+obj[0] = 10;
+int x = obj[0];
+
+#!markdown
+
 ## Delegates  
 
 Delegates are a type of variable that can hold a reference to a method or an object that references a method.  
@@ -456,7 +482,7 @@ A Lambda expression is an anonymous function that can be used to create delegate
 ## Generics
 
 Generics is a feature that allows for the creation of reusable code by creating parameterized types.  
-In simple terms, it enables the creation of classess, interfaces, and methods tat work with different data types withou haveing to define the type explicity.
+In simple terms, it enables the creation of classess, interfaces, and methods that work with different data types without having to define the type explicity.
 
 
 ### Benefits of using Generics
