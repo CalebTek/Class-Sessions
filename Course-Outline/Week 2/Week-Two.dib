@@ -147,6 +147,8 @@ A linked list is a linear data structure, in which the elements are not stored a
 ![alt Linked List](images/Linkedlist.png)  
 [Linked List](https://www.geeksforgeeks.org/data-structures/linked-list/)
 
+In simple words, a linked list consists of nodes where each node contains a data field and a reference(link) to the next node in the list.
+
 #!markdown
 
 ### Type of Linked List
@@ -394,3 +396,93 @@ class Program
         }
     }
 }
+
+#!markdown
+
+### Pros and Cons of Using Stack.
+
+#!markdown
+
+## Delegates  
+
+Delegates are a type of variable that can hold a reference to a method or an object that references a method.  
+- Delegates allow method to be passed as parameters. 
+- They can be used to define a callback function.
+- Delegate is a type that safely encapsulate a method.
+
+<p>The syntax for defining a delegate is as follows:  </p>
+
+[Access Modifier] `delegate` [Return Type] [`Delegate Name`] (Parameter List)
+
+#!csharp
+
+// Here is an example of a delegate
+public delegate int myDelegate(int a, int b); 
+// a delegate name myDelegate that takes two integer parameters and returns and integer value.
+
+#!csharp
+
+// Here is an example of how delegate works
+public int Add(int x, int y) => x+y;
+
+#!csharp
+
+myDelegate del = Add;
+del(5,4)
+
+#!markdown
+
+## Lambda Expression
+
+A Lambda expression is an anonymous function that can be used to create delegates or expression tree types.
+
+### Characteristics:
+- They are helpful for writing LINQ query expressions.
+- They are anonymous (does not have a name).
+- They can contain expressions and statements.
+- They can be used to create delegates or expression tree types.
+
+#!csharp
+
+// Here is an example of a lambda expression  
+(int x) => x*x
+
+#!csharp
+
+(int x, int y) => x + y
+
+#!markdown
+
+## Generics
+
+Generics is a feature that allows for the creation of reusable code by creating parameterized types.  
+In simple terms, it enables the creation of classess, interfaces, and methods tat work with different data types withou haveing to define the type explicity.
+
+
+### Benefits of using Generics
+- Code resuablility
+- Compile-time type checking
+- Better debugging experience
+- Type safety
+- Performance boost
+
+#!csharp
+
+// Here is the syntax for declaring any generic classs
+public class GenericList<G>
+{
+    public string Method1(G input)
+    {
+        return "";
+    }
+}
+
+#!markdown
+
+## Events
+
+An event is an encapsulated delegate.  
+An event is a notification sent by an object to signal the occurence of an action.
+
+- It is dependent on delegate.
+- The delegate defines the signature for the event handler method of the subscriber.
