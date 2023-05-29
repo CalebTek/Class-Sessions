@@ -1,0 +1,363 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+Object Oriented Programming is an approach to designing and building applications that are:
+- Flexible
+- Natural
+- Well-crafted
+- Testable  
+<p>by focusing on objects that interact cleanly with one another</p>
+
+OOP: 
+- Identify classes
+- Separate responsibilities
+- Establish relationship
+- Leveage reuse
+
+## Prerequisites
+
+| **Required** | **Suggested** | **Not Required**|
+|--|--|--|
+| `Basic knowledge of C#` | `Visual Studio` | `OOP experience` |
+| * Syntax | | |
+| * Variables | | |
+| * Conditionals | | |
+| * Control flow | | |
+
+## Four Pillars of OOP
+- Abstraction 
+- Encapsulaton
+- Inheritance
+- Polymorphism
+
+#!markdown
+
+## Business model
+ACME CUSTOMER MANAGEMENT SYSTEM
+
+Requirements:
+- Manage business, residential, goververnment, and educator types of customers
+- Manage products
+- Accept orders from customers online or through call center
+
+#!markdown
+
+### Requirement analysis
+### Identify Classes
+-  Represents business entitites.
+-  Defines properties (data).
+-  Defines methods (actions/behaviour).
+
+1. Start with the nouns.
+   1. Manage business, residential, goververnment, and educator types of customers => `Customer`
+   2. Manage products => `Product`
+   3. Accept orders from customers online or through call center => `Order`
+
+2. Define appropriate members of each class => set properties: `data` and Methods: `Operations`  
+   1. `Customer`
+      1. Customer's name
+      2. Email address
+      3. Home and work addresses
+   2. `Product`
+      1. Product name
+      2. Description
+      3. Current Price
+   3. `Order`
+      1. Customer
+      2. Order date
+      3. Shipping address
+      4. Product ordered
+      5. Quantities ordered
+
+
+| `Customer` | `Product` | `Order` |
+|--|--|--|
+| 1. Customer's name | 1. Product name | 1. Customer
+| 2. Email address | 2. Description |  2. Order date
+| 3. Home and work addresses | 3. Current Price | 3. Shipping address
+| | | 4. Product |
+| | | 5. QuantitY |
+
+Create Order Item class to specify the product and quantity.
+| `Customer` | `Product` | `Order` | `Order Item` |
+|--|--|--|--|
+| 1. Customer's name | 1. Product name | 1. Customer | 1. Product |
+| 2. Email address | 2. Description |  2. Order date | 2. QuantitY |
+| 3. Home and work addresses | 3. Current Price | 3. Shipping address | |
+| | | 4. Order Item |
+
+2. Handle the verbs: methods.
+
+
+| `Customer` | `Product` | `Order` | `Order Item` |
+|--|--|--|--|
+| 1. Validate( ) | 1. Validate( ) | 1. Validate( ) | 1. Validate( ) |
+| 2. Retrieve( ) | 2. Retrieve( ) |  2. Retrieve( ) | 2. Retrieve( ) |
+| 3. Save( ) | 3. Save( ) | 3. Save( ) | 3. Save( ) |
+
+3. Check how time affects classes and members
+
+| `Customer` | `Product` | `Order` | `Order Item` |
+|--|--|--|--|
+| 1. Customer's name | 1. Product name | 1. Customer | 1. Product |
+| 2. Email address | 2. Description |  2. Order date | 2. Quantity |
+| 3. Home and work addresses | 3. Current Price | 3. Shipping address | 3. Purchase Price |
+| | | 4. Order Item |
+
+4. Introduce Abstraction and Encapsulation
+   1. Abstraction is the process of defining classes by simplifying reality, ignoring extraneous details, focusing on what is imortant for a purpose
+   2. Encapsulation is a technique or a way to hide or encapsulate the data and implemtation details within a class, thus hiding complexity.
+      1. It protect the data
+      2. Allows for authorization before getting the data
+      3. Allows for validation before setting the data
+      4. Helps manage Complexity
+      5. Only the class needs to understand the implementation
+      6. Implementation can be changed without impacting the applicaton
+
+5. Layer the Application
+   1. Build with a layered structure: Layering is key to a good application structure
+### Common Application Layers
+- User Interface layer
+- Business Logic layer
+- Data access layer
+- Common Code/library
+
+#!markdown
+
+## Separating Responsibilities
+- Minimizes coupling
+- Maximizes cohesion
+- Simplifies maintenance
+- Improves testability
+
+1. `Coupling` is the degree to which classes are dependent on other classes or external resources. The fewer dependencies the class has, the easier it is to write, test, maintain, and update over time. If there are too many dependencies in a class consider moving some of those dependencies to another class.
+2. `Cohesion` is a measure of how related everything in a class is to the purpose of the class. If there are properties or methods in a class that are not truly related to the purpose of the class, they should be moved to another class.
+
+#!markdown
+
+## Establishing Relationships
+- Defines how objects work together to perform the operations of the application
+  
+## Techniques
+- Defining relationships
+- Types of relationships
+- Collaboration (`uses a`)
+- Composition (`has a`)
+  - References
+  - IDs
+- Inheritance (`is a`)
+
+
+## Levaraging Reuse
+- Involves extracting commonality
+- Building reusable classes/ components
+
+### Secrets of Reuse
+- Build it once
+- Test it
+- Reuse it!
+- Update it in one place
+
+### Advantages of Reuse
+- Reduces amount of code
+- Reduces development time
+- Reduces costs
+- Reduces bugs
+
+
+## Polymorphism
+Polymorphism is an impressive sounding word that basically means many shaped. In OOP, polymorphism is the concept that a single method, such as the `ToString` method, can behave differntly depending on the type of object that calls it. If the base class calls `ToString`, `ToString` displays the full class name. For example, If an order object calls `ToString`, it displays the order date and ID, if a customer object calls `ToString`, it displays the customer's full name, and if a product object calls `ToString`, it displays the product name.
+
+
+### Abstract Class VS Concrete Class
+
+| Abstract Class | Concrete Class |
+|--|--|
+| 1. Incomplete, with at least one property or method not implemented | 1. Normal class |
+| 2. Cannot be Instantiated | 2. Can be Instantiated |
+| 3. Intended for use as a base class | 3. Can be used as a base class |
+
+#!csharp
+
+// Syntax for abstract
+public abstract class EntityBase
+{
+
+}
+
+#!csharp
+
+// Syntax for Concrete
+public class EntityBase
+{
+    
+}
+
+#!markdown
+
+## Sealed Class
+A sealed class is a class that cannot be extended through inheritance. Sealing a class prevents extension and customization. If you build a class and want to ensure that no other classes extend and override its functionality, consider marking it as sealed. 
+
+#!csharp
+
+// Syntax for Sealed class
+public sealed class Customer
+{
+    
+}
+
+#!markdown
+
+### Overridable Base Class member Abstract Class VS Virtual Class
+
+| Abstract Class | Concrete Class |
+|--|--|
+| 1. Method signature as placeholder with no implementation | 1. Method with default implementation |
+| 2. Only use in abstract classes | 2. Use in abstract or concrete classes |
+| 3. Must be overridden by derived class | 3. Optionally overridden by derived class |
+
+
+    // Syntax for Abstract  
+  public abstract bool Validate()  
+  {  
+      
+  }  
+  
+    // Syntax for Virtual  
+  public virtual bool Validate()  
+  {  
+      
+  }  
+  
+
+#!markdown
+
+The four (4) pillars in the ACME CUSTOMER MANAGEMENT SYSTEM
+- `Abstraction:` helps us map the business requirements to an initial set of classes.
+- `Encapsulation:` helps keep our properties and method code protected within the class and only accessible through a public programming interface.
+- `Inheritance:` help us reuse code by inheriting properties and methods from a base class.
+- `Polymorphism:` It allows us to write a method with many shapes.
+
+#!markdown
+
+### Building Reusable Components
+
+
+### Static Class
+- A class that cannot be instantiated
+- Access members using the class name
+- Members must also be static
+- Often used as a container for utility methods
+
+### Extension methods
+- Add methods to an existing type without modifying the original type
+- Great for adding methods to .NET types
+- Extension methods appear in intelliSense
+- Must be a static method in a static class.
+
+#!markdown
+
+### Static Method VS Extension Method
+
+To make the choice of when to use either of the Method
+### Use an Extension Method if the answer to the question below is Yes!
+- Is the primary parameter and instance?
+- Does the method logically operate on that instance?
+- Is it desirable for the method to appear in IntelliSense for that type?
+
+#!markdown
+
+### Defining Interfaces
+<p>Intefaces provide a clean way to work with a set of classes in a common manner.</p>
+<p>In Computing, An interface is a shared boundary across which tow or more separate components of a computer system exchange information.  
+<p>The exchange can be between software, computer hardware, peripheral devices, humans and combinations of these.</p>  
+
+
+- The boundary between the user in an application is called the `User Interface`.
+- In web development, the boundary between a back-end that provides services and the front-end clients requesting those services is called a `Web API`.
+- In a OOP, the boundary between each class and the rest of the application is called a `Class Interface`.
+
+### The Interface module Outline
+- Class Interface
+- Defining an Interface
+- Implementing an Interface
+- Interface-based polymorphism
+
+
+### Logging
+- For Resolving bugs
+- For Security
+- For Data Analysis
+
+#!markdown
+
+### Defining an Interface
+- Add a new Interface item to a project 
+  - Prefix the interface name with `I`
+  - Specify the public access modifier
+- Add property, method, event, or indexer signatures
+  - No need for an access modifier on the members
+- No implementation of the members (`No coding`)
+
+#!markdown
+
+### Implementing an Interface
+- Add the interface to the class signature
+  - Separate multiple interfaces with commas.
+- Implement each member of the interface
+  - Involves writing code for every property, method, event, or indexer specified in that interface.
+  - The member must be public, non-static, and have the same name and signature as the interface member.
+
+
+- By default, a class always has its basic class interface.
+- A class can implement any number of additional interfaces.
+
+## Benefits of Interfaces and Polymorphism
+- Strong typing.
+- Defines commonality among unrelated classes.
+- Aids in building generalized utility methods with class-unique functionality.
+
+#!markdown
+
+### Additional Pluralsight Courses
+- Defensive Coding in C#
+- Clean Code: Writing Code for Humans
+- C# Interfaces
+- Design Patterns On-Ramp
+- C# Best Practices: Improving on the Basics
+- C# Best Practices: Collections and Generics
+
+#!markdown
+
+# SOLID PRINCIPLE
+
+#!markdown
+
+# Gar's Lecture
+OOP is a concept of modern programming language that allow programmers to organize entities and objects.  
+It's a programming model where programs are organized around objects and data rather thatn action and logic.  
+It allows decomposition of a problem into a number of entities called objects and the nbuilds data and functions around these objects.  
+
+#!markdown
+
+### Microservice Architecture  
+Microservices architecture is an approach to building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. It is a type of application architecture where the application is developed as a collection of services. Each service runs in its own process and communicates with other services through APIs or messaging¹³. 
+
+This approach allows for greater flexibility and agility in software development, as each service can be developed and deployed independently of the others. It also allows for better fault isolation and easier scaling of individual services¹. 
+
+Microsoft Azure provides a comprehensive guide on how to design microservices architecture¹. 
+
+I hope this helps! Let me know if you have any other questions.
+
+Source: Conversation with Bing, 27/05/2023
+(1) Microservices architecture design - Azure Architecture Center .... https://learn.microsoft.com/en-us/azure/architecture/microservices/.
+(2) What Is Microservices Architecture? | Google Cloud. https://cloud.google.com/learn/what-is-microservices-architecture.
+(3) Microservices architecture | Microsoft Learn. https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/microservices-architecture.
+
+#!csharp
+
+DateTime date = DateTime.Now;
+date.ToString()

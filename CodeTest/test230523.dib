@@ -4,6 +4,26 @@
 
 #!csharp
 
+public class Node
+{
+    public string Data;
+    public Node next;
+
+    public Node(string data)
+    {
+        this.Data = data;
+    }
+}
+
+#!csharp
+
+Node fruits = new Node("Orange");
+var nextfruits = new Node("Apple");
+fruits.next = nextfruits;
+fruits
+
+#!csharp
+
 string newnode = "Orange";
 string head = "Apple";
 string nextNode = null;

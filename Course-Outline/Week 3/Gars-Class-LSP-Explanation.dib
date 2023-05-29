@@ -1,0 +1,146 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+<p>The <b>Liskov Substitution Principle (LSP)</b> is a particular definition of a subtyping relation that was initially introduced by Barbara Liskov in a 1987</p>
+
+<p>The principle states that if a program module is using a Base class, then the reference to the Base class can be replaced with a Derived class without affecting the functionality of the program module.</p>
+
+In plain English, a child class should be able to comfortably take the place of the base class.
+
+#!csharp
+
+public class Animal
+{
+    public virtual void MakeSound()
+    {
+        Console.WriteLine("The animal makes a sound");
+    }
+}
+
+public class Dog : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("The dog barks");
+    }
+}
+
+public class Cat : Animal
+{
+    public override void MakeSound()
+    {
+        Console.WriteLine("The cat meows");
+    }
+}
+
+public class AnimalSound
+{
+    public void PlaySound(Animal animal)
+    {
+        animal.MakeSound();
+    }
+}
+
+#!markdown
+
+In this example, we have three classes: `Animal`, `Dog`, and `Cat`. The `Dog` and `Cat` classes inherit from the Animal class. The `AnimalSound` class has a method called `PlaySound`( ) that takes an Animal object as input and calls its `MakeSound`( ) method.  Because both the Dog and Cat classes inherit from the `Animal` class, they can be passed as arguments to the `PlaySound`() method without affecting its functionality.
+
+#!csharp
+
+AnimalSound animalSound = new AnimalSound();
+Animal dog = new Dog();
+Animal cat = new Cat();
+
+animalSound.PlaySound(dog);
+animalSound.PlaySound(cat);
+
+#!markdown
+
+This code creates a new `AnimalSound` object and two new objects called `dog` and `cat`, which are instances of the `Dog` and `Cat` classes, respectively. The `PlaySound`( ) method is called twice, once with the `dog` object and once with the `cat` object.
+
+#!csharp
+
+// DEPENDENCY INVERSION  PRINCIPLE
+// It states that high-level modules/classes should not depend on low-level modules/classes. Both should depend upon abstractions.
+// Secondly, abstractions should not depend upon details. Details should depend upon abstractions1.
+//interface
+public interface IMessageSender
+{
+    void SendMessage(string message);
+}
+
+// Low level module
+public class EmailSender : IMessageSender
+{
+    public void SendMessage(string message)
+    {
+        // Code to send email
+        Console.WriteLine("Email message sent: " + message);
+    }
+}
+
+public class SMSSender : IMessageSender
+{
+    public void SendMessage(string message)
+    {
+        // Code to send SMS
+        Console.WriteLine("SMS message sent: " + message);
+    }
+}
+
+// High level module
+public class Notification
+{
+    private IMessageSender _messageSender;
+    public Notification(IMessageSender messageSender)
+    {
+        _messageSender = messageSender;
+    }
+
+    public void SendNotification(string message)
+    {
+        _messageSender.SendMessage(message);
+    }
+}
+
+
+IMessageSender emailSender = new EmailSender();
+Notification emailNotification = new Notification(emailSender);
+emailNotification.SendNotification("Hello David!");
+
+IMessageSender smsSender = new SMSSender();
+Notification smsNotification = new Notification(smsSender);
+smsNotification.SendNotification("Hello David!");
+
+#!csharp
+
+// Abstract class
+  abstract class Animal
+  {
+    // Abstract method (does not have a body)
+    public abstract void animalSound();
+    // Regular method
+    public void sleep()
+    {
+      Console.WriteLine("Zzz");
+    }
+  }
+  
+  // Derived class (inherit from Animal)
+  class Pig : Animal
+  {
+
+    public override void animalSound()
+    {
+      // The body of animalSound() is provided here
+      Console.WriteLine("The pig says: wee wee");
+    }
+  }
+
+
+Pig myPig = new Pig();  // Create a Pig object
+myPig.animalSound();
+myPig.sleep();

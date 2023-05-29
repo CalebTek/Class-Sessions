@@ -1,0 +1,1006 @@
+## User
+bing ai
+## Bing
+Searching for something specific? Our new engine has the answers you're looking for! We've improved on Microsoft Bing's rich results by adding AI for a more efficient experience.
+## User
+c# Create three classes Login, Transfer and Withdrawal , write a main program that collect user input that the Login class uses, and do transfer and withrawal
+## Bing
+Sure! Here's an example of how you can create three classes Login, Transfer and Withdrawal in C#:
+
+[csharp]
+using System;
+
+public class Login
+{
+    public string username;
+    public string password;
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Login login = new Login();
+        Console.WriteLine("Enter your username:");
+        login.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        login.password = Console.ReadLine();
+
+        Transfer transfer = new Transfer();
+        Console.WriteLine("Enter the account you want to transfer from:");
+        transfer.fromAccount = Console.ReadLine();
+        Console.WriteLine("Enter the account you want to transfer to:");
+        transfer.toAccount = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to transfer:");
+        transfer.amount = double.Parse(Console.ReadLine());
+
+        Withdrawal withdrawal = new Withdrawal();
+        Console.WriteLine("Enter your account number:");
+        withdrawal.accountNumber = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to withdraw:");
+        withdrawal.amount = double.Parse(Console.ReadLine());
+    }
+}
+This program collects user input that the Login class uses, and does transfer and withdrawal. You can modify it according to your needs.
+I hope this helps! Let me know if you have any other questions.
+## User
+this program use be bank model where there is a function in each class that perform the operations, like the transfer class should have a transfer methond, and deposit should have a deposit method like the withdrawal should have a withraw method
+## Bing
+I see. You can modify the code to include methods in each class that perform the operations. Here's an example:
+
+[csharp]
+using System;
+
+public class Login
+{
+    public string username;
+    public string password;
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney()
+    {
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney()
+    {
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney()
+    {
+        // code to withdraw money
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Login login = new Login();
+        Console.WriteLine("Enter your username:");
+        login.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        login.password = Console.ReadLine();
+
+        Transfer transfer = new Transfer();
+        Console.WriteLine("Enter the account you want to transfer from:");
+        transfer.fromAccount = Console.ReadLine();
+        Console.WriteLine("Enter the account you want to transfer to:");
+        transfer.toAccount = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to transfer:");
+        transfer.amount = double.Parse(Console.ReadLine());
+        transfer.TransferMoney();
+
+        Deposit deposit = new Deposit();
+        Console.WriteLine("Enter your account number:");
+        deposit.accountNumber = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to deposit:");
+        deposit.amount = double.Parse(Console.ReadLine());
+        deposit.DepositMoney();
+
+        Withdrawal withdrawal = new Withdrawal();
+        Console.WriteLine("Enter your account number:");
+        withdrawal.accountNumber = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to withdraw:");
+        withdrawal.amount = double.Parse(Console.ReadLine());
+        withdrawal.WithdrawMoney();
+    }
+}
+I hope this helps! Let me know if you have any other questions.
+## User
+cool, now let there be a account balance that all classes method will affect
+## Bing
+Sure! You can add an account balance that all classes' methods will affect. Here's an example:
+
+[csharp]
+using System;
+
+public class Login
+{
+    public string username;
+    public string password;
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney(ref double balance)
+    {
+        balance -= amount;
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney(ref double balance)
+    {
+        balance += amount;
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney(ref double balance)
+    {
+        balance -= amount;
+        // code to withdraw money
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Login login = new Login();
+        Console.WriteLine("Enter your username:");
+        login.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        login.password = Console.ReadLine();
+
+        double balance = 0;
+
+        Transfer transfer = new Transfer();
+        Console.WriteLine("Enter the account you want to transfer from:");
+        transfer.fromAccount = Console.ReadLine();
+        Console.WriteLine("Enter the account you want to transfer to:");
+        transfer.toAccount = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to transfer:");
+        transfer.amount = double.Parse(Console.ReadLine());
+        transfer.TransferMoney(ref balance);
+
+        Deposit deposit = new Deposit();
+        Console.WriteLine("Enter your account number:");
+        deposit.accountNumber = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to deposit:");
+        deposit.amount = double.Parse(Console.ReadLine());
+        deposit.DepositMoney(ref balance);
+
+        Withdrawal withdrawal = new Withdrawal();
+        Console.WriteLine("Enter your account number:");
+        withdrawal.accountNumber = Console.ReadLine();
+        Console.WriteLine("Enter the amount you want to withdraw:");
+        withdrawal.amount = double.Parse(Console.ReadLine());
+        withdrawal.WithdrawMoney(ref balance);
+
+        Console.WriteLine("Your current balance is: " + balance);
+    }
+}
+I hope this helps! Let me know if you have any other questions.
+## User
+why did you make balance ref
+## Bing
+I made balance a reference because I want the methods to modify the balance variable directly. If I didn't use a reference, the methods would only modify a copy of the balance variable and not the original one.
+I hope this helps! Let me know if you have any other questions.
+## User
+i don't want to create an instance of the class and methods in the main program, i want to prompt option to the user to select an operation like "Press 1 to Deposit, 2 to Withdraw , 3 to Transfer
+## Bing
+I see. You can modify the code to prompt the user to select an operation. Here's an example:
+
+[csharp]
+using System;
+
+public class Login
+{
+    public string username;
+    public string password;
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney(ref double balance)
+    {
+        balance -= amount;
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney(ref double balance)
+    {
+        balance += amount;
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney(ref double balance)
+    {
+        balance -= amount;
+        // code to withdraw money
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Login login = new Login();
+        Console.WriteLine("Enter your username:");
+        login.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        login.password = Console.ReadLine();
+
+        double balance = 0;
+
+        while (true)
+        {
+            Console.WriteLine("Press 1 to deposit, 2 to withdraw, 3 to transfer, or 4 to exit:");
+            int choice = int.Parse(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                Deposit deposit = new Deposit();
+                Console.WriteLine("Enter the amount you want to deposit:");
+                deposit.amount = double.Parse(Console.ReadLine());
+                deposit.DepositMoney(ref balance);
+            }
+            else if (choice == 2)
+            {
+                Withdrawal withdrawal = new Withdrawal();
+                Console.WriteLine("Enter the amount you want to withdraw:");
+                withdrawal.amount = double.Parse(Console.ReadLine());
+                withdrawal.WithdrawMoney(ref balance);
+            }
+            else if (choice == 3)
+            {
+                Transfer transfer = new Transfer();
+                Console.WriteLine("Enter the account you want to transfer from:");
+                transfer.fromAccount = Console.ReadLine();
+                Console.WriteLine("Enter the account you want to transfer to:");
+                transfer.toAccount = Console.ReadLine();
+                Console.WriteLine("Enter the amount you want to transfer:");
+                transfer.amount = double.Parse(Console.ReadLine());
+                transfer.TransferMoney(ref balance);
+            }
+            else if (choice == 4)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please try again.");
+            }
+
+            Console.WriteLine("Your current balance is: " + balance);
+        }
+    }
+}
+I hope this helps! Let me know if you have any other questions.
+## User
+cool, i don't want to create an instance of the classes, i want the choice made to directly go the class and methods and perform the operation so i can store history for bank statement
+## Bing
+I see. You can modify the code to directly call the class and methods based on the user's choice. Here's an example:
+
+[csharp]
+using System;
+using System.Collections.Generic;
+
+public class Login
+{
+    public string username;
+    public string password;
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Transferred " + amount + " from " + fromAccount + " to " + toAccount);
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney(ref double balance, List<string> history)
+    {
+        balance += amount;
+        history.Add("Deposited " + amount + " into account " + accountNumber);
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Withdrew " + amount + " from account " + accountNumber);
+        // code to withdraw money
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Login login = new Login();
+        Console.WriteLine("Enter your username:");
+        login.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        login.password = Console.ReadLine();
+
+        double balance = 0;
+        List<string> history = new List<string>();
+
+        while (true)
+        {
+            Console.WriteLine("Press 1 to deposit, 2 to withdraw, 3 to transfer, or 4 to exit:");
+            int choice = int.Parse(Console.ReadLine());
+
+            if (choice == 1)
+            {
+                Console.WriteLine("Enter the amount you want to deposit:");
+                double amount = double.Parse(Console.ReadLine());
+                Deposit deposit = new Deposit();
+                deposit.amount = amount;
+                deposit.accountNumber = login.username;
+                deposit.DepositMoney(ref balance, history);
+            }
+            else if (choice == 2)
+            {
+                Console.WriteLine("Enter the amount you want to withdraw:");
+                double amount = double.Parse(Console.ReadLine());
+                Withdrawal withdrawal = new Withdrawal();
+                withdrawal.amount = amount;
+                withdrawal.accountNumber = login.username;
+                withdrawal.WithdrawMoney(ref balance, history);
+            }
+            else if (choice == 3)
+            {
+                Console.WriteLine("Enter the account you want to transfer from:");
+                string fromAccount = Console.ReadLine();
+                Console.WriteLine("Enter the account you want to transfer to:");
+                string toAccount = Console.ReadLine();
+                Console.WriteLine("Enter the amount you want to transfer:");
+                double amount = double.Parse(Console.ReadLine());
+                Transfer transfer = new Transfer();
+                transfer.fromAccount = fromAccount;
+                transfer.toAccount = toAccount;
+                transfer.amount = amount;
+                transfer.TransferMoney(ref balance, history);
+            }
+            else if (choice == 4)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please try again.");
+            }
+
+            Console.WriteLine("Your current balance is: " + balance);
+        }
+
+        Console.WriteLine("\nTransaction History:\n");
+        foreach (string transaction in history)
+        {
+            Console.WriteLine(transaction);
+        }
+    }
+}
+I hope this helps! Let me know if you have any other questions.
+## User
+can the user input be a separate class?
+## Bing
+Yes, you can create a separate class for user input. Here's an example:
+
+[csharp]
+using System;
+using System.Collections.Generic;
+
+public class Login
+{
+    public string username;
+    public string password;
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Transferred " + amount + " from " + fromAccount + " to " + toAccount);
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney(ref double balance, List<string> history)
+    {
+        balance += amount;
+        history.Add("Deposited " + amount + " into account " + accountNumber);
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Withdrew " + amount + " from account " + accountNumber);
+        // code to withdraw money
+    }
+}
+
+public class UserInput
+{
+    public static int GetChoice()
+    {
+        Console.WriteLine("Press 1 to deposit, 2 to withdraw, 3 to transfer, or 4 to exit:");
+        int choice = int.Parse(Console.ReadLine());
+        return choice;
+    }
+
+    public static double GetAmount()
+    {
+        Console.WriteLine("Enter the amount:");
+        double amount = double.Parse(Console.ReadLine());
+        return amount;
+    }
+
+    public static string GetAccountNumber()
+    {
+        Console.WriteLine("Enter the account number:");
+        string accountNumber = Console.ReadLine();
+        return accountNumber;
+    }
+
+    public static string GetFromAccount()
+    {
+        Console.WriteLine("Enter the account you want to transfer from:");
+        string fromAccount = Console.ReadLine();
+        return fromAccount;
+    }
+
+    public static string GetToAccount()
+    {
+        Console.WriteLine("Enter the account you want to transfer to:");
+        string toAccount = Console.ReadLine();
+        return toAccount;
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Login login = new Login();
+        Console.WriteLine("Enter your username:");
+        login.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        login.password = Console.ReadLine();
+
+        double balance = 0;
+        List<string> history = new List<string>();
+
+        while (true)
+        {
+            int choice = UserInput.GetChoice();
+
+            if (choice == 1)
+            {
+                double amount = UserInput.GetAmount();
+                Deposit deposit = new Deposit();
+                deposit.amount = amount;
+                deposit.accountNumber = login.username;
+                deposit.DepositMoney(ref balance, history);
+            }
+            else if (choice == 2)
+            {
+                double amount = UserInput.GetAmount();
+                Withdrawal withdrawal = new Withdrawal();
+                withdrawal.amount = amount;
+                withdrawal.accountNumber = login.username;
+                withdrawal.WithdrawMoney(ref balance, history);
+            }
+            else if (choice == 3)
+            {
+                string fromAccount = UserInput.GetFromAccount();
+                string toAccount = UserInput.GetToAccount();
+                double amount = UserInput.GetAmount();
+                Transfer transfer = new Transfer();
+                transfer.fromAccount = fromAccount;
+                transfer.toAccount = toAccount;
+                transfer.amount = amount;
+                transfer.TransferMoney(ref balance, history);
+            }
+            else if (choice == 4)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please try again.");
+            }
+
+            Console.WriteLine("Your current balance is: " + balance);
+        }
+
+        Console.WriteLine("\nTransaction History:\n");
+        foreach (string transaction in history)
+        {
+            Console.WriteLine(transaction);
+        }
+    }
+}
+I hope this helps! Let me know if you have any other questions.
+## User
+i wan the login to validate registration, that means for new user there should be a registration class
+## Bing
+Sure! You can create a separate class for registration. Here's an example:
+
+[csharp]
+using System;
+using System.Collections.Generic;
+
+public class Registration
+{
+    public string username;
+    public string password;
+
+    public bool ValidateRegistration()
+    {
+        // code to validate registration
+        return true;
+    }
+}
+
+public class Login
+{
+    public string username;
+    public string password;
+
+    public bool ValidateLogin()
+    {
+        // code to validate login
+        return true;
+    }
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Transferred " + amount + " from " + fromAccount + " to " + toAccount);
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney(ref double balance, List<string> history)
+    {
+        balance += amount;
+        history.Add("Deposited " + amount + " into account " + accountNumber);
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Withdrew " + amount + " from account " + accountNumber);
+        // code to withdraw money
+    }
+}
+
+public class UserInput
+{
+    public static int GetChoice()
+    {
+        Console.WriteLine("Press 1 to deposit, 2 to withdraw, 3 to transfer, or 4 to exit:");
+        int choice = int.Parse(Console.ReadLine());
+        return choice;
+    }
+
+    public static double GetAmount()
+    {
+        Console.WriteLine("Enter the amount:");
+        double amount = double.Parse(Console.ReadLine());
+        return amount;
+    }
+
+    public static string GetAccountNumber()
+    {
+        Console.WriteLine("Enter the account number:");
+        string accountNumber = Console.ReadLine();
+        return accountNumber;
+    }
+
+    public static string GetFromAccount()
+    {
+        Console.WriteLine("Enter the account you want to transfer from:");
+        string fromAccount = Console.ReadLine();
+        return fromAccount;
+    }
+
+    public static string GetToAccount()
+    {
+        Console.WriteLine("Enter the account you want to transfer to:");
+        string toAccount = Console.ReadLine();
+        return toAccount;
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        Registration registration = new Registration();
+        Console.WriteLine("Enter your username:");
+        registration.username = Console.ReadLine();
+        Console.WriteLine("Enter your password:");
+        registration.password = Console.ReadLine();
+
+        if (registration.ValidateRegistration())
+        {
+            Login login = new Login();
+            Console.WriteLine("Enter your username:");
+            login.username = Console.ReadLine();
+            Console.WriteLine("Enter your password:");
+            login.password = Console.ReadLine();
+
+            if (login.ValidateLogin())
+            {
+                double balance = 0;
+                List<string> history = new List<string>();
+
+                while (true)
+                {
+                    int choice = UserInput.GetChoice();
+
+                    if (choice == 1)
+                    {
+                        double amount = UserInput.GetAmount();
+                        Deposit deposit = new Deposit();
+                        deposit.amount = amount;
+                        deposit.accountNumber = login.username;
+                        deposit.DepositMoney(ref balance, history);
+                    }
+                    else if (choice == 2)
+                    {
+                        double amount = UserInput.GetAmount();
+                        Withdrawal withdrawal = new Withdrawal();
+                        withdrawal.amount = amount;
+                        withdrawal.accountNumber = login.username;
+                        withdrawal.WithdrawMoney(ref balance, history);
+                    }
+                    else if (choice == 3)
+                    {
+                        string fromAccount = UserInput.GetFromAccount();
+                        string toAccount = UserInput.GetToAccount();
+                        double amount = UserInput.GetAmount();
+                        Transfer transfer = new Transfer();
+                        transfer.fromAccount = fromAccount;
+                        transfer.toAccount = toAccount;
+                        transfer.amount = amount;
+                        transfer.TransferMoney(ref balance, history);
+                    }
+                    else if (choice == 4)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice. Please try again.");
+                    }
+
+                    Console.WriteLine("Your current balance is: " + balance);
+                }
+
+                Console.WriteLine("\nTransaction History:\n");
+                foreach (string transaction in history)
+                {
+                    Console.WriteLine(transaction);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid login. Please try again.");
+            }
+
+## User
+
+can i add a display class that display information to the user, like press 1 to login, 2 to setup account(registration), 3 to exit app?
+
+## Bing
+
+Yes, you can create a separate class for display. Here's an example:
+
+```csharp
+using System;
+using System.Collections.Generic;
+
+public class Registration
+{
+    public string username;
+    public string password;
+
+    public bool ValidateRegistration()
+    {
+        // code to validate registration
+        return true;
+    }
+}
+
+public class Login
+{
+    public string username;
+    public string password;
+
+    public bool ValidateLogin()
+    {
+        // code to validate login
+        return true;
+    }
+}
+
+public class Transfer
+{
+    public string fromAccount;
+    public string toAccount;
+    public double amount;
+
+    public void TransferMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Transferred " + amount + " from " + fromAccount + " to " + toAccount);
+        // code to transfer money
+    }
+}
+
+public class Deposit
+{
+    public string accountNumber;
+    public double amount;
+
+    public void DepositMoney(ref double balance, List<string> history)
+    {
+        balance += amount;
+        history.Add("Deposited " + amount + " into account " + accountNumber);
+        // code to deposit money
+    }
+}
+
+public class Withdrawal
+{
+    public string accountNumber;
+    public double amount;
+
+    public void WithdrawMoney(ref double balance, List<string> history)
+    {
+        balance -= amount;
+        history.Add("Withdrew " + amount + " from account " + accountNumber);
+        // code to withdraw money
+    }
+}
+
+public class Display
+{
+    public static void DisplayMenu()
+    {
+        Console.WriteLine("Press 1 to login, 2 to setup account(registration), 3 to exit app:");
+    }
+
+    public static void DisplayTransactionHistory(List<string> history)
+    {
+        Console.WriteLine("\nTransaction History:\n");
+        foreach (string transaction in history)
+        {
+            Console.WriteLine(transaction);
+        }
+    }
+
+    public static void DisplayBalance(double balance)
+    {
+        Console.WriteLine("Your current balance is: " + balance);
+    }
+}
+
+public class UserInput
+{
+    public static int GetChoice()
+    {
+        Console.WriteLine("Enter your choice:");
+        int choice = int.Parse(Console.ReadLine());
+        return choice;
+    }
+
+    public static double GetAmount()
+    {
+        Console.WriteLine("Enter the amount:");
+        double amount = double.Parse(Console.ReadLine());
+        return amount;
+    }
+
+    public static string GetAccountNumber()
+    {
+        Console.WriteLine("Enter the account number:");
+        string accountNumber = Console.ReadLine();
+        return accountNumber;
+    }
+
+    public static string GetFromAccount()
+    {
+        Console.WriteLine("Enter the account you want to transfer from:");
+        string fromAccount = Console.ReadLine();
+        return fromAccount;
+    }
+
+    public static string GetToAccount()
+    {
+        Console.WriteLine("Enter the account you want to transfer to:");
+        string toAccount = Console.ReadLine();
+        return toAccount;
+    }
+}
+
+public class Program
+{
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            Display.DisplayMenu();
+
+            int choice = UserInput.GetChoice();
+
+            if (choice == 1)
+            {
+                Login login = new Login();
+                Console.WriteLine("Enter your username:");
+                login.username = Console.ReadLine();
+                Console.WriteLine("Enter your password:");
+                login.password = Console.ReadLine();
+
+                if (login.ValidateLogin())
+                {
+                    double balance = 0;
+                    List<string> history = new List<string>();
+
+                    while (true)
+                    {
+                        Display.DisplayBalance(balance);
+
+                        int transactionChoice = UserInput.GetChoice();
+
+                        if (transactionChoice == 1)
+                        {
+                            double amount = UserInput.GetAmount();
+                            Deposit deposit = new Deposit();
+                            deposit.amount = amount;
+                            deposit.accountNumber = login.username;
+                            deposit.DepositMoney(ref balance, history);
+                        }
+                        else if (transactionChoice == 2)
+                        {
+                            double amount = UserInput.GetAmount();
+                            Withdrawal withdrawal = new Withdrawal();
+                            withdrawal.amount = amount;
+                            withdrawal.accountNumber = login.username;
+                            withdrawal.WithdrawMoney(ref balance, history);
+                        }
+                        else if (transactionChoice == 3)
+                        {
+                            string fromAccount = UserInput.GetFromAccount();
+                            string toAccount = UserInput.GetToAccount();
+                            double amount = UserInput.GetAmount();
+                            Transfer transfer = new Transfer();
+                            transfer.fromAccount = fromAccount;
+                            transfer.toAccount = toAccount;
+                            transfer.amount = amount;
+                            transfer.TransferMoney(ref balance, history);
+                        }
+                        else if (transactionChoice == 4
