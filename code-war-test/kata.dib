@@ -2484,3 +2484,115 @@ Challenge.UpArray(new int[] {1,1,2, 9})
 
 var array = new int[] {1,2,3,5};
 array
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System;
+public class Challenge
+{
+    public static int[] SplitInteger(int num, int parts)
+    {
+        var array = new int[parts];
+        int quotient = num/parts;
+      int remainder = num%parts;
+      for (int i = 0; i< parts; i++)
+        {
+          array[i] = quotient;
+        if(remainder>0)
+        {
+          array[i]++;
+          remainder--;
+        }
+        }
+        return array.Reverse().ToArray();
+     
+      
+    }
+}
+
+#!csharp
+
+Challenge.SplitInteger(10,4)
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System;
+public class Challenge
+{
+    public static int[] SplitInteger(int num, int parts)
+    {
+
+     var tempArray = new List<int>();
+      while (num>0)
+      {
+        int quotient = (int)(num/(float)parts);
+        tempArray.Add(quotient);
+        num -= quotient;
+        parts--;
+      }
+       //tempArray.Reverse();
+      
+      return tempArray.ToArray();
+      
+      
+    }
+}
+
+#!csharp
+
+// Methods
+        public  bool Validate(Registration register) 
+        {
+            string[] pattern = new string[2] { @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$" };
+            Regex emailRegex = new Regex(pattern[0]);
+            Regex passwordRegex = new Regex(pattern[1]);
+            bool isValid = true;
+            if (register.Password == null) { isValid = false; }
+            if (register.EmailAddress == null) { isValid = false; }
+            if (!emailRegex.IsMatch(register.EmailAddress)) { isValid = false; }
+            if (!passwordRegex.IsMatch(register.Password)) { isValid = false; }
+            return isValid; 
+        }
+
+        public string CreateAccount(Registration customer) 
+        {
+            //IUserInput userInput = new ConsoleUserInput();
+            //AccountNo = 0;
+            //Random random = new Random();
+            //if (Validate(customer))
+            //{
+            //if (customer.AccountType == 1)
+            //{
+            //    // code here
+            //    customer.AccountNo = long.Parse("0" + Convert.ToString(random.Next()).Substring(0,9));
+            //}
+            //if (customer.AccountType == 2)
+            //{
+            //    //Code here
+            //    customer.AccountNo = long.Parse("1" + Convert.ToString(random.Next()).Substring(0, 9));
+            //}
+
+            //}
+
+            // Register
+            //Registration customer = new Registration()
+            //{
+            //FirstName = userInput.GetFirstName();
+            //LastName = userInput.GetLastName();
+            //OtherName = userInput.GetOtherName();
+            //EmailAddress = userInput.GetEmailAddress();
+            //Password = userInput.GetPassword();
+            //AccountType = userInput.GetAccountType();
+            ////};
+            //customerList.Add(customer);
+            //Console.WriteLine($"Registration Successful");
+            //Console.WriteLine($"Account Number is: {customer.AccountNo}");
+
+            return customer.AccountNo; 
+        }
