@@ -359,3 +359,9 @@ switch (choice)
 }
 
 balancePrinter.PrintBalance(account);
+
+#!csharp
+
+Random AccountTemp = new Random();
+//long.Parse("0" + 
+Convert.ToString(AccountTemp.Next()).Substring(0, 9)

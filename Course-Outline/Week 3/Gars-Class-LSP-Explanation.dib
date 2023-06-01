@@ -144,3 +144,13 @@ smsNotification.SendNotification("Hello David!");
 Pig myPig = new Pig();  // Create a Pig object
 myPig.animalSound();
 myPig.sleep();
+
+#!csharp
+
+DateTime date;
+date
+
+#!csharp
+
+Random random = new Random();
+random.Next()

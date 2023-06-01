@@ -187,3 +187,32 @@ fruits.Add("Pine Apple");
 #!csharp
 
 fruits
+
+#!csharp
+
+public class Account
+{
+    public string OwnerFullName { get; set; }
+    public string AccountNumber { get; set; }
+    public AccountType AccountType { get; set; }
+    public decimal Balance { get; set; }
+    public string Password { get; set; }
+    //public List<Transaction> Transactions { get; set; }
+
+    /* public Account()
+    {
+        Transactions = new List<Transaction>();
+    } */
+}
+
+public enum AccountType
+{
+    Savings = 1,
+    Current = 2
+}
+
+#!csharp
+
+Account account = new Account();
+account.AccountType = AccountType.Savings;
+account
