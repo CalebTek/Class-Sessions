@@ -3065,7 +3065,7 @@ public class Kata
     } else
     if(checker==0)
     {
-        var perfectsquare = (perfectNum+1)*(perfectNum+1);
+        var perfectsquare = ((long)perfectNum+1)*((long)perfectNum+1);
         return (long)perfectsquare;
     }
 
@@ -3106,6 +3106,27 @@ public class Kata
 {
     public static long FindNextSquare(long num)
     {
+        long perfectNum = (long)Math.Sqrt(num);
+        if (perfectNum*perfectNum != num)
+        {
+            return -1;
+        }
+        else
+        {
+            var nextPerfectNum = (long)Math.Sqrt(num) + 1;
+            return nextPerfectNum * nextPerfectNum;
+        }
+    }
+}
+
+#!csharp
+
+using System;
+
+public class Kata
+{
+    public static long FindNextSquare(long num)
+    {
         var perfectNum = Math.Sqrt(num);
         if (perfectNum % 1 != 0)
         {
@@ -3117,6 +3138,76 @@ public class Kata
             return nextPerfectNum * nextPerfectNum;
         }
     }
+}
+
+#!csharp
+
+using System;
+
+public class Kata
+{
+    public static long FindNextSquare(long num)
+    {
+        var perfectNum = Math.Sqrt(num);
+        if (perfectNum % 1 != 0)
+        {
+            return -1;
+        }
+        else
+        {
+            var nextPerfectNum = (long)perfectNum + 1;
+            return nextPerfectNum * nextPerfectNum;
+        }
+    }
+}
+
+#!csharp
+
+using System;
+
+public class Kata
+{
+    public static long FindNextSquare(long num)
+    {
+        var perfectNum = Math.Sqrt(num);
+        if (perfectNum % 1 != 0)
+        {
+            return -1;
+        }
+        else
+        {
+            var nextPerfectNum = (long)perfectNum + 1;
+            if (IsPerfectSquare(nextPerfectNum))
+            {
+                return nextPerfectNum * nextPerfectNum;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
+
+    private static bool IsPerfectSquare(long num)
+    {
+        var sqrt = (long)Math.Sqrt(num);
+        return sqrt * sqrt == num;
+    }
+}
+
+#!csharp
+
+using System;
+
+public class Kata
+{
+  public static long FindNextSquare(long sq)
+  {
+      long r = (long)Math.Sqrt(sq);
+      if (r * r != sq)
+          return -1;
+      return ((r + 1) * (r + 1));
+  }
 }
 
 #!csharp
