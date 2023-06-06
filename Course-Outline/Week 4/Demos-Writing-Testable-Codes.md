@@ -509,6 +509,7 @@ namespace TestableCodeDemos.Module3.Hard
         private readonly IDatabase _database;
         private readonly IPrinter _printer;
 
+        /*This class takes two dependencies that is an IDatabase and IPrinter via Constructor Injection*/
         public PrintInvoiceCommand(
             IDatabase database,
             IPrinter printer)
@@ -529,3 +530,5 @@ namespace TestableCodeDemos.Module3.Hard
 }
 
 ```
+
+***This code is mixing application logic with the construction of its dependencies.***

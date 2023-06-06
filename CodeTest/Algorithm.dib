@@ -1,0 +1,40 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+using System.Linq;
+using System.Collections;
+public class Challenge
+{
+    public static int[] ArrayOfProducts(int[] array)
+    {
+      var productArray = new int[array.Length];
+      for (var i = 0; i < array.Length; i++)
+      {
+         var product = 1;
+        for (var j = 0; j < array.Length; j++)
+        {
+        if (i == j){
+            continue;
+            }
+            
+            product *= array[j];
+            }
+        productArray[i] = product;
+
+/*
+        if (array[i] !=0)
+        {
+           productArray[i] = product/array[i];
+        } */
+       
+      }
+      return productArray;
+    }
+}
+
+#!csharp
+
+Challenge.ArrayOfProducts(new int[]{1,2,0})
