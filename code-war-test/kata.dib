@@ -3111,11 +3111,8 @@ public class Kata
         {
             return -1;
         }
-        else
-        {
-            var nextPerfectNum = (long)Math.Sqrt(num) + 1;
+            var nextPerfectNum = perfectNum+1;
             return nextPerfectNum * nextPerfectNum;
-        }
     }
 }
 

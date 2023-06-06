@@ -135,3 +135,41 @@ A unit test is a type of automated software test that verifies the correct behav
 - **`Inject` Dependencies:** inject the dependencies of our classes into the classes themselves. In general, we should prefer to inject our dependencies via constructor injection.
 - **Test in `Isolation`:** If we decouple from our dependencies by programming to interfaces and injecting our dependencies, this means that we can test any class in insolation.
 
+### **Constructing Testable Objects**
+
+- Constructors
+- Problems
+- Symptoms
+- Solution
+
+- **Constructors** are methods in our class that are `used to build instances of objects` for that class.
+- Inside of constructor we execute code necessary to `prepare the object for use`.
+  
+### **Problems**
+
+- **`Creates tight coupling:`** If our constructors create any complex dependencies, this `creates tight coupling` beween our class and its dependencies.
+- **`Logic is diffiuclt to test:`** If we have logic in our constructor, it is difficult to `test this logic directly`. The only way we can test the logic in a constructor is by constructing the object in different ways and verifying the object's state, which is often hidden from direct testing.
+- **`Logic is difficult to setup:`** If we have logic in our constructor, it makes our `setup process` for testing more difficult.
+
+### **Systoms**
+
+- **`Keyword new:`** seeing the `new` keyword in a constructor is often a systom.
+- **`Logic in constructor:`** any logic in our constructor is usually a systom of testability problems. This could be a conditional statement, or it could be a loop.
+- **`Any non-assignment code:`** any code other than the assignment of values is often an indication of a potential problem.
+
+### **Solution**
+
+- **`Inject dependencies:`** Inject our dependencies rather than creating them in our constructors. Withing the constructor we simply assign those dependencies to private variables inside our class.
+- **`Avoid Logic in constructor:`** we want to avoid adding logic in our constructors. also there is need to be careful that logic is not moved from the constructor into an initialization method and then call that method from the constructor.
+- **`Use factory, builder or IoC/DI:`** use well-established design patterns that separate the construction of the objects and object graphs from the application logic. For example, use the `factory pattern`, the `builder pattern`, or `dependency injection` via and `IoC container`.
+- **`Don't mix construction and logic:`**
+- **`Separate injectables vs. newables`**
+  - ***An Injectable*** is an object that is composed of other injectables and performs work on newable objects. injectables are generally services that implement interfaces. For example Database, Printer and InvoiceWriter classes.
+  - ***A newable*** is an object at the end of your object graph. These are generally things like entities and value objects. For example Invoice, Customer, Address, and Credit car numbers.
+
+### ***Injectable vs Newable***
+
+- *Injectable can ask for injectable... but should not ask for newable.*
+- *Newable can ask for newable... but should not ask for injectable*
+
+
