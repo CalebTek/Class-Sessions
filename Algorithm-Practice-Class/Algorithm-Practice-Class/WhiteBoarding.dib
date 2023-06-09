@@ -1,0 +1,207 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!markdown
+
+**TASK 1**  
+Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.  
+**Example:**  
+arr = [1, 3, 5, 7, 9]  
+The minimum sum is 1 + 3 + 5 + 7 = 16 and the maximum sum is 3 + 5 + 7 + 9 = 24.   
+The function prints 16 24  
+**Function Description:**  
+Complete the miniMaxSum function in the editor below.  
+miniMaxSum has the following parameter(s):  
+arr: an array of integers   
+**Print:**  
+Print two space-separated integers on one line: the minimum sum and the maximum sum of    of   elements.  
+**Input Format:**  
+A single line of five space-separated integers.  
+**Output Format:**  
+Print two space-separated long integers denoting the respective minimum and maximum values that can be calculated by summing exactly four of the five integers. (The output can be greater than a 32 bit integer.)  
+**Sample Input:**  
+1 2 3 4 5  
+**Sample Output:**  
+10 14
+
+#!csharp
+
+ public static int[] ArrayOfSums(int[] array)
+    {
+      var sumArray = new int[array.Length];
+      for (var i = 0; i < array.Length; i++)
+      {
+         var sum = 0;
+        for (var j = 0; j < array.Length; j++)
+        {
+        if (i == j){
+            continue;
+            }
+            
+            sum += array[j];
+            }
+        sumArray[i] = sum;
+
+       
+      }
+      return new int[2] {sumArray.Min(), sumArray.Max()};
+    }
+
+#!csharp
+
+ArrayOfSums(new int[] {1, 3, 5, 7, 9})
+
+#!csharp
+
+ public static string ArrayOfSums(int[] array)
+    {
+      var sumArray = new int[array.Length];
+      for (var i = 0; i < array.Length; i++)
+      {
+         var sum = 0;
+        for (var j = 0; j < array.Length; j++)
+        {
+        if (i == j){
+            continue;
+            }
+            
+            sum += array[j];
+            }
+        sumArray[i] = sum;
+
+       
+      }
+      return $"{sumArray.Min()} {sumArray.Max()}";
+    }
+
+#!csharp
+
+ArrayOfSums(new int[] {1, 3, 5, 7, 9});
+ArrayOfSums(new int[] {1, 2, 3, 4, 5})
+
+#!csharp
+
+public static void MiniMaxSum(int[] arr)
+        {
+            int maxValue = 0;
+            int minValue = 0;
+            foreach (int i in arr)
+            {
+                maxValue = Math.Max(maxValue, i);
+                minValue = Math.Min(minValue, i+1);
+            }
+
+            int smallestSum = 0;
+            int largestSum = 0;
+
+            foreach (int i in arr)
+            {
+                if (i != minValue)
+                    smallestSum += i;
+                if (i != maxValue)
+                    largestSum += i;
+            }
+
+            Console.WriteLine(smallestSum);
+            Console.WriteLine(largestSum);
+        }
+
+#!csharp
+
+MiniMaxSum(new int[] {1, 3, 5, 7, 9})
+
+#!csharp
+
+    var arr = new int[] {1, 2, 3, 4, 5};
+    int maxValue = 0;
+    int minValue = 0;
+    foreach (int i in arr)
+    {
+        maxValue = Math.Max(maxValue, i);
+        minValue = Math.Min(minValue, i);
+    }
+
+    //maxValue;
+    minValue
+
+#!csharp
+
+var arr = new int[] {1,2,4};
+arr.Max()
+
+#!markdown
+
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.22621}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\b\f0\fs22\lang9 TASK 2\b0\line\line\b DESCRIPTION:\b0\par
+Make a program that filters a list of strings and returns a list with only your friends name in it.\par
+If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...\par
+Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]\par
+i.e ==> friend ["Ryan", "Kieran", "Mark"] `shouldBe` ["Ryan", "Mark"]\par
+Note: keep the original order of the names in the output.\par
+}
+ 
+
+#!csharp
+
+public List<string> ArrayOfFriends(List<string> friends)
+{
+    var friendList = new List<string>();
+    foreach(var friend in friends)
+    {
+        if(friend.Length == 4)
+        {
+            friendList.Add(friend);
+        }
+    }
+    return friendList;
+}
+
+#!csharp
+
+ArrayOfFriends(new List<string> {"Ryan", "Kieran", "Jason", "Yous"});
+ArrayOfFriends(new List<string> {"Ryan", "Kieran", "Mark"})
+
+#!markdown
+
+**TASK 3**  
+**DESCRIPTION**  
+The user will input a string and the method should return the reverse of that string  
+Example:  
+input: hello, output: olleh  
+input: hello world, output: dlrow olleh
+
+#!csharp
+
+var str = "John Wes".Reverse();
+string.Join("", str);
+str
+
+#!csharp
+
+public string ReverseString(string word)
+{
+    return string.Join("", word.Reverse()); // this code explains 
+}
+
+#!csharp
+
+ReverseString("hello");
+ReverseString("hello world")
+
+#!csharp
+
+public string ReverseString(string word)
+{
+    var reverseWord = "";
+    for(var i = word.Length-1; i >=0; i--)
+    {
+        reverseWord += word[i];
+    }
+    return reverseWord;
+}
+
+#!csharp
+
+ReverseString("hello world")
