@@ -216,3 +216,262 @@ public enum AccountType
 Account account = new Account();
 account.AccountType = AccountType.Savings;
 account
+
+#!csharp
+
+var birthdate = new DateTime(1994,4,29);
+var timespan = DateTime.Now - birthdate;
+//age.GetType()
+birthdate.GetType();
+var age = timespan.Days/365;
+age
+//birthdate
+
+#!csharp
+
+var arr = new int[]{1,2,3,4,5,6,7,8,9,0};
+var str = String.Join("", arr);
+str
+
+#!csharp
+
+str.Substring(3,3)
+
+#!csharp
+
+var conStr = string.Concat(arr);
+var converted = long.Parse(conStr);
+//converted.ToString()
+converted.ToString("(000) 000-0000")
+
+#!csharp
+
+""+4+4
+
+#!csharp
+
+string.Format("{0} {1} {2}", 90, 89, 45)
+
+#!csharp
+
+arr.Select(x=> x.ToString()).ToArray()
+
+#!csharp
+
+decimal.TryParse("0", out decimal value) && value <0
+//value
+
+#!csharp
+
+Convert.ToDecimal("90000")
+
+#!csharp
+
+int a = 5;
+int b = 6;
+int[] list = new int[] {1,2,3,4,5,6,7};
+list[4] > list[3]
+list.
+
+#!csharp
+
+class Made
+{
+    public string hobby;
+}
+
+#!csharp
+
+Made mymade = new Made();
+
+#!csharp
+
+public class Account : Customer
+{
+    public string AccountType { get; set; }
+    public string AccountNumber { get; set; }
+    public decimal Balance { get; set; }
+    public List<Transaction> Transactions { get; set; }
+
+    public Account()
+    {
+        Transactions = new List<Transaction>();
+    }
+
+}
+
+public class Customer
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+    public string FullName => $"{FirstName} {LastName}";
+
+}
+
+public class Transaction
+{
+    public DateTime Date { get; set; }
+    public string Description { get; set; }
+    public decimal Amount { get; set; }
+    public decimal Balance { get; set; }
+}
+
+public class Bank
+{
+    public List<Account> accounts;
+
+    public Bank()
+    {
+        accounts = new List<Account>();
+    }
+}
+
+#!csharp
+
+var account = new Account
+    {
+        FirstName = "Imade",
+        LastName = "John",
+        Email = "Imade@gmail.com",
+        Password = "Imade123!",
+        AccountType = "Savings",
+        AccountNumber = "0123456789",
+        Balance = 1800000
+    };
+account.Transactions.Add(new Transaction
+            {
+                Date = DateTime.Now,
+                Description = "Inital Deposit",
+                Amount = 900000,
+                Balance = 900000
+            });
+account.Transactions.Add(new Transaction
+            {
+                Date = DateTime.Now,
+                Description = "Deposit",
+                Amount = 900000,
+                Balance = 1800000
+            });
+
+#!csharp
+
+account
+
+#!csharp
+
+using System.IO;
+public void SaveToFile(List<Account> accounts, string fileLocation)
+{
+    try
+    {
+        List<string> lines = new List<string>();
+
+        foreach (Account account in accounts)
+        {
+            string line = $"{account.FullName},{account.AccountNumber},{account.AccountType},{account.Password},{account.Email},{account.Balance}";
+
+            foreach (Transaction transaction in account.Transactions)
+            {
+                line += $",{transaction.Date},{transaction.Description},{transaction.Amount},{transaction.Balance}";
+            }
+
+            lines.Add(line);
+        }
+
+        File.WriteAllLines(fileLocation, lines);
+
+        Console.WriteLine("Accounts saved to file.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error saving accounts to file: {ex.Message}");
+    }
+
+}
+
+#!csharp
+
+var accounts = new List<Account>();
+accounts.Add(account)
+
+#!csharp
+
+SaveToFile(accounts, "account.txt")
+
+#!csharp
+
+var account2 = new Account
+    {
+        FirstName = "Imade",
+        LastName = "John",
+        Email = "Imade@gmail.com",
+        Password = "Imade123!",
+        AccountType = "Savings",
+        AccountNumber = "0123456789",
+        Balance = 900000
+    };
+account2.Transactions.Add(new Transaction
+            {
+                Date = DateTime.Now,
+                Description = "Inital Deposit",
+                Amount = 900000,
+                Balance = 900000
+            });
+accounts.Add(account2)
+
+#!csharp
+
+SaveToFile(accounts, "account.txt")
+
+#!csharp
+
+using System;
+using System.IO;
+string filePath = "example2.txt";
+
+// Create a StreamWriter instance and open the file for writing
+using (StreamWriter writer = new StreamWriter(filePath))
+{
+    // Write text to the file
+    writer.WriteLine(accounts);
+}
+
+Console.WriteLine("File written successfully.");
+
+#!csharp
+
+using System;
+using System.IO;
+
+string filePath = "account.txt";
+
+// Create a StreamReader instance and open the file for reading
+using (StreamReader reader = new StreamReader(filePath))
+{
+    string line;
+
+    // Read lines from the file until the end is reached
+    while ((line = reader.ReadLine()) != null)
+    {
+        // Process each line
+        Console.WriteLine(line);
+    }
+}
+
+#!csharp
+
+using System;
+using System.IO;
+string filePath = "example.txt";
+
+// Create a StreamWriter instance and open the file for writing
+using (StreamWriter writer = new StreamWriter(filePath))
+{
+    // Write text to the file
+    writer.WriteLine("Hello, World!");
+    writer.WriteLine("This is a sample line.");
+}
+
+Console.WriteLine("File written successfully.");

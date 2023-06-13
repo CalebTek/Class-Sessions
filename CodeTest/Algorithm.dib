@@ -65,3 +65,12 @@ setAlarm(true, true) -> false
 setAlarm(false, true) -> false
 setAlarm(false, false) -> false
 setAlarm(true, false) -> true
+
+#!csharp
+
+public class Kata {
+  public static bool SetAlarm(bool employed, bool vacation) {
+    // your code here
+    return employed && !vacation ? true: false; 
+  }
+}

@@ -2152,17 +2152,29 @@ For [24, 85, 0] the output should be 21784
 
 #!csharp
 
+(24 >> 0) | (85 >> 8) | (0 >> 16)
+
+#!csharp
+
+2 << 8
+
+#!csharp
+
 // Solution 1
 
 public static uint Pack(byte[] bytes)
 {
     uint result = 0;
-    for (int i = 0; i < bytes.Length; i++)
+    for (byte i = 0; i < bytes.Length; i++)
     {
         result |= (uint)bytes[i] << (i * 8);
     }
     return result;
 }
+
+#!csharp
+
+Pack(new byte[] {24, 85, 0})
 
 #!csharp
 
@@ -3212,3 +3224,152 @@ public class Kata
 using System;
 Math.Floor(9.8);
 Math.Sqrt(4503599627370497)
+
+#!csharp
+
+new string('A', 100) + "1#"
+
+#!csharp
+
+string.IsNullOrWhiteSpace("")
+
+#!csharp
+
+string input = "" + "\n" + "9876543210" + Environment.NewLine;
+input
+
+#!markdown
+
+DESCRIPTION:
+Every Friday and Saturday night, farmer counts amount of sheep returned back to his farm (sheep returned on Friday stay and don't leave for a weekend).
+
+Sheep return in groups each of the days -> you will be given two arrays with these numbers (one for Friday and one for Saturday night). Entries are always positive ints, higher than zero.
+
+Farmer knows the total amount of sheep, this is a third parameter. You need to return the amount of sheep lost (not returned to the farm) after final sheep counting on Saturday.
+
+Example 1: Input: {1, 2}, {3, 4}, 15 --> Output: 5
+
+Example 2: Input: {3, 1, 2}, {4, 5}, 21 --> Output: 6
+
+Good luck! :-)
+
+#!csharp
+
+public int FarmCount(int[] friday, int[] saturday, int totalSheep)
+{
+    return totalSheep - (friday.Sum() + saturday.Sum());
+}
+
+#!csharp
+
+var friday = new int[]{3,1,2};
+var saturday = new int[]{4,5};
+var totalSheep = 21;
+FarmCount(friday:friday, saturday:saturday, totalSheep:totalSheep)
+
+#!markdown
+
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+Examples
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps"
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string ReverseWords(string str)
+  {
+		//Write your code here
+        var split = str.Split();
+        //var newStr = new StringBuilder();
+        var newStr = new List<string>();
+        /* foreach(var word in split)
+        {
+            newStr.Append(word.Reverse().ToString());
+        } */
+        foreach(string word in split)
+        {
+            var letter = word.ToCharArray();
+            Array.Reverse(letter);
+            var reverseWord = new string(letter);
+            newStr.Add(reverseWord);
+        }
+
+    //return string.Join(" ",str.Split().Reverse());
+    return String.Join(" ", newStr);
+  }
+}
+
+#!csharp
+
+Kata.ReverseWords("This is an example!")
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string ReverseWords(string str)
+  {
+    
+    return string.Join(" ",str.Split().Reverse());
+
+  }
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string ReverseWords(string str)
+  {
+    
+    string[] words = str.Split(' ');
+    for (int i = 0; i < words.Length; i++)
+    {
+        char[] letters = words[i].ToCharArray();
+        Array.Reverse(letters);
+        words[i] = new string(letters);
+    }
+    return string.Join(" ", words);
+
+  }
+}
+
+#!csharp
+
+var ch = new char[]{'h','e','l','l','o'};
+var st = new string(ch);
+st
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string ReverseWords(string str)
+  {
+		return string.Join(" ", str.Split(' ').Select(i => new string(i.Reverse().ToArray())));
+  }
+}
+
+#!csharp
+
+Kata.ReverseWords(str:"This is an example!")
+
+#!csharp
+
+var str = "abc";
+str.EndsWith("bc")

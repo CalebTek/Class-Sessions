@@ -248,7 +248,6 @@ pseudocode is indeed a valuable skill when it comes to solving algorithms. Pseud
 
 Remember, pseudocode is a flexible and informal tool, so there's no strict standard. The goal is to express your algorithmic thinking clearly and concisely. With practice, you'll become more proficient in writing pseudocode and be able to effectively design algorithms before moving on to the implementation phase.
 
-
 # Other essential skill for designing algorithms
 
 While pseudocode is an essential skill for designing algorithms, there are other skills that can contribute to your overall proficiency in solving algorithmic problems. Here are a few additional skills to consider:

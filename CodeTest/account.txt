@@ -1,0 +1,2 @@
+Imade John,0123456789,Savings,Imade123!,Imade@gmail.com,1800000,12/06/2023 11:55:55,Inital Deposit,900000,900000,12/06/2023 11:55:55,Deposit,900000,1800000
+Imade John,0123456789,Savings,Imade123!,Imade@gmail.com,900000,12/06/2023 11:56:27,Inital Deposit,900000,900000

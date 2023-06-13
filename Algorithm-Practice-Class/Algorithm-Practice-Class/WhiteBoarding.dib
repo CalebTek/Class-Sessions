@@ -180,6 +180,14 @@ str
 
 #!csharp
 
+var str = "This is an example!";
+string.Join(" ",str.Split().Reverse());
+
+var strSplit = str.Split();
+strSplit.Reverse(x=>x.ToArray())
+
+#!csharp
+
 public string ReverseString(string word)
 {
     return string.Join("", word.Reverse()); // this code explains 
@@ -205,3 +213,8 @@ public string ReverseString(string word)
 #!csharp
 
 ReverseString("hello world")
+
+#!csharp
+
+var list = new List<string> {"Ryan", "Kieran", "Jason", "Yous"};
+String.Format("{0}", list)
