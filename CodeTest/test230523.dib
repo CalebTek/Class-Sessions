@@ -475,3 +475,7 @@ using (StreamWriter writer = new StreamWriter(filePath))
 }
 
 Console.WriteLine("File written successfully.");
+
+#!csharp
+
+int i = (int j=0);

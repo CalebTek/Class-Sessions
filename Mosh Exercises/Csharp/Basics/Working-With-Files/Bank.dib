@@ -5,4 +5,5 @@
 #!csharp
 
 using System.IO;
-string[] lines = File.ReadAllLines("account.csv");
+string[] lines = File.ReadAllLines(@"C:\Users\Decagon Laptop\OneDrive\Documents\Codes\Class Sessions\Mosh Exercises\Csharp\Basics\Working-With-Files\accounts.csv");
+lines
