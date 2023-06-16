@@ -16,6 +16,9 @@ namespace Algorithm_Practice_Class
                 Console.Write($"{item} ");
             }
             Console.WriteLine();
+
+            var roman = RomanToInt("III");
+            Console.WriteLine(roman);
         }
 
         public static List<int> Withdraw(int amount)
@@ -30,6 +33,35 @@ namespace Algorithm_Practice_Class
             int _20Bills = amount / 20;
             var withdrawal = new List<int> { _100Bills, _50Bills, _20Bills };
             return withdrawal;
+        }
+        public static int RomanToInt(string s)
+        {
+            Dictionary<char, int> romanValues = new Dictionary<char, int>
+        {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}
+        };
+
+            int result = 0;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (i < s.Length - 1 && romanValues[s[i]] < romanValues[s[i + 1]])
+                {
+                    result -= romanValues[s[i]];
+                }
+                else
+                {
+                    result += romanValues[s[i]];
+                }
+            }
+
+            return result;
         }
     }
 }
