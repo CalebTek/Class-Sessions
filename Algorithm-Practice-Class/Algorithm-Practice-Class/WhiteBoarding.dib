@@ -340,6 +340,17 @@ public static class Solution
 
 #!csharp
 
+Solution.RomanToInt("IVIV") // i = 0, 1, 2, 3 
+// 1 0 - 1 = -1 
+// 2 -1 + 5 = 4
+// 3 4 + 1 = 5
+
+#!csharp
+
+2<2
+
+#!csharp
+
 var roman = new Char[] {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
 var values = new int[] {1, 5, 10, 50, 100, 500, 1000};
 Dictionary<char, int> romanValues = new Dictionary<char, int>
@@ -353,7 +364,3 @@ Dictionary<char, int> romanValues = new Dictionary<char, int>
     {'M', 1000}
 };
 romanValues[roman[0]] < romanValues[roman[1]]
-
-#!csharp
-
-Solution.RomanToInt("CM")

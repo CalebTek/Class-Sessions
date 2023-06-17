@@ -1,0 +1,33 @@
+html{
+    font-size: 62.5%;
+}
+body {
+    /*margin: 10px;
+    box-sizing: border-box;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+
+nav {
+    background: black;
+    padding: .7em;
+}
+ul {
+    list-style-type: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 0;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}
+li {
+    margin: .5rem 0;
+        @media screen and (min-width: 768px) {
+            margin: 0 1rem;
+    }
+}

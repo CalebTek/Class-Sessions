@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Periodic Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .table {
+        display: grid;
+        grid-template-columns: repeat(18, 1fr);
+        grid-gap: 2px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .element {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .symbol {
+        font-weight: bold;
+        font-size: 16px;
+        color: #000;
+      }
+
+      .name {
+        font-size: 12px;
+        color: #555;
+        margin-top: 5px;
+      }
+
+      .atomic-number {
+        font-size: 12px;
+        color: #777;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table">
+      <div class="element">
+        <div class="atomic-number">1</div>
+        <div class="symbol">H</div>
+        <div class="name">Hydrogen</div>
+      </div>
+      <div class="element">
+        <div class="atomic-number">2</div>
+        <div class="symbol">He</div>
+        <div class="name">Helium</div>
+      </div>
+      <div class="element">
+        <div class="atomic-number">3</div>
+        <div class="symbol">Li</div>
+        <div class="name">Lithium</div>
+      </div>
+      <div class="element">
+        <div class="atomic-number">4</div>
+        <div class="symbol">Be</div>
+        <div class="name">Beryllium</div>
+      </div>
+      <!-- Continue adding elements here -->
+      <div class="element">
+        <div class="atomic-number">118</div>
+        <div class="symbol">Og</div>
+        <div class="name">Oganesson</div>
+      </div>
+    </div>
+  </body>
+</html>
