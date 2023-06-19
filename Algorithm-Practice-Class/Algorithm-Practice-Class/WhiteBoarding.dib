@@ -364,3 +364,158 @@ Dictionary<char, int> romanValues = new Dictionary<char, int>
     {'M', 1000}
 };
 romanValues[roman[0]] < romanValues[roman[1]]
+
+#!markdown
+
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+Example
+"camelCasing" => "camel Casing"
+"identifier" => "identifier"
+"" => ""
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Text;
+public class Kata
+{
+  public static string BreakCamelCase(string str)
+  {
+    // complete the function
+    // check if a character in string is uppercase
+    // if uppercase check is true, add a space before the case.
+    //var strList = new List<char>();
+    var strList = new StringBuilder();
+    foreach(char chars in str)
+      {
+        if(char.IsUpper(chars))
+          {
+            //strList.Add(' ');
+            strList.Append(' ');
+          }
+         //strList.Add(chars);
+         strList.Append(chars);
+        }
+      //return string.Join("", strList);
+      return strList.ToString();
+      }
+    }
+
+#!csharp
+
+using System.Text.RegularExpressions;
+
+public class Kata
+{
+  public static string BreakCamelCase(string str) =>
+    new Regex("([A-Z])").Replace(str, " $1");
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public class Kata
+{
+  public static string BreakCamelCase(string str)
+  {
+    return string.Concat(str.Select(c => Char.IsUpper(c) ? " " + c : c.ToString()));
+  }
+}
+
+#!csharp
+
+"  *\n ***\n*****\n ***\n  *\n"
+
+#!csharp
+
+using System;
+
+public class Diamond
+{
+    public static string PrintDiamond(int size)
+    {
+        if (size < 1 || size % 2 == 0)
+        {
+            throw new ArgumentException("Size should be a positive odd number.");
+        }
+
+        string diamond = "";
+
+        // Top half of the diamond
+        for (int i = 0; i < size; i += 2)
+        {
+            diamond += PrintLine(size, i);
+        }
+
+        // Bottom half of the diamond
+        for (int i = size - 2; i >= 0; i -= 2)
+        {
+            diamond += PrintLine(size, i);
+        }
+
+        return diamond;
+    }
+
+    private static string PrintLine(int size, int stars)
+    {
+        int spaces = (size - stars) / 2;
+
+        string line = new string(' ', spaces) + new string('*', stars + 1) + "\n";
+
+        return line;
+    }
+
+
+}
+
+#!csharp
+
+int size = 5;
+string diamond = Diamond.PrintDiamond(size);
+Console.WriteLine(diamond);
+ 
+
+#!csharp
+
+using System;
+
+public class Diamond
+{
+    public static string PrintDiamond(int size)
+    {
+        if (size < 1 || size % 2 == 0)
+        {
+            throw new ArgumentException("Size should be a positive odd number.");
+        }
+
+        string diamond = "";
+
+        // Top half of the diamond
+        for (int i = 0; i < size; i += 2)
+        {
+            diamond += PrintLine(size, i);
+        }
+
+        // Bottom half of the diamond
+        for (int i = size - 2; i >= 0; i -= 2)
+        {
+            diamond += PrintLine(size, i);
+        }
+
+        return diamond;
+    }
+
+    private static string PrintLine(int size, int stars)
+    {
+        int spaces = (size - stars) / 2;
+
+        string line = new string(' ', spaces) + new string('*', stars + 1) + "\n";
+
+        return line;
+    }
+
+
+}
