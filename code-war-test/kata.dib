@@ -3373,3 +3373,10 @@ Kata.ReverseWords(str:"This is an example!")
 
 var str = "abc";
 str.EndsWith("bc")
+
+#!csharp
+
+var one = "coffee";
+var two = "eeco";
+
+(two+two).IndexOf(one)
