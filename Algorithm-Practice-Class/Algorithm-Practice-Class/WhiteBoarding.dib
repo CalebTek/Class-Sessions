@@ -480,6 +480,10 @@ Console.WriteLine(diamond);
 
 #!csharp
 
+"  *\n ***\n*****\n ***\n  *\n"
+
+#!csharp
+
 using System;
 
 public class Diamond
@@ -519,3 +523,110 @@ public class Diamond
 
 
 }
+
+#!csharp
+
+using System.Collections.Generic;
+public class CalculateStringRotation
+{
+    /// <summary>
+    /// Computes the number of rotations for the first string to match the second
+    /// </summary>
+    /// <param name="first">the string to be rotated.</param>
+    /// <param name="second">the string to match rotations to.</param>
+    /// <returns>the number of rotations</returns>
+    public static int ShiftedDiff(string first, string second)
+    {
+      // check if two string are equal
+      if (first.Equals(second))
+      {
+        return 0;
+      }
+      //a step to subset and check if forward and backward match the first
+        var backward = string.Empty;
+      var forward = string.Empty;
+      var length = second.Length;
+      //var count = 0;
+      for(var i = 0; i < length; i++)
+      {
+        backward = second.Substring(length-1-i,1)+second.Substring(0,length-2);
+        forward = second.Substring(length-1-i,length-2)+second.Substring(0,1);
+        
+        if(first == backward)
+        {
+          return i;
+        }
+        if(first == forward)
+        {
+          return i;
+        }
+      }
+        return -1;
+      
+      // index out or range issue
+      
+    }
+}
+
+#!csharp
+
+CalculateStringRotation.ShiftedDiff("coffee", "eecoff")
+
+#!csharp
+
+using System.Collections.Generic;
+public class CalculateStringRotation
+{
+    /// <summary>
+    /// Computes the number of rotations for the first string to match the second
+    /// </summary>
+    /// <param name="first">the string to be rotated.</param>
+    /// <param name="second">the string to match rotations to.</param>
+    /// <returns>the number of rotations</returns>
+    public static int ShiftedDiff(string first, string second)
+    {      
+      // another algo step, cancatenate the second twice and check for the index of the first in the result
+      
+        if (first.Length != second.Length)
+            return -1;
+        return (second + second).IndexOf(first);
+    }
+}
+
+#!csharp
+
+CalculateStringRotation.ShiftedDiff("coffee", "eecoff")
+
+#!csharp
+
+var first = "coffee";
+var second = "eecoff";
+if (first.Equals(second))
+      {
+        return 0;
+      }
+
+#!csharp
+
+//a step to subset and check if forward and backward match the first
+        var backward = second;
+      var forward = second;
+      var length = second.Length;
+      //var count = 0;
+      for(var i = 0; i < length; i++)
+      {
+        backward = backward.Substring(length-1-i,1)+backward.Substring(0,length-1);
+        //forward = second.Substring(length-1-i,length-2)+second.Substring(0,1);
+
+        Console.WriteLine(backward);
+        
+        if(first == backward)
+        {
+          return i;
+        }/*
+        if(first == forward)
+        {
+          return i;
+        }*/
+      }
+        //return -1;
