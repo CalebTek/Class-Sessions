@@ -106,10 +106,11 @@ DESCRIPTION:
 Your task is to make two functions ( max and min, or maximum and minimum, etc., depending on the language ) that receive a list of integers as input, and return the largest and lowest number in that list, respectively.
 
 Examples (Input -> Output)
-* [4,6,2,1,9,63,-134,566]         -> max = 566, min = -134
-* [-52, 56, 30, 29, -54, 0, -110] -> min = -110, max = 56
-* [42, 54, 65, 87, 0]             -> min = 0, max = 87
-* [5]                             -> min = 5, max = 5
+
+- [4,6,2,1,9,63,-134,566] -> max = 566, min = -134
+- [-52, 56, 30, 29, -54, 0, -110] -> min = -110, max = 56
+- [42, 54, 65, 87, 0] -> min = 0, max = 87
+- [5] -> min = 5, max = 5
 
 #!csharp
 
@@ -231,8 +232,8 @@ We need a function that can transform a number (integer) into a string.
 What ways of achieving this do you know?
 
 Examples (input --> output):
-123  --> "123"
-999  --> "999"
+123 --> "123"
+999 --> "999"
 -100 --> "-100"
 
 #!csharp
@@ -473,7 +474,7 @@ Your task is to convert strings to how they would be written by Jaden Smith. The
 Example:
 
 Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
-Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+Jaden-Cased: "How Can Mirrors Be Real If Our Eyes Aren't Real"
 
 #!csharp
 
@@ -949,12 +950,13 @@ Given the triangle of consecutive odd numbers:
              1
           3     5
        7     9    11
-   13    15    17    19
-21    23    25    27    29
+
+13 15 17 19
+21 23 25 27 29
 ...
 Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
 
-1 -->  1
+1 --> 1
 2 --> 3 + 5 = 8
 
 #!csharp
@@ -1277,9 +1279,9 @@ Write a function that removes the spaces from the string, then return the result
 Examples:
 
 Input -> Output
-"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
-"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
-"8aaaaa dddd r     " -> "8aaaaaddddr"
+"8 j 8 mBliB8g imjB8B8 jl B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r " -> "8aaaaaddddr"
 
 #!csharp
 
@@ -1396,7 +1398,7 @@ Feast("Victor", "Burger")
 DESCRIPTION:
 Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
 
-[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+[1, 2, 3, 4] => 1 _ 2 _ 3 \* 4 = 24
 
 #!csharp
 
@@ -1468,8 +1470,8 @@ Consecutive(new int[] {1,2,3,4,5,6,7,8})
 
 #!markdown
 
-Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements.         example == 
- {1, 2, 0, 1, 0, 1, 0, 3, 0, 1}) => new int[] {1, 2, 1, 1, 3, 1, 0, 0, 0, 0}
+Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements. example ==
+{1, 2, 0, 1, 0, 1, 0, 3, 0, 1}) => new int[] {1, 2, 1, 1, 3, 1, 0, 0, 0, 0}
 
 #!csharp
 
@@ -1645,24 +1647,23 @@ seenChars[Convert.ToInt32(Convert.ToChar(input.Substring(0,1).ToUpper()))]
 
 Complete the square sum function so that it squares each number passed into it and then sums the results together.
 
-For example, for [1, 2, 2] it should return 9 because 
+For example, for [1, 2, 2] it should return 9 because
 1
 2
-+
-2
-2
-+
-2
-2
-=
-9
-1 
-2
- +2 
-2
- +2 
-2
- =9.
+
+- 2
+  2
+- 2
+  2
+  =
+  9
+  1
+  2
+  +2
+  2
+  +2
+  2
+  =9.
 
 #!csharp
 
@@ -1970,14 +1971,14 @@ Example:
 RomanConvert.Solution(1000) -- should return "M"
 Help:
 
-Symbol    Value
-I          1
-V          5
-X          10
-L          50
-C          100
-D          500
-M          1,000
+Symbol Value
+I 1
+V 5
+X 10
+L 50
+C 100
+D 500
+M 1,000
 
 Remember that there can't be more than 3 identical symbols in a row.
 
@@ -2145,10 +2146,10 @@ array.length == 3
 Example
 For [24, 85, 0] the output should be 21784
 
-[24,       85,       0       ] - The initial array
+[24, 85, 0 ] - The initial array
 [00011000, 01010101, 00000000] - Translate each number to Binary
-   000000000101010100011000    - Compact to a single number
-            21784              - Translate to Decimal
+000000000101010100011000 - Compact to a single number
+21784 - Translate to Decimal
 
 #!csharp
 
@@ -2697,7 +2698,7 @@ Output
 Output will consist of a list of string values (in Haskell and C: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
 
 EXAMPLE
-input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+input = [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
 output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
 
 #!csharp
@@ -2824,10 +2825,10 @@ Digital root is the recursive sum of all the digits in a number.
 Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. The input will be a non-negative integer.
 
 Examples
-    16  -->  1 + 6 = 7
-   942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
-132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
-493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+16 --> 1 + 6 = 7
+942 --> 9 + 4 + 2 = 15 --> 1 + 5 = 6
+132189 --> 1 + 3 + 2 + 1 + 8 + 9 = 24 --> 2 + 4 = 6
+493193 --> 4 + 9 + 3 + 1 + 9 + 3 = 29 --> 2 + 9 = 11 --> 1 + 1 = 2
 
 #!csharp
 
@@ -3013,8 +3014,7 @@ Once you have the located string you are finally going to multiply by it the thi
 
 Example
 
-modifyMultiply ("This is a string", 3, 5) 
- 
+modifyMultiply ("This is a string", 3, 5)
 
 #!csharp
 
@@ -3273,7 +3273,7 @@ Complete the function that accepts a string parameter, and reverses each word in
 
 Examples
 "This is an example!" ==> "sihT si na !elpmaxe"
-"double  spaces"      ==> "elbuod  secaps"
+"double spaces" ==> "elbuod secaps"
 
 #!csharp
 
@@ -3380,3 +3380,76 @@ var one = "coffee";
 var two = "eeco";
 
 (two+two).IndexOf(one)
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public class Kata
+{
+    public static string Encode(string message, string key, int initShift)
+    {
+        key = new string(key.Distinct().ToArray());
+        var alphabet = new string("abcdefghijklmnopqrstuvwxyz".Except(key).ToArray());
+        key += alphabet;
+        var numKey = key.Select((c, i) => new { Char = c, Index = i + 1 }).ToDictionary(x => x.Char, x => x.Index.ToString());
+        numKey[' '] = "0";
+        var encoded = "";
+        var prevPos = initShift;
+        foreach (var c in message)
+        {
+            var pos = numKey[c];
+            var shift = (int.Parse(pos) + prevPos) % key.Length;
+            encoded += key[shift];
+            prevPos = int.Parse(pos);
+        }
+        return encoded;
+    }
+
+    public static string Decode(string message, string key, int initShift)
+    {
+        key = new string(key.Distinct().ToArray());
+        var alphabet = new string("abcdefghijklmnopqrstuvwxyz".Except(key).ToArray());
+        key += alphabet;
+        var numKey = key.Select((c, i) => new { Char = c, Index = i + 1 }).ToDictionary(x => x.Char, x => x.Index.ToString());
+        numKey[' '] = "0";
+        var decoded = "";
+        var prevPos = initShift;
+        foreach (var c in message)
+        {
+            var pos = numKey[c];
+            var shift = (int.Parse(pos) - prevPos + key.Length) % key.Length;
+            decoded += key[shift];
+            prevPos = int.Parse(pos);
+        }
+        return decoded;
+    }
+}
+
+#!csharp
+
+Kata.Encode("on","cryptogam",10)
+
+#!csharp
+
+Kata.Decode("jx","cryptogam",10)
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+
+public class SplitString
+{
+    public static string[] Solution(string str)
+    {
+        if (str.Length % 2 != 0) str += "_";
+        var result = new List<string>();
+        for (int i = 0; i < str.Length; i += 2)
+        {
+            result.Add(str.Substring(i, 2));
+        }
+        return result.ToArray();
+    }
+}
