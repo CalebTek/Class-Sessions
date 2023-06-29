@@ -3380,3 +3380,186 @@ var one = "coffee";
 var two = "eeco";
 
 (two+two).IndexOf(one)
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public class CondiCipher
+{
+    public static string Encode(string message, string key, int initShift)
+    {
+        key = new string(key.Distinct().ToArray());
+        var alphabet = new string("abcdefghijklmnopqrstuvwxyz".Except(key).ToArray());
+        key += alphabet;
+        var numKey = key.Select((c, i) => new { Char = c, Index = i + 1 }).ToDictionary(x => x.Char, x => x.Index.ToString());
+        numKey[' '] = "0";
+        var encoded = "";
+        var prevPos = initShift;
+        foreach (var c in message)
+        {
+            var pos = numKey[c];
+            var shift = (int.Parse(pos) + prevPos) % key.Length;
+            encoded += key[shift];
+            prevPos = int.Parse(pos);
+        }
+        return encoded;
+    }
+
+    public static string Decode(string message, string key, int initShift)
+    {
+        key = new string(key.Distinct().ToArray());
+        var alphabet = new string("abcdefghijklmnopqrstuvwxyz".Except(key).ToArray());
+        key += alphabet;
+        var numKey = key.Select((c, i) => new { Char = c, Index = i + 1 }).ToDictionary(x => x.Char, x => x.Index.ToString());
+        numKey[' '] = "0";
+        var decoded = "";
+        var prevPos = initShift;
+        foreach (var c in message)
+        {
+            var pos = numKey[c];
+            var shift = (int.Parse(pos) - prevPos + key.Length) % key.Length;
+            decoded += key[shift];
+            prevPos = int.Parse(pos);
+        }
+        return decoded;
+    }
+}
+
+#!csharp
+
+public static int ComputeNumbers(int a, int b)
+{
+	if(a==b)
+	{
+		return (a+b)*3;
+	} else
+	{
+		return a+b;
+	}
+}
+
+#!csharp
+
+ComputeNumbers(25,25)
+
+#!csharp
+
+public static int ComputeNumbers(int a, int b)
+{
+	return a==b ? (a+b)*3 : (a+b);
+}
+
+#!csharp
+
+public static int AbsoluteDifference(int num)
+{
+	if(num>51)
+	{
+		return (Math.Abs(num-51))*3;
+	} else
+	{
+		return Math.Abs(num-51);
+	}
+}
+
+#!csharp
+
+AbsoluteDifference(30)
+
+#!csharp
+
+public static int LengthChecker(string str)
+{
+	var counter = 0;
+	foreach(var letter in str)
+	{
+		counter++;
+	}
+	return counter;
+}
+
+#!csharp
+
+LengthChecker("w3resource.com")
+
+#!csharp
+
+public static int OddorEven(int[] nums)
+{
+    var counter = 0;
+    for(var i = 0; i < nums.Length;i++)
+    {
+        if(nums[i]%2==0)
+        {
+            counter ++;
+        }
+    }
+    if(counter>1)
+    {
+        foreach(var num in nums)
+        {
+            if(num%2==1)
+            {
+                return num;
+            }
+        }
+    } else
+    {
+        foreach(var num in nums)
+        {
+            if(num%2==0)
+            {
+                return num;
+            }
+        }
+    }
+    return 0;
+}
+
+#!csharp
+
+public static int OddorEven(int[] nums)
+{
+    var counter = 0;
+    int OddNum = 0;
+    int EvenNum = 0;
+    for(var i = 0; i < nums.Length;i++)
+    {
+        if(nums[i]%2==0)
+        {
+            counter ++;
+            EvenNum = nums[i];
+        } else
+        {
+            OddNum = nums[i];
+        }
+    }
+    if(counter>1)
+    {
+        return OddNum;
+    } else
+    {
+        return EvenNum;
+    }
+}
+
+#!csharp
+
+OddorEven(new int[] {2,4,0,100,4,11,26022})
+
+#!csharp
+
+OddorEven(new int[] {160,3,1719,19,11,13})
+
+#!csharp
+
+public static string AddBinary(int a, int b)
+{
+    return Convert.ToString(a+b,2);
+}
+
+#!csharp
+
+AddBinary(5,9)
