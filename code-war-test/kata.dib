@@ -3944,3 +3944,98 @@ public class NthSeries {
 #!csharp
 
 NthSeries.seriesSum(8)
+
+#!csharp
+
+public static bool HasUnique(string str) // str = abc => Length = 3
+{
+    
+    for(var i = 0; i < str.Length; i++) // i = 0,1,2 a, b,c
+    {
+        for(var j = i; j<str.Length; j++) // j = 0,1,2  a,b,c => 1,2  b,c => 2 c
+        {
+            if(str.ToLower()[i] == str.ToLower()[j] && i!=j)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+#!csharp
+
+HasUnique("abcuU")
+
+#!csharp
+
+for(var i = 0; i <=10; i++)
+{
+    Console.Write($"{i} ");
+}
+
+#!csharp
+
+for(var i = 0; i <=3; i++)
+{
+   for(var j = 0; j <=3; j++)
+   {
+     Console.WriteLine($"{i}: {j} ");
+   }
+}
+
+#!csharp
+
+public static string NumberToOrdinal(int number)
+{
+    switch(number%100)
+    {
+        case 11:
+        case 12:
+        case 13:
+        return $"{number}th";
+    }
+    switch(number%10)
+    {
+        case 1:
+        return $"{number}st";
+        case 2:
+        return $"{number}nd";
+        case 3:
+        return $"{number}rd";
+        default:
+        return $"{number}th";
+    }
+    
+}
+
+#!csharp
+
+NumberToOrdinal(1)
+
+#!csharp
+
+222%10
+
+#!csharp
+
+12%100
+
+#!csharp
+
+public static class Numerals
+{
+    public static int Add(int a, int b)
+    {
+        return a+b;
+    }
+
+    public static int Subtract(int a, int b)
+    {
+        return a+b;
+    }
+}
+
+#!csharp
+
+Numerals.Add(87,-90)
