@@ -3813,3 +3813,134 @@ Kata.ReverseSeq(7)
       {
       Console.WriteLine(i);
     }
+
+#!markdown
+
+Create a function with two arguments that will return an array of the first n multiples of x.
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array or list ( depending on language ).
+
+Examples
+countBy(1,10) should return {1,2,3,4,5,6,7,8,9,10}
+countBy(2,5) should return {2,4,6,8,10}
+
+#!csharp
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+public static class Kata
+{
+  public static int[] CountBy(int x, int n)
+  {
+    var z = new List<int>();
+    //var y = n*x;
+    for(var i = 1; i <= n; i++)
+      {
+        z.Add(i*x);
+ /*      if(y%x==0)
+        {
+        z.Add(i*x);
+      } */
+    }
+    return z.ToArray();
+  }
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static int[] CountBy(int x, int n)
+  {
+    return Enumerable.Range(1, n).Select(i => i * x).ToArray();    
+  }
+}
+
+#!csharp
+
+Kata.CountBy(1,10)
+
+#!markdown
+
+Task:
+Your task is to write a function which returns the sum of following series upto nth term(parameter).
+
+Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+Rules:
+You need to round the answer to 2 decimal places and return it as String.
+
+If the given value is 0 then it should return 0.00
+
+You will only be given Natural Numbers as arguments.
+
+Examples:(Input --> Output)
+1 --> 1 --> "1.00"
+2 --> 1 + 1/4 --> "1.25"
+5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"
+FUNDAMENTALS
+
+#!csharp
+
+using System;
+
+public class NthSeries {
+	
+	public static string seriesSum (int n) {
+		// Happy Coding ^_^
+    //create the denominators
+    //var denom = new List<int>();
+    /*if(n==0)
+      {
+      return "0.00";
+    }*/
+    int counter = 0, start = 1;
+    double sum = 0;
+    while(counter<n)
+      {
+      //denom.Add(start);
+      sum += 1/(double)start;
+      start += 3;
+      counter++;
+    }
+    return sum.ToString("0.00");
+	}
+}
+
+#!csharp
+
+using System;
+
+public class NthSeries {
+	
+	public static string seriesSum (int n) {
+    double ret = 0;
+    for (var i = 1; i <= n; i++) 
+    {
+      ret += 1f/(3 * i - 2);
+    }
+    return ret.ToString("0.00");
+	}
+  
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public class NthSeries {
+	public static string seriesSum(int n) {
+		return (from i in Enumerable.Range(0, n) select 1.0 / (3 * i + 1)).Sum().ToString("0.00");
+	}
+}
+
+#!csharp
+
+NthSeries.seriesSum(8)
