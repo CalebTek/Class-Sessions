@@ -3686,3 +3686,130 @@ public static string AddBinary(int a, int b)
 
 AddBinary(5,9)
 //>>>>>>> 5b58b82af7851611ce7e15db6ec43d4a9d12d556
+
+#!csharp
+
+var str = new string[] {"Apple", "Banana", "Avocado", "Cherry"};
+
+str.Where(x=>x.StartsWith('A')).ToList()
+
+#!markdown
+
+There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+It’s guaranteed that array contains at least 3 numbers.
+
+The tests contain some very huge arrays, so think about performance.
+
+This is the first kata in series:
+
+Find the unique number (this kata)
+Find the unique string
+Find The Unique
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static int GetUnique(IEnumerable<int> numbers)
+  {
+    //your code
+    var first = numbers.Min();
+    var second = numbers.Max();
+    int counter = 0;
+    foreach(var num in numbers)
+      {
+      if(num == first)
+        {
+        counter++;
+      }
+    }
+    if(counter > 1)
+      {
+      return second;
+    }else{
+      return first;
+    }
+  }
+}
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+public static int GetUnique(IEnumerable<int> numbers)
+{
+return numbers.GroupBy(x=>x).Single(x=> x.Count() == 1).Key;
+}
+}
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static int GetUnique(IEnumerable<int> numbers)
+  {
+    List<int> numbersList = numbers.ToList();
+    numbersList.Sort();
+    if(numbersList[0] != numbersList[1]){
+      return numbersList[0];
+    }
+    return numbersList[numbersList.Count - 1];
+  }
+}
+
+#!csharp
+
+using System.Linq;
+using System.Collections.Generic;
+
+public class Kata
+{
+public static int GetUnique(IEnumerable<int> numbers)
+{
+return numbers.First(x => numbers.Count(i => i == x) == 1);
+}
+}
+
+#!csharp
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+
+public static class Kata
+{
+  public static int[] ReverseSeq(int n)
+  {
+    var list = new List<int>();
+    for (var i = n; i>=1; i--)
+      {
+      list.Add(i);
+    }
+    int[] arr = list.ToArray();
+    return arr;
+  }
+}
+
+#!csharp
+
+Kata.ReverseSeq(7)
+
+#!csharp
+
+    var list = new List<int>();
+    for (int i = 5; i>=1; i--)
+      {
+      Console.WriteLine(i);
+    }
