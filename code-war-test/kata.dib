@@ -642,7 +642,7 @@ public class DnaStrand
 
 #!csharp
 
-DnaStrand.MakeComplement("ATTGCB")
+DnaStrand.MakeComplement("ATTGC")
 
 #!csharp
 
@@ -3870,7 +3870,7 @@ public static class Kata
 
 #!csharp
 
-Kata.CountBy(1,10)
+Kata.CountBy(n:10,x:1)
 
 #!markdown
 
@@ -4139,3 +4139,81 @@ list
 
 var str = (Convert.ToInt32(string.Join("",new int[] {1,3,9}))+1).ToString();
 str.Select(x=>Convert.ToInt32(x.ToString()))
+
+#!csharp
+
+// string-string-string-string-string
+
+var loc = 0;
+"This is a string".Split()[loc]
+
+#!csharp
+
+var list = new String[5];
+var target = "String";
+list[0] = target;
+list[1] = target;
+list[2] = target;
+list[3] = target;
+list[4] = target;
+string.Join("-", list)
+
+#!csharp
+
+using System.Linq;
+
+public class Kata
+{
+    public static string ModifyMultiply(string str, int loc, int num)
+    {
+        return string.Join('-', Enumerable.Repeat(str.Split(' ')[loc], num));
+    }
+}
+
+#!csharp
+
+string.Join("-",Enumerable.Repeat("string", 5))
+
+#!csharp
+
+var list = new List<string>{
+    "John", "Wesley"
+};
+
+#!csharp
+
+public static int CountChange(int money, int[] coins)
+{
+    int[] ways = new int[money + 1];
+    ways[0] = 1;
+    for (int i = 0; i < coins.Length; i++)
+    {
+        for (int j = coins[i]; j <= money; j++)
+        {
+            ways[j] += ways[j - coins[i]];
+        }
+    }
+    return ways[money];
+}
+
+#!csharp
+
+using System.Collections.Generic;
+
+public class Challenge
+{
+    public static int CountChange(int money, List<int> coins)
+    {
+        
+      int[] ways = new int[money+1];
+      ways[0] = 1;
+      for (var i = 0; i < coins.Count; i++)
+      {
+        for (var j = coins[i]; j <= money; j++)
+        {
+          ways[j] += ways[j - coins[i]];
+        }
+      }
+        return ways[money];
+    }
+}
