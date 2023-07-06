@@ -4202,16 +4202,43 @@ using System.Collections.Generic;
 
 public class Challenge
 {
+    public static int CountChange(int money, List<int> coins) // money = 4, coins {1, 2} => 3
+    {
+        
+      int[] ways = new int[money+1]; // {0,0,0,0,0}
+      ways[0] = 1; // {1,0,0,0,0}
+      for (var i = 0; i < coins.Count; i++) // i = 0,1
+      {
+        for (var j = coins[i]; j <= money; j++) // j = 1, 2, 3, 4 .... j = 2,3,4
+        {
+          ways[j] += ways[j - coins[i]]; // 
+        }
+      }
+        return ways[money];
+    }
+}
+
+#!csharp
+
+Challenge.CountChange(10, new List<int>{2,3,5})
+
+#!csharp
+
+using System.Collections.Generic;
+
+public class Challenge
+{
     public static int CountChange(int money, List<int> coins)
     {
         
       int[] ways = new int[money+1];
       ways[0] = 1;
-      for (var i = 0; i < coins.Count; i++)
+      //for (var i = 0; i < coins.Count; i++)
+      foreach(var coin in coins)
       {
-        for (var j = coins[i]; j <= money; j++)
+        for (var i = coin; i <= money; i++)
         {
-          ways[j] += ways[j - coins[i]];
+          ways[i] += ways[i - coin];
         }
       }
         return ways[money];
