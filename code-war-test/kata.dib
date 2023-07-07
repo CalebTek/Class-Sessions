@@ -4244,3 +4244,28 @@ public class Challenge
         return ways[money];
     }
 }
+
+#!csharp
+
+public class Solution{
+    public static int RemoveElement(int[] nums, int val)
+    {
+        if(nums.Length == 0 || nums == null)
+        {
+            return 0;
+        }
+        var count = 0;
+        foreach(var num in nums)
+        {
+            if(num!=val)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+#!csharp
+
+Solution.RemoveElement(new int[] {0,1,2,2,3,0,4,2},2)
