@@ -4428,11 +4428,138 @@ MATHEMATICSFUNDAMENTALS
 #!csharp
 
 using System;
+using System.Linq;
 
 public class Kata
 {
   public static int SquareDigits(int n)
   {
-    return 0;
+    return Convert.ToInt32(string.Join("",n.ToString().Select(x=>Convert.ToInt32(x.ToString())*Convert.ToInt32(x.ToString()))));
   }
 }
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public class Kata
+{
+    public static int SquareDigits(int n)
+    {
+        return int.Parse(string.Concat(n.ToString().Select(x => Math.Pow(int.Parse(x.ToString()), 2))));
+    }
+}
+
+#!csharp
+
+// other solutions
+using System;
+
+public class Kata
+{
+  public static int SquareDigits(int n)
+  {
+    string output = "";
+    foreach (char c in n.ToString())
+    {
+      int square = int.Parse(c.ToString());
+      output += (square * square);
+    }
+    return int.Parse(output);
+  }
+}
+
+#!csharp
+
+using System;
+using System.Text;
+
+public class Kata
+{
+  public static int SquareDigits(int n)
+  {
+    StringBuilder sb = new StringBuilder(10);
+    foreach (char ch in n.ToString())
+    {
+        int c = (int)ch - (int)'0';
+        sb.Append(c * c);
+    }
+    return int.Parse(sb.ToString());
+  }
+}
+
+#!csharp
+
+9119.ToString().Select(x=>Convert.ToInt32(x.ToString())*Convert.ToInt32(x.ToString()))
+
+#!csharp
+
+Kata.SquareDigits(9119)
+
+#!markdown
+
+DESCRIPTION:
+Given an array of integers, find the one that appears an odd number of times.
+
+There will always be only one integer that appears an odd number of times.
+
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+
+FUNDAMENTALS
+
+#!csharp
+
+using System.Linq;
+
+  class Kata
+    {
+      public static int find_it(int[] seq) 
+      {
+        int result = 0;
+        foreach (int number in seq)
+        {
+            result ^= number;
+        }
+        return result;
+      }
+    }
+
+//The XOR operator in C# is represented by the ^ symbol.
+
+//When a number is XORed with 0, it remains unchanged.
+//When a number is XORed with itself, it becomes 0.
+//XOR is a bitwise operation that compares the corresponding bits of two numbers. 
+//If the bits are different, it sets the corresponding bit in the result to 1. 
+//Otherwise, it sets the bit to 0.
+
+#!csharp
+
+using System.Linq;
+
+  class Kata
+    {
+      public static int find_it(int[] seq) 
+      {
+        return seq.GroupBy(x => x).Single(g => g.Count() % 2 == 1).Key;
+      }
+    }
+
+#!csharp
+
+using System.Linq;
+
+
+class Kata
+    {
+    public static int find_it(int[] seq) 
+      {
+        return  seq.First(x => seq.Count(s => s == x) % 2 == 1);
+      }
+       
+    }
