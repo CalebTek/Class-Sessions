@@ -2305,6 +2305,34 @@ public int PerfomOps(int[] arr)
 
 #!csharp
 
+Math.Log2(32)
+
+#!csharp
+
+public int PerfomOps(int[] arr)
+{
+    var k = Math.Log2(arr.Length);
+    for (int i = 1; i <= k; i++)
+    {
+        var temp = new int[arr.Length/2];
+        for (int j = 0; j < temp.Length; j++)
+        {
+            if(i %2 == 1)
+            {
+                temp[j] = arr[j*2] + arr[j*2 + 1];
+            }
+            else
+            {
+                temp[j] = arr[j*2] * arr[j*2+1];
+            }
+        }
+        arr = temp;
+    }
+    return arr[0];
+}
+
+#!csharp
+
 PerfomOps(new int[] {1, 2, 3, 4, 5, 6, 7, 8})
 
 #!csharp
@@ -2328,7 +2356,7 @@ x
 
 #!csharp
 
-Pack(new byte[] {24, 85, 0})
+Pack3(new int[] {24, 85, 0})
 
 #!csharp
 
@@ -4269,3 +4297,58 @@ public class Solution{
 #!csharp
 
 Solution.RemoveElement(new int[] {0,1,2,2,3,0,4,2},2)
+
+#!csharp
+
+var str = "TACG";
+//str.Select(x => x).Where(y => y == 'C').ToArray()[0]
+str.Where(y => y == 'C').ToArray()[0]
+
+#!markdown
+
+DESCRIPTION:
+Welcome.
+
+In this kata you are required to, given a string, replace every letter with its position in the alphabet.
+
+If anything in the text isn't a letter, ignore it and don't return it.
+
+"a" = 1, "b" = 2, etc.
+
+Example
+Kata.AlphabetPosition("The sunset sets at twelve o' clock.")
+Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" ( as a string )
+
+STRINGSFUNDAMENTALS
+
+#!csharp
+
+public static class Kata
+{
+  public static string AlphabetPosition(string text)
+  {
+    return string.Join(" ", text.ToLower().Select(x=>(int)x-96).Where(y=>y>0));
+  }
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+    public static string AlphabetPosition(string text)
+    {
+        // ignore non-letter text 
+        return string.Join(" ", text.ToLower().Where(char.IsLetter).Select(x => x - 'a' + 1));
+    }
+}
+
+#!csharp
+
+Kata.AlphabetPosition("The sunset sets at twelve o' clock.")
+
+#!csharp
+
+string.Join(" ","The sunset sets at twelve o' clock.".Select(x=>(int)x-96).Where(y=>y>0))
