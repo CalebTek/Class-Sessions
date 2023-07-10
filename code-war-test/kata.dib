@@ -4559,7 +4559,87 @@ class Kata
     {
     public static int find_it(int[] seq) 
       {
-        return  seq.First(x => seq.Count(s => s == x) % 2 == 1);
+        return  seq.FirstOrDefault(x => seq.Count(s => s == x) % 2 == 1);
       }
        
+    }
+
+#!csharp
+
+using System.Linq;
+
+
+class Kata
+    {
+    public static int find_it(int[] seq) 
+      {
+        var count = 0;
+        foreach(var num in seq)
+        {
+            foreach(var nums in seq)
+            {
+                if(num == nums)
+                {
+                    count++;
+                }
+            }
+            if(count%2==1)
+            {
+                return num;
+            }
+        }
+        return  -1;
+      }
+       
+    }
+
+#!csharp
+
+Kata.find_it ( new[] { 20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5 })
+
+#!markdown
+
+Task
+You're given a substring s of some cyclic string. What's the length of the smallest possible string that can be concatenated to itself many times to obtain this cyclic string?
+
+Example
+For s = "cabca", the output should be 3
+
+"cabca" is a substring of a cycle string "abcabcabcabc..." that can be obtained by concatenating "abc" to itself. Thus, the answer is 3.
+
+Input/Output
+[input] string s
+Constraints: 3 ≤ s.length ≤ 15.
+
+[output] an integer
+PUZZLES
+
+#!csharp
+
+using System.Linq;
+
+public class Kata
+{
+    public int CyclicString(string s)
+    {
+        var count = 0;
+        while (!Enumerable.SequenceEqual(s.Skip(++count), s.Take(s.Length - count)));
+        return count;
+    }
+}
+
+#!csharp
+
+    using System;
+    
+    public class Kata
+    {
+        public int CyclicString(string s){
+          int count = 1;
+          while (!s.StartsWith(s.Substring(count)))
+          {
+            count++;
+          }
+          return count;
+        }
     }
