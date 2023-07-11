@@ -4643,3 +4643,20 @@ public class Kata
           return count;
         }
     }
+
+#!javascript
+
+function areYouPlayingBanjo(name) // name = Remi 
+{
+    if(name.charAt(0).toLowerCase() === 'r')
+    {
+        return name + " plays banjo";
+    }
+    return name + " does not play banjo";
+}
+
+console.log(areYouPlayingBanjo("Kemi"))
+
+#!javascript
+
+console.log("Remi".charAt(0).toLowerCase())
