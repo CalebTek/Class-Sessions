@@ -1,3 +1,45 @@
 #!meta
 
 {"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"name":"csharp"}]}}
+
+#!csharp
+
+public class DomesticAnimal
+{
+    public string eat {get; set;}
+    public virtual void Sound()
+    {
+        Console.WriteLine("Make sound");
+    }
+}
+
+public class Dog: DomesticAnimal
+{
+    public string run {get; set;}
+    public override void Sound()
+    {
+        Console.WriteLine("Dog Make sound");
+    }
+}
+
+#!csharp
+
+Dog bingo = new Dog();
+DomesticAnimal Murphy = new Dog();
+DomesticAnimal champ = new DomesticAnimal();
+
+#!csharp
+
+bingo.Sound()
+
+#!csharp
+
+Murphy.Sound()
+
+#!csharp
+
+champ.Sound()
+
+#!csharp
+
+string.Join("","      A b B a c k e     d      kd al dks    ".Order()).Trim()

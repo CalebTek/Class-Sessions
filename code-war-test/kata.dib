@@ -4644,6 +4644,21 @@ public class Kata
         }
     }
 
+#!csharp
+
+public string areYouPlayingBanjo(string name)
+{
+    if(Char.ToLower(name[0]) == 'r')
+    {
+        return $"{name} plays banjo";
+    }
+    return $"{name} does not play banjo";
+}
+
+#!csharp
+
+areYouPlayingBanjo("Remi")
+
 #!javascript
 
 function areYouPlayingBanjo(name) // name = Remi 
@@ -4651,8 +4666,12 @@ function areYouPlayingBanjo(name) // name = Remi
     if(name.charAt(0).toLowerCase() === 'r')
     {
         return name + " plays banjo";
+    } 
+    else
+    {
+        return name + " does not play banjo";
     }
-    return name + " does not play banjo";
+    
 }
 
 console.log(areYouPlayingBanjo("Kemi"))
@@ -4660,3 +4679,165 @@ console.log(areYouPlayingBanjo("Kemi"))
 #!javascript
 
 console.log("Remi".charAt(0).toLowerCase())
+
+#!javascript
+
+function abbrevName(name){
+    // code away
+  let names = name.split(' ');
+  let initials = name[0].substring(0,1).toUpperCase();
+  if(names.length > 1)
+    {
+      initials += '.' + names[names.length - 1].substring(0,1).toUpperCase();
+    }
+  return initials;
+}
+
+console.log(abbrevName("John Wesley"))
+
+#!javascript
+
+let name = "Dominic Precious Freaky";
+let names = name.split(' ');
+let initials = names[0][0] + '.' + names[1][0] + '.' + names[2][0];
+console.log(initials)
+
+#!csharp
+
+public string abbrevName(string name){
+    // code away
+  var names = name.Split(' ');
+  var initials = name[0].ToString().Substring(0,1).ToUpper();
+  if(names.Length > 1)
+    {
+      initials += '.' + names[names.Length - 1].Substring(0,1).ToUpper();
+    }
+  return initials;
+}
+
+Console.Write(abbrevName("John Wesley"))
+
+#!csharp
+
+public class Challenge
+{
+    public static bool EvenXAndO(string str)
+    {
+        var count = 0;
+        foreach(var chars in str.ToLower())
+        {
+          if(chars == 'x' || chars == 'o')
+          {
+            count++;
+          }
+        }
+        return count%2==1? false:true;
+    }
+}
+
+#!csharp
+
+public class Challenge
+{
+    public static bool EvenXAndO(string str)
+    {
+        var counto = 0;
+        var countx = 0;
+        foreach(var chars in str.ToLower())
+        {
+          if(chars == 'x')
+          {
+            countx++;
+          }
+            if(chars == 'o')
+          {
+            counto++;
+          }
+        }
+        return countx == counto;
+    }
+}
+
+#!csharp
+
+public class Challenge
+{
+    public static bool EvenXAndO(string str)
+    {
+        return str.ToLower().Where(chars=> chars == 'x' || chars == 'o').Count()%2==1?false:true;
+    }
+}
+
+#!csharp
+
+"xoxoxox"
+
+#!csharp
+
+Challenge.EvenXAndO("uididxoo")
+
+#!csharp
+
+using System.Linq;
+public static class MonkeyCounter
+{
+  public static int[] MonkeyCount(int n)
+  {
+    return Enumerable.Range(1,n).Where(x=>x%2==0).ToArray();
+  }
+}
+
+#!csharp
+
+MonkeyCounter.MonkeyCount(40)
+
+#!csharp
+
+public class Kata
+{
+  public static double[] GetAges(int sum, int difference)
+  {
+    // A & B
+    // Sum = A + B
+    // Difference = A-B
+    // A = Sum - B
+    // B = A - Difference
+    if(sum < 0  || difference < 0)
+    {
+        return null;
+    }
+    var a = (double)(sum+difference)/2.0;
+    var b = (double)sum - a;
+    var arr = new double[2] {a,b};
+    return arr;
+  }
+}
+
+#!csharp
+
+public class Kata
+{
+  public static double[] GetAges(int sum, int difference)
+  {
+    // A & B
+    // Sum = A + B
+    // Difference = A-B
+    // A = Sum + Difference /2
+    // B = sum -A
+    if(sum < 0  || difference < 0)
+    {
+        return null;
+    }
+    var a = (double)(sum+difference)/2.0;
+    var b = (double)sum - a;
+    if(a<0 || b<0)
+      {
+      return null;
+    }
+    return new double[2] {a,b};
+  }
+}
+
+#!csharp
+
+Kata.GetAges(63, -14)
