@@ -5205,3 +5205,78 @@ public class LoopoverSolver
         return board;
     }
 }
+
+#!csharp
+
+var str = "This is a string";
+var strSplit = str.Split(" ");
+foreach(var chars in strSplit)
+{
+    Console.WriteLine(chars);
+}
+
+#!csharp
+
+var loc = 3;
+var num = 5;
+var target = str.Split(" ")[loc];
+var target2 = target;
+var result = new List<string>();
+for ( var i = 0; i < num; i++)
+{
+    result.Add(target);
+}
+for( var i = 1; i < num; i++)
+{
+    target2 += "-" + target;
+}
+string.Join("-", result)
+
+#!csharp
+
+string.Join("-", Enumerable.Repeat(target, num))
+
+#!csharp
+
+var arr = new int[]{1,2,4,5};
+arr.Where(x=>x%2==0).Count<int>()
+
+#!csharp
+
+var str = "anarconda";
+var contain = 'a';
+str.Contains(contain);
+str.Where(x=>x.Equals(contain)).Count()
+
+#!csharp
+
+public static bool IsPrime(int n)
+{
+    var count = 0;
+    for(var i = 0; i <= Math.Abs(n)/2; i++)
+    {
+        if(n%2==1)
+        {
+            count++;
+            if(count>)
+            return true;
+        }
+    }
+    return false;
+}
+
+#!csharp
+
+public static bool IsPrime(int n)
+{
+
+    return Enumerable.Range(2,Math.Abs(n)/2).Where(x=>x%2==0).Count()==1?true:false;
+}
+
+#!csharp
+
+IsPrime(214748363)
+
+#!csharp
+
+Math.Pow(2,31)
