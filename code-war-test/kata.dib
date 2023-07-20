@@ -5449,3 +5449,22 @@ public static class Kata
       _ => $"{name[0]}, {name[1]} and {name.Length - 2} others like this",
     };
 }
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+public static class Kata
+{
+  public static string Likes(string[] n)
+  {
+      return new Dictionary<int, Func<string[],string >>
+      {
+          {0,t=>"no one likes this"},
+          {1,t=>t[0]+" likes this"},
+          {2,t=>string.Join(", ",t.Take(t.Length-1).Take(2))+
+        " and "+(t.Length<4?t[t.Length-1]:$"{t.Length-2} others")+" like this"}
+      }[Math.Min(n.Length, 2)](n);
+  }
+}
