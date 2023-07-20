@@ -5509,3 +5509,48 @@ public static class Kata
         return string.Join(" ", result);
     }
 }
+
+#!markdown
+
+Other Solution
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string Order(string words)
+        {
+            if (string.IsNullOrEmpty(words)) return words;
+            return string.Join(" ", words.Split(' ').OrderBy(s => s.ToList().Find(c => char.IsDigit(c))));
+        }
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string Order(string words)
+  {
+    return string.Join(" ", words.Split().OrderBy(w => w.SingleOrDefault(char.IsDigit)));
+  }
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+public static class Kata
+{
+  public static string Order(string words)
+  {
+    return string.Join(" ",words.Split(' ').OrderBy(s => Regex.Match(s,@"\d+").Value));
+  }
+}
