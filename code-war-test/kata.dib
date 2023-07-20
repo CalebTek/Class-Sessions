@@ -5411,3 +5411,41 @@ public static class Kata
         : $"{name[0]}, {name[1]} and {name.Length-2} others like this";
   }
 }
+
+#!markdown
+
+Other Cool Solution
+
+#!csharp
+
+public static class Kata
+{
+  public static string Likes(string[] names)
+  {
+    switch (names.Length)
+    {
+      case 0: return "no one likes this";
+      case 1: return $"{names[0]} likes this";
+      case 2: return $"{names[0]} and {names[1]} like this";
+      case 3: return $"{names[0]}, {names[1]} and {names[2]} like this";
+      default: return $"{names[0]}, {names[1]} and {names.Length - 2} others like this";
+    }
+  }
+}
+
+#!csharp
+
+using System;
+
+public static class Kata
+{
+  public static string Likes(string[] name)
+    => name.Length switch
+    {
+      0 => "no one likes this",
+      1 => $"{name[0]} likes this",
+      2 => $"{name[0]} and {name[1]} like this",
+      3 => $"{name[0]}, {name[1]} and {name[2]} like this",
+      _ => $"{name[0]}, {name[1]} and {name.Length - 2} others like this",
+    };
+}
