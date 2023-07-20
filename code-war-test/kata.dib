@@ -5376,3 +5376,9 @@ public class Car
 #!csharp
 
 Car Volvo = new Car();
+
+#!csharp
+
+var numbers = new int[] { 5, 2, 8, 1, 9, 3 };
+var sortedNumbers = numbers.OrderBy(m=>m);
+sortedNumbers
