@@ -43,3 +43,57 @@ champ.Sound()
 #!csharp
 
 string.Join("","      A b B a c k e     d      kd al dks    ".Order()).Trim()
+
+#!markdown
+
+Two-dimensional array [,]:
+A two-dimensional array is a single, continuous block of memory that represents a rectangular grid of elements.
+The size of both dimensions (rows and columns) is fixed during initialization, and it remains constant throughout the lifetime of the array.
+To declare and initialize a two-dimensional array, you specify the size of each dimension within square brackets, like int[,] myArray = new int[rows, columns];.
+Accessing elements in a two-dimensional array is done using the syntax myArray[row, column].
+Example:
+
+#!csharp
+
+int[,] twoDArray = new int[3, 4];
+twoDArray[0, 0] = 1;
+twoDArray[1, 1] = 2;
+
+#!csharp
+
+// populate
+for(var i = 0; i < 3; i++)
+{
+    for(var j = 0; j < 4; j++)
+    {
+        twoDArray[i,j] = (i+1)*j;
+    }
+}
+
+#!csharp
+
+twoDArray
+
+#!markdown
+
+Jagged array [][]:
+A jagged array is an array of arrays, where each "row" can have a different length (number of columns).
+Each "row" of the jagged array is essentially a separate array instance in memory. These individual arrays can have different sizes, providing more flexibility in managing memory allocation.
+To declare and initialize a jagged array, you specify the size of the first dimension (number of rows) only, and then create each "row" (inner array) separately, like int[][] jaggedArray = new int[rows][];.
+Accessing elements in a jagged array is done using the syntax jaggedArray[rowIndex][columnIndex].
+Example:
+
+#!csharp
+
+int[][] jaggedArray = new int[3][];
+jaggedArray[0] = new int[] { 1, 2, 3 };
+jaggedArray[1] = new int[] { 4, 5 };
+jaggedArray[2] = new int[] { 6, 7, 8, 9 };
+
+#!csharp
+
+jaggedArray
+
+#!markdown
+
+In summary, the key differences between [,] and [][] are how they store data in memory and their flexibility in terms of row sizes. Two-dimensional arrays have a fixed size for both dimensions and use a single block of memory, while jagged arrays consist of separate arrays, allowing variable row sizes. The choice between the two depends on the specific needs and requirements of your application.
