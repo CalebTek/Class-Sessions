@@ -5991,14 +5991,12 @@ https://www.codewars.com/kata/5b853229cfde412a470000d0/csharp
 #!csharp
 
 using System;
-namespace Solution
+
+public class TwiceAsOldSolution
 {
-  public class TwiceAsOldSolution
-  {
-    public static int TwiceAsOld(int dadYears, int sonYears)
-    {
-      // Add you code here.
-      return Math.Abs(dadYears - sonYears*2);
-    }
-  }
+public static int TwiceAsOld(int dadYears, int sonYears)
+{
+    // Add you code here.
+    return Math.Abs(dadYears - sonYears*2);
+}
 }
