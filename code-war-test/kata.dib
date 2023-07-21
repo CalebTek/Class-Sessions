@@ -5657,3 +5657,55 @@ public class TheClockwiseSpiral
         return spiral;
     }
 }
+
+#!markdown
+
+DESCRIPTION:
+You're writing code to control your town's traffic lights. You need a function to handle each change from green, to yellow, to red, and then to green again.
+
+Complete the function that takes a string as an argument representing the current state of the light and returns a string representing the state the light should change to.
+
+For example, when the input is green, output should be yellow.
+
+FUNDAMENTALS
+
+#!csharp
+
+public class Kata
+{
+    public static string UpdateLight(string current)
+    {
+        //Do Some Magic
+      return current.ToLower() == "green"? "yellow" : current.ToLower() == "yellow" ? "red" : "green";
+    }
+}
+
+#!markdown
+
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+
+[TestFixture]
+public class Tests
+{
+[TestCase("green", "yellow")]
+[TestCase("yellow", "red")]
+[TestCase("red", "green")]
+public void BasicTests(string s, string expected)
+{
+Assert.That(Kata.UpdateLight(s), Is.EqualTo(expected));
+}
+[Test]
+public void RandomTests()
+{
+var rnd = new Random();
+for (int i = 0; i < 10; i++)
+{
+var s = "green yellow red".Split()[rnd.Next(0, 3)];
+var expected = SolutionUpdateLight(s);
+Assert.That(Kata.UpdateLight(s), Is.EqualTo(expected));
+}
+}
+readonly List<string> a = new List<string> { "green", "yellow", "red", "green" };
+string SolutionUpdateLight(string current) => a[a.IndexOf(current) + 1];
