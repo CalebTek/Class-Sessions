@@ -97,3 +97,27 @@ jaggedArray
 #!markdown
 
 In summary, the key differences between [,] and [][] are how they store data in memory and their flexibility in terms of row sizes. Two-dimensional arrays have a fixed size for both dimensions and use a single block of memory, while jagged arrays consist of separate arrays, allowing variable row sizes. The choice between the two depends on the specific needs and requirements of your application.
+
+#!csharp
+
+int x = 9;
+
+#!csharp
+
+string name = "Chisom Adaeze";
+int hashCode = Math.Abs(name.GetHashCode());
+string slicedHashCode = hashCode.ToString().Substring(0,5);
+string TicketNo = "FL-" + slicedHashCode;
+TicketNo
+
+#!csharp
+
+int[] array = new int[5];
+array[0] = 1;
+array[1] = 2;
+array[2] = 3;
+array[3] = 4;
+array[4] = 5;
+array[5] = 6;
+
+List<int> list = new List<int>();
