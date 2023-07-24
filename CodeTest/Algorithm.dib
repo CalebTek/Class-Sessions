@@ -74,3 +74,31 @@ public class Kata {
     return employed && !vacation ? true: false; 
   }
 }
+
+#!csharp
+
+public class Program {
+	public static LinkedList ReverseLinkedList(LinkedList head) {
+		// Write your code here.
+		LinkedList previousNode = null;
+      LinkedList currentNode = head;
+      while(currentNode !=null)
+      {
+        LinkedList nextNode = currentNode.Next;
+        currentNode.Next = previousNode;
+        previousNode = currentNode;
+        currentNode = nextNode;
+      }
+      return previousNode;
+      //return null;
+	}
+
+	public class LinkedList {
+		public int Value;
+		public LinkedList Next = null;
+
+		public LinkedList(int value) {
+			this.Value = value;
+		}
+	}
+}
