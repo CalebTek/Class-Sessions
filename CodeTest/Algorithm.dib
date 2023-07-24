@@ -102,3 +102,80 @@ public class Program {
 		}
 	}
 }
+
+#!csharp
+
+var linked = new Program.LinkedList(10);
+
+#!csharp
+
+Program.ReverseLinkedList(linked)
+
+#!csharp
+
+linked
+
+#!csharp
+
+using System;
+
+public class Program
+{
+    public static LinkedList ReverseLinkedList(LinkedList head)
+    {
+        LinkedList previousNode = null;
+        LinkedList currentNode = head;
+        while (currentNode != null)
+        {
+            LinkedList nextNode = currentNode.Next;
+            currentNode.Next = previousNode;
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        return previousNode;
+    }
+
+    public class LinkedList
+    {
+        public int Value;
+        public LinkedList Next = null;
+
+        public LinkedList(int value)
+        {
+            this.Value = value;
+        }
+    }
+
+    public static void PrintLinkedList(LinkedList head)
+    {
+        LinkedList currentNode = head;
+        while (currentNode != null)
+        {
+            Console.Write(currentNode.Value + " -> ");
+            currentNode = currentNode.Next;
+        }
+        Console.WriteLine("null");
+    }
+}
+
+#!csharp
+
+        // Creating a linked list: 1 -> 2 -> 3 -> 4 -> 5
+        Program.LinkedList node5 = new Program.LinkedList(5);
+        Program.LinkedList node4 = new Program.LinkedList(4) { Next = node5 };
+        Program.LinkedList node3 = new Program.LinkedList(3) { Next = node4 };
+        Program.LinkedList node2 = new Program.LinkedList(2) { Next = node3 };
+        Program.LinkedList node1 = new Program.LinkedList(1) { Next = node2 };
+
+        Console.WriteLine("Original Linked List:");
+        Program.PrintLinkedList(node1);
+
+        // Reversing the linked list
+        Program.LinkedList reversedHead = Program.ReverseLinkedList(node1);
+
+        Console.WriteLine("\nReversed Linked List:");
+        Program.PrintLinkedList(reversedHead);
+
+#!csharp
+
+node5
