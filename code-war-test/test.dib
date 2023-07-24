@@ -327,3 +327,76 @@ foreach(var num in numbers)
     }
 }
 return smallest;
+
+#!csharp
+
+int[] numbers = new int[] {8,6,7,8,9,7,5,8,4};
+
+numbers.Order().Last()
+
+#!csharp
+
+int x = 9;
+
+x +=9
+
+#!csharp
+
+var numbers = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15};
+
+var num = new int[] {numbers.Count(n=>n>0), numbers.Where(n=>n<0).Sum()};
+num
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+    public static int[] CountPositivesSumNegatives(int[] input)
+    {
+      // separate negative from positive
+      // count the positive to give the first element
+      // sum the negative to give the second element
+      if(input == null || input.Length == 0 )
+        {
+        return new int[] {};
+      }      
+      return new int[] {input.Count(n=>n>0), input.Where(n=>n<0).Sum()};
+    }
+}
+
+#!csharp
+
+Kata.CountPositivesSumNegatives(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15})
+
+#!markdown
+
+Count the number of divisors of a positive integer n.
+
+Random tests go up to n = 500000.
+
+Examples (input --> output)
+4 --> 3 // we have 3 divisors - 1, 2 and 4
+5 --> 2 // we have 2 divisors - 1 and 5
+12 --> 6 // we have 6 divisors - 1, 2, 3, 4, 6 and 12
+30 --> 8 // we have 8 divisors - 1, 2, 3, 5, 6, 10, 15 and 30
+Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.
+
+NUMBER THEORYMATHEMATICSFUNDAMENTALS
+
+https://www.codewars.com/kata/542c0f198e077084c0000c2e/train/csharp
+
+#!csharp
+
+using System.Linq;
+public class Kata
+{
+  public static int Divisors(int n)
+  {
+    // todo
+    return Enumerable.Range(1,n).Count(x=>n%x==0);
+  }
+}
