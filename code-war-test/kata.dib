@@ -6188,4 +6188,258 @@ public class Kata
 
 #!csharp
 
-Kata.ArrayDiff(new int[] {1, 2, 2}, new int[] {2})
+using System;
+using System.Collections.Generic;
+
+public class Kata
+{
+    public static int[] ArrayDiff(int[] a, int[] b)
+    {
+        var bHashSet = new HashSet<int>(b);
+        var result = new List<int>();
+
+        foreach (var m in a)
+        {
+            if (!bHashSet.Contains(m))
+            {
+                result.Add(m);
+            }
+        }
+
+        return result.ToArray();
+    }
+}
+
+#!csharp
+
+using System.Linq;
+
+public class Kata
+{
+  public static int[] ArrayDiff(int[] a, int[] b)
+  {
+    return a.Where(n => !b.Contains(n)).ToArray();
+  }
+}
+
+#!csharp
+
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static int[] ArrayDiff(int[] a, int[] b)
+  {
+    // With a hashset, we won't have to iterate over b for every item in a.
+    // Instead, we can check if an item exists in constant time
+    HashSet<int> bSet = new HashSet<int>(b);
+    
+    return a.Where(v => !bSet.Contains(v)).ToArray();
+  }
+}
+
+#!csharp
+
+Kata.ArrayDiff(new int[] {1, 2, 2}, new int[] {1})
+
+#!csharp
+
+var hashset = new HashSet<int>() {1,4,5};
+var hashset2 = new HashSet<int>() {1,4,5,3,6};
+hashset2.Where(n=>!hashset.Contains(n))
+//hashset
+
+#!markdown
+
+Count the number of divisors of a positive integer n.
+
+Random tests go up to n = 500000.
+
+Examples (input --> output)
+4 --> 3 // we have 3 divisors - 1, 2 and 4
+5 --> 2 // we have 2 divisors - 1 and 5
+12 --> 6 // we have 6 divisors - 1, 2, 3, 4, 6 and 12
+30 --> 8 // we have 8 divisors - 1, 2, 3, 5, 6, 10, 15 and 30
+Note you should only return a number, the count of divisors. The numbers between parentheses are shown only for you to see which numbers are counted in each case.
+
+NUMBER THEORYMATHEMATICSFUNDAMENTALS
+
+https://www.codewars.com/kata/542c0f198e077084c0000c2e/train/csharp
+
+#!csharp
+
+using System.Linq;
+public class Kata
+{
+  public static int Divisors(int n)
+  {
+    // todo
+    return Enumerable.Range(1,n).Count(x=>n%x==0);
+  }
+}
+
+#!markdown
+
+DESCRIPTION:
+Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities (the multiplicity of a member is the number of times it appears). "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+
+Examples
+Valid arrays
+a = [121, 144, 19, 161, 19, 144, 19, 11]  
+b = [121, 14641, 20736, 361, 25921, 361, 20736, 361]
+comp(a, b) returns true because in b 121 is the square of 11, 14641 is the square of 121, 20736 the square of 144, 361 the square of 19, 25921 the square of 161, and so on. It gets obvious if we write b's elements in terms of squares:
+
+a = [121, 144, 19, 161, 19, 144, 19, 11]
+b = [11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19]
+Invalid arrays
+If, for example, we change the first number to something else, comp is not returning true anymore:
+
+a = [121, 144, 19, 161, 19, 144, 19, 11]  
+b = [132, 14641, 20736, 361, 25921, 361, 20736, 361]
+comp(a,b) returns false because in b 132 is not the square of any number of a.
+
+a = [121, 144, 19, 161, 19, 144, 19, 11]  
+b = [121, 14641, 20736, 36100, 25921, 361, 20736, 361]
+comp(a,b) returns false because in b 36100 is not the square of any number of a.
+
+Remarks
+a or b might be [] or {} (all languages except R, Shell).
+a or b might be nil or null or None or nothing (except in C++, COBOL, Crystal, D, Dart, Elixir, Fortran, F#, Haskell, Nim, OCaml, Pascal, Perl, PowerShell, Prolog, PureScript, R, Racket, Rust, Shell, Swift).
+If a or b are nil (or null or None, depending on the language), the problem doesn't make sense so return false.
+
+Note for C
+The two arrays have the same size (> 0) given as parameter in function comp.
+
+FUNDAMENTALS
+
+https://www.codewars.com/kata/550498447451fbbd7600041c/csharp
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class AreTheySame
+{
+    public static bool comp(int[] a, int[] b)
+    {
+        if (a == null || b == null || a.Length == 0 || b.Length == 0)
+            return false;
+
+        if (a.Length != b.Length)
+            return false;
+
+        var aSet = new HashSet<long>(a.Select(num => (long)num * num));
+
+        foreach (int num in b)
+        {
+            if (!aSet.Contains(num))
+                return false;
+        }
+
+        return true;
+    }
+}
+
+#!csharp
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+class AreTheySame
+{
+  public static bool comp(int[] a, int[] b)
+  {
+    // your code
+    //Array.Sort(a);
+    //Array.Sort(b);
+    var aset = new HashSet<int>(a.Order());
+    return b.Order().Where(n=>!aset.Contains(n*n)).Count()>0?true:false;
+  }
+}
+
+#!csharp
+
+// working
+using System;
+using System.Linq;
+
+public class AreTheySame
+{
+    public static bool comp(int[] a, int[] b)
+    {
+        if (a == null || b == null)
+            return false;
+
+        a = a.OrderBy(num => num).ToArray();
+        b = b.OrderBy(num => num).ToArray();
+
+        var aSquares = a.Select(num => (long)num * num);
+        var bSquares = b.Select(num => (long)num);
+
+        return aSquares.SequenceEqual(bSquares);
+    }
+}
+
+#!csharp
+
+// not totally working
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+class AreTheySame
+{
+  public static bool comp(int[] a, int[] b)
+  {
+    // your code
+    Array.Sort(a);
+    Array.Sort(b);
+    var aset = new HashSet<int>(a);
+    return b.Where(n=>!aset.Contains(n*n)).Count()>0?true:false;
+  }
+}
+
+#!csharp
+
+// not totally working
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+
+class AreTheySame
+{
+  public static bool comp(int[] a, int[] b)
+  {
+    // your code
+    Array.Sort(a);
+    Array.Sort(b);
+    var aset = new HashSet<int>(a);
+    return b.Count(n=>!aset.Contains(n*n))>0?true:false;
+  }
+}
+
+#!csharp
+
+//worked
+using System.Linq;
+class AreTheySame
+{
+  public static bool comp(int[] a, int[] b)
+  {
+    if (a == null || b == null) return false;
+    var result = a.Select(x => x*x).OrderBy(x=>x).SequenceEqual(b.OrderBy(x=>x));
+    return result;
+  }
+}
+
+#!csharp
+
+int[] a = new int[] {121, 144, 19, 161, 19, 144, 19, 11};
+int[] b = new int[] {11*11, 121*121, 144*144, 19*19, 161*161, 19*19, 144*144, 19*19};
+AreTheySame.comp(a,b)
