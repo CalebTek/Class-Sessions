@@ -6159,3 +6159,33 @@ public class Kata
   return result;
   }
 }
+
+#!csharp
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+public class Kata
+{
+  public static int[] ArrayDiff(int[] a, int[] b)
+  {
+    // Your brilliant solution goes here
+    // It's possible to pass random tests in about a second ;)
+    var result = new List<int>();
+    foreach(var m in a)
+      {
+      foreach(var n in b)
+        {
+        if(m!=n)
+          {
+          result.Add(m);
+        }
+      }
+    }
+    return result.ToArray();
+  }
+}
+
+#!csharp
+
+Kata.ArrayDiff(new int[] {1, 2, 2}, new int[] {2})
