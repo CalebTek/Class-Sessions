@@ -6058,3 +6058,104 @@ public class Kata
         return right - left - 1;
     }
 }
+
+#!markdown
+
+namespace Solution {
+using NUnit.Framework;
+using System;
+
+[TestFixture]
+public class SolutionTest
+{
+[TestCase("", ExpectedResult = 0, Description = "empty string test")]
+[TestCase(null, ExpectedResult = 0, Description = "'null' value test")]
+[TestCase("a", ExpectedResult = 1, Description = "'a' value test")]
+[TestCase("aa", ExpectedResult = 2, Description = "'aa' value test")]
+[TestCase("baa", ExpectedResult = 2, Description = "'baa' value test")]
+[TestCase("abc0cba1", ExpectedResult = 7, Description = "'abc0cba1' value test")]
+[TestCase("12 21glg", ExpectedResult = 5, Description = "'12 21glg' value test")]
+[TestCase(" ", ExpectedResult = 3, Description = "empty space test")]
+public int SampleTest(string str)
+{
+return Kata.GetLongestPalindrome(str);
+}
+}
+}
+
+#!csharp
+
+Kata.GetLongestPalindrome("abc0cba1")
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static bool IsPalindrome(string str) 
+  {
+    var arr = str.ToCharArray();
+    Array.Reverse(arr);
+    var reversed = new string(arr);
+    return str == reversed;
+  }
+
+  public static int GetLongestPalindrome(string str)
+  {
+    if (str == null)
+      return 0;
+  
+    int max = 0;
+    for (int i = 0; i < str.Length; ++i)
+      for (int j = i; j < str.Length; ++j)
+        if (IsPalindrome(str.Substring(i, j - i + 1)))
+          max = Math.Max(max, j - i + 1);
+          
+    return max;
+  }
+}
+
+#!csharp
+
+using System.Linq;
+
+public class Kata
+{
+  public static int GetLongestPalindrome(string str)
+  {
+    if (string.IsNullOrEmpty(str)) return 0;
+    var reverse = string.Concat(str.Reverse());
+
+    return Enumerable.Range(0, str.Length)
+        .SelectMany(i => Enumerable.Range(i, str.Length - i + 1).Select(j => str.Substring(i, j - i)))
+        .Where(x => reverse.Contains(x)).Max(x => x.Length);
+  }
+}
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static int GetLongestPalindrome(string str)
+  {
+    if(str == null) return 0;
+    
+    int result = 0;
+    for(int i = 0; i < str.Length; ++i)
+      for(int j = i; j < str.Length; ++j)
+      {
+        var s = str.Substring(i, j - i + 1);
+        if(Enumerable.SequenceEqual(s, s.Reverse()))
+          result = Math.Max(result, s.Length);
+      }
+      
+  return result;
+  }
+}
