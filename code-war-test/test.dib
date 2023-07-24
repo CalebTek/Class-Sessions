@@ -112,12 +112,218 @@ TicketNo
 
 #!csharp
 
-int[] array = new int[5];
+int[] array = new int[6];
 array[0] = 1;
 array[1] = 2;
 array[2] = 3;
 array[3] = 4;
 array[4] = 5;
-array[5] = 6;
+array[5] = 0;
 
 List<int> list = new List<int>();
+list.Add(1);
+list.Add(2);
+list.Add(3);
+list.Add(4);
+list.Add(5);
+list.Add(6);
+list.Add(7);
+list.Add(8);
+list.Remove(7);
+
+list
+
+#!csharp
+
+var numbers = new int[] {10,20,30,40,50,60};
+
+//var counter = 0;
+foreach(var element in numbers)
+{
+/*     if(counter%2==0)
+    {
+        Console.WriteLine(num);
+    }
+    counter++; */
+
+    Console.WriteLine(element);
+}
+
+#!csharp
+
+for(var i = 0; i < numbers.Length; i++) // 0,1,2,3.........Length of numbers - 1
+{
+    if(i%2==0)
+    {
+        Console.WriteLine(numbers[i]);
+    }
+}
+
+#!csharp
+
+int[] num = {1,2,3,4,5,5};
+
+#!csharp
+
+double[] ints = new double[10];
+ints[9] = 10;
+ints
+
+#!csharp
+
+// PEMDAS
+// BEDMAS
+(2+5)*7
+
+#!csharp
+
+var list = new List<int>() {1,3,5,5};
+
+#!csharp
+
+list.Add(9);
+list.Count
+
+#!csharp
+
+var dict = new Dictionary<string, int>() {["A"] = 1, ["B"] = 2, ["C"] = 3};
+dict["D"] = 4;
+
+#!csharp
+
+        Console.WriteLine("Grades");
+        Console.WriteLine("------------------");
+
+#!csharp
+
+var dict = new Dictionary<string, int>();
+string[] names = {"John", "James", "Michael", "Chisom"};
+int[] scores = {90, 78, 45, 90};
+
+/* dict["John"] = 98;
+dict.Add("James", 89); */
+for(var i = 0; i< names.Length; i++)
+{
+    dict[names[i]] = scores[i];
+}
+//dict
+
+foreach(var items in dict)
+{
+    string name = items.Key;
+    int score = items.Value;
+    Console.WriteLine($"{name}\t{score}");
+}
+
+#!csharp
+
+//using Newtonsoft.Json.Linq;
+
+// Declare and initialize a JSON object
+JObject jsonObject = new JObject();
+jsonObject["name"] = "John Doe";
+jsonObject["age"] = 30;
+jsonObject["email"] = "john.doe@example.com";
+jsonObject["isSubscribed"] = true;
+
+// Nested JSON object
+JObject addressObject = new JObject();
+addressObject["city"] = "New York";
+addressObject["zipCode"] = "10001";
+jsonObject["address"] = addressObject;
+
+// Nested JSON array
+JArray hobbiesArray = new JArray("reading", "painting", "traveling");
+jsonObject["hobbies"] = hobbiesArray;
+
+// Convert the JSON object to a string
+string jsonString = jsonObject.ToString();
+
+#!csharp
+
+jsonString
+
+#!csharp
+
+//using Newtonsoft.Json.Linq;
+
+// Declare and initialize a JSON array
+JArray jsonArray = new JArray();
+jsonArray.Add("apple");
+jsonArray.Add("orange");
+jsonArray.Add("banana");
+jsonArray.Add("grape");
+
+// Convert the JSON array to a string
+string jsonString = jsonArray.ToString();
+
+#!csharp
+
+jsonString
+
+#!csharp
+
+//using Newtonsoft.Json.Linq;
+
+// Declare and initialize a JSON object
+JObject jsonObject = new JObject()
+{
+    ["name"] = "John Doe",
+    ["age"] = 30,
+    ["email"] = "john.doe@example.com",
+    ["isSubscribed"] = true
+};
+
+
+// Nested JSON object
+JObject addressObject = new JObject()
+{
+    ["city"] = "New York",
+    ["zipCode"] = "10001",
+    
+};
+
+jsonObject["address"] = addressObject;
+
+
+// Nested JSON array
+JArray hobbiesArray = new JArray("reading", "painting", "traveling");
+jsonObject["hobbies"] = hobbiesArray;
+
+// Convert the JSON object to a string
+string jsonString = jsonObject.ToString();
+
+#!csharp
+
+jsonString
+
+#!csharp
+
+2 < 1
+
+#!csharp
+
+int[] numbers = new int[] {8,6,7,8,9,7,5,8,4};
+int smallest = numbers[0];
+for(int i = 0; i < numbers.Length; i++) // i = 0,1,2,3,....Length of numbers - 1
+{
+    if(smallest > numbers[i])
+    {
+        smallest = numbers[i];
+    }
+}
+return smallest;
+
+#!csharp
+
+int[] numbers = new int[] {8,6,7,8,9,7,5,8,4};
+
+var smallest = numbers[0];
+foreach(var num in numbers)
+{
+    if(smallest > num)
+    {
+        smallest = num;
+    }
+}
+return smallest;

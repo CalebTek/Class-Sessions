@@ -6000,3 +6000,61 @@ public static int TwiceAsOld(int dadYears, int sonYears)
     return Math.Abs(dadYears - sonYears*2);
 }
 }
+
+#!markdown
+
+Longest Palindrome
+Find the length of the longest substring in the given string s that is the same in reverse.
+
+As an example, if the input was “I like racecars that go fast”, the substring (racecar) length would be 7.
+
+If the length of the input string is 0, the return value must be 0.
+
+Example:
+"a" -> 1
+"aab" -> 2  
+"abcde" -> 1
+"zzbaabcd" -> 4
+"" -> 0
+FUNDAMENTALS
+
+#!csharp
+
+using System;
+
+public class Kata
+{
+    public static int GetLongestPalindrome(string str)
+    {
+        if (string.IsNullOrEmpty(str))
+            return 0;
+
+        int maxLength = 1; // At least a single character is a palindrome.
+
+        for (int i = 0; i < str.Length; i++)
+        {
+            // Check for odd length palindrome with the current character as center.
+            int lengthOdd = ExpandAroundCenter(str, i, i);
+            // Check for even length palindrome with the current and next character as center.
+            int lengthEven = ExpandAroundCenter(str, i, i + 1);
+
+            int currentLength = Math.Max(lengthOdd, lengthEven);
+            maxLength = Math.Max(maxLength, currentLength);
+        }
+
+        return maxLength;
+    }
+
+    private static int ExpandAroundCenter(string str, int left, int right)
+    {
+        while (left >= 0 && right < str.Length && str[left] == str[right])
+        {
+            left--;
+            right++;
+        }
+
+        // The loop stops when the characters are not the same (or out of bounds),
+        // so we need to subtract 1 from the right and add 1 to the left to get the actual length.
+        return right - left - 1;
+    }
+}
