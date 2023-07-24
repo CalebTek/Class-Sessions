@@ -6317,6 +6317,8 @@ https://www.codewars.com/kata/550498447451fbbd7600041c/csharp
 
 #!csharp
 
+//  not totally working
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6345,6 +6347,7 @@ public class AreTheySame
 
 #!csharp
 
+// not totally working
 using System;
 using System.Collections;
 using System.Collections.Generic;
