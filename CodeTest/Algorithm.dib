@@ -178,4 +178,25 @@ public class Program
 
 #!csharp
 
+Program.LinkedList previousNode = null;
+Program.LinkedList currentNode = node5;
+Program.LinkedList nextNode = currentNode.Next;
+currentNode.Next = previousNode;
+previousNode = currentNode;
+currentNode = nextNode;
+
+#!csharp
+
+currentNode
+
+#!csharp
+
+nextNode
+
+#!csharp
+
+previousNode
+
+#!csharp
+
 node5
