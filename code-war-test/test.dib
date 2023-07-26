@@ -436,3 +436,11 @@ The two arrays have the same size (> 0) given as parameter in function comp.
 FUNDAMENTALS
 
 https://www.codewars.com/kata/550498447451fbbd7600041c/csharp
+
+#!csharp
+
+Math.Sqrt(Math.Pow(9,99)/9)
+
+#!csharp
+
+Math.Pow(3,98)
