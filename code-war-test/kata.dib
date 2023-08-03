@@ -6580,3 +6580,549 @@ If there are no numbers of this kind in the range
 Enjoy it!!
 
 FUNDAMENTALSMATHEMATICS
+
+#!markdown
+
+The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+
+What if the string is empty? Then the result should be empty object literal, {}.
+
+STRINGSFUNDAMENTALS
+https://www.codewars.com/kata/52efefcbcdf57161d4000091/train/csharp
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Kata
+{
+  public static Dictionary<char, int> Count(string str)
+  {
+    // ...
+    return str.GroupBy(c => c)
+                .ToDictionary(group => group.Key, group => group.Count());
+  }
+}
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+
+
+public class Kata
+{
+  public static Dictionary<char, int> Count(string str)
+  {
+    // ...
+    Dictionary<char, int> charCount = new Dictionary<char, int>();
+        foreach (char c in str)
+        {
+            if (charCount.ContainsKey(c))
+                charCount[c]++;
+            else
+                charCount[c] = 1;
+        }
+        return charCount;
+  }
+}
+
+#!csharp
+
+ Kata.Count("aabb")
+
+#!markdown
+
+DESCRIPTION:
+Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+
+Note: a and b are not ordered!
+
+Examples (a, b) --> output (explanation)
+(1, 0) --> 1 (1 + 0 = 1)
+(1, 2) --> 3 (1 + 2 = 3)
+(0, 1) --> 1 (0 + 1 = 1)
+(1, 1) --> 1 (1 since both are same)
+(-1, 0) --> -1 (-1 + 0 = -1)
+(-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
+Your function should only return a number, not the explanation about how you get that number.
+
+FUNDAMENTALSALGORITHMS
+
+https://www.codewars.com/kata/55f2b110f61eb01779000053/train/csharp
+
+#!markdown
+
+using NUnit.Framework;
+using System;
+
+[TestFixture]
+public class SumTest
+{
+Sum s = new Sum();
+
+    [Test]
+    public void TestPositive()
+    {
+      Assert.AreEqual(1, s.GetSum(0, 1));
+      Assert.AreEqual(3, s.GetSum(1, 2));
+      Assert.AreEqual(14, s.GetSum(5, -1));
+      Assert.AreEqual(127759, s.GetSum(505, 4));
+      Assert.AreEqual(44178, s.GetSum(321, 123));
+    }
+
+    [Test]
+    public void TestNegative()
+    {
+      Assert.AreEqual(-1, s.GetSum(0, -1));
+      Assert.AreEqual(-1275, s.GetSum(-50, 0));
+      Assert.AreEqual(-15, s.GetSum(-1, -5));
+      Assert.AreEqual(-5, s.GetSum(-5, -5));
+      Assert.AreEqual(-127755, s.GetSum(-505, 4));
+      Assert.AreEqual(-44055, s.GetSum(-321, 123));
+    }
+
+    [Test]
+    public void TestZero()
+    {
+      Assert.AreEqual(0, s.GetSum(0, 0));
+    }
+
+    [Test]
+    public void TestSwitchMinMax()
+    {
+      Assert.AreEqual(-15, s.GetSum(-5, -1));
+      Assert.AreEqual(15, s.GetSum(5, 1));
+    }
+
+    [Test]
+    public void TestEqual()
+    {
+      Assert.AreEqual(-17, s.GetSum(-17, -17));
+      Assert.AreEqual(17, s.GetSum(17, 17));
+    }
+
+}
+
+#!csharp
+
+using System;
+using System.Linq;
+  public class Sum
+  {
+     public int GetSum(int a, int b)
+     {
+       //Good Luck!
+       if (a == b)
+       {
+        return a;
+       }
+       if(a>b)
+         {
+         var temp = a;
+         a = b;
+         b = temp;
+       }
+       var sum = 0;
+         for(var i = a; i <=b; i++)
+           {
+           sum += i;
+         }
+       return sum;
+     }
+  }
+
+#!csharp
+
+using System;
+
+public class Sum
+{
+  public int GetSum(int a, int b)
+  {
+    return (a + b) * (Math.Abs(a - b) + 1) / 2;
+  }
+}
+
+#!csharp
+
+using System;
+  public class Sum
+  {
+    public int GetSum(int a, int b)
+        {
+            int max = Math.Max(a, b);
+            int min = Math.Min(a, b);
+            int result = 0;
+            for (int i = min; i <= max; i++)
+            {
+                result += i;
+            }
+            return result;
+        }
+ }
+
+#!csharp
+
+  using System;
+  using System.Linq;
+  public class Sum
+  {
+     public int GetSum(int a, int b)
+     {
+       //Good Luck!
+        return Enumerable.Range(Math.Min(a,b), Math.Max(b,a)-Math.Min(b,a)+1).Sum();
+     }
+  }
+
+#!csharp
+
+int a =-1, b = 5; // -1,0,1,2,3,4,5
+(a + b) * (Math.Abs(a - b) + 1) / 2
+
+#!csharp
+
+string str = "This Is Csharp Class"; // "Ths s Cshrp Clss
+var vowels = new List<char>() {'a', 'e', 'i', 'o', 'u'};
+
+string.Join(" ",  vowels)
+
+#!csharp
+
+for(int i = 0; i < str.Length; i++)
+{
+    Console.WriteLine(str[i]);
+}
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public static class Kata
+{
+    public static string Disemvowel(string str)
+    {
+      // declare the vowels
+      // loop through and check for vowels
+      // remove the vowels
+      //var convertedStr = str.ToLower();
+      var vowels = new List<char>() {'a', 'e', 'i', 'o', 'u'};
+
+           string result = "";
+      foreach(var chars in str)
+        {
+        if(!vowels.Contains(char.ToLower(chars)))
+          //if((chars != 'a') || (chars != 'e') || (chars != 'i') || (chars != 'o') || (chars != 'u'))
+          {
+          result += chars;
+        }
+      }
+      //return result;
+      return string.Join("", str.Where(x=>!vowels.Contains(char.ToLower(x))).ToList());
+    }
+}
+
+#!csharp
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public static class Vowel
+{
+    public static string Disemvowel(string str)
+    {
+      var vowels = new List<char>() {'a', 'e', 'i', 'o', 'u'};
+      string result = "";
+      foreach(var chars in str)
+        {
+        if(!vowels.Contains(char.ToLower(chars)))
+          {
+          result += chars;
+        }
+      }
+      return result;
+    }
+}
+
+#!csharp
+
+Vowel.Disemvowel("Sam")
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+
+public static class Kata
+{
+  public static string Disemvowel(string str)
+  {
+    return Regex.Replace(str,"[aeiou]", "", RegexOptions.IgnoreCase);
+  }
+}
+
+#!csharp
+
+using System;
+
+public static class Kata
+{
+   public static string Disemvowel(string str)
+  { 
+    string[] vowels = {"a","e","i","o","u","A","E","I","O","U"}; 
+    for (int i = 0; i < vowels.Length; i++)
+  	{
+  	  str = str.Replace(vowels[i],"");	
+  	}
+  	  	return str;
+  	}
+}
+
+#!csharp
+
+foreach(var chars in str)
+{
+    if(!vowels.Contains(char.ToLower(chars)))
+    {
+        Console.WriteLine(chars);
+    }
+}
+
+#!markdown
+
+DESCRIPTION:
+Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+Examples:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+FUNDAMENTALS
+
+https://www.codewars.com/kata/5656b6906de340bd1b0000ac/train/csharp
+
+#!csharp
+
+using System.Linq;
+public class TwoToOne 
+{
+  
+	public static string Longest (string s1, string s2) 
+  {
+        // your code
+    return string.Concat(string.Concat(s1,s2).Distinct().OrderBy(x=>x));
+  }
+}
+
+#!csharp
+
+using System.Linq;
+public class TwoToOne 
+{
+  
+	public static string Longest (string s1, string s2) 
+  {
+        // your code
+        var str = (a+b).ToCharArray();
+Array.Sort(str);
+string.Join("",str);
+
+    //return string.Concat(string.Concat(s1,s2).Distinct().OrderBy(x=>x));
+  }
+}
+
+#!csharp
+
+using System.Linq;
+
+public class TwoToOne 
+{
+  public static string Longest (string s1, string s2) => string.Concat(s2.Union(s1).OrderBy(x => x));
+}
+
+#!csharp
+
+string a = "xyaabbbccccdefww";
+string b = "xxxxyyyyabklmopq";
+//string.Concat(a.Distinct()).Length > string.Concat(b.Distinct()).Length?a:b
+string.Concat(string.Concat(a,b).Distinct().OrderBy(x=>x))
+
+#!csharp
+
+var str = (a+b).ToCharArray();
+Array.Sort(str);
+string.Join("",str)
+
+#!csharp
+
+public static int[] TwoSumTarget(int[] nums, int target)
+{
+    var result = new int[2];
+    for(var i = 0; i < nums.Length; i++)
+    {
+        for(var j = i; j < nums.Length; j++)
+        {
+            if(nums[i] + nums[j] == target)
+            {
+                result[0] = i;o
+                result[1] = j;
+            }
+        }
+    }
+    return result;
+}
+
+#!csharp
+
+TwoSumTarget(new int[] {2,11,7,15}, 9)
+
+#!csharp
+
+var n = 10;
+//Enumerable.Repeat(5,n-2).Sum()+15+9
+//Enumerable.Repeat(4,n-2).Sum()+15+9
+
+#!markdown
+
+Kata Task
+I have a cat and a dog.
+
+I got them at the same time as kitten/puppy. That was humanYears years ago.
+
+Return their respective ages now as [humanYears,catYears,dogYears]
+
+NOTES:
+
+humanYears >= 1
+humanYears are whole numbers only
+Cat Years
+15 cat years for first year
++9 cat years for second year
++4 cat years for each year after that
+Dog Years
+15 dog years for first year
++9 dog years for second year
++5 dog years for each year after that
+References
+
+http://www.catster.com/cats-101/calculate-cat-age-in-cat-years
+http://www.slate.com/articles/news_and_politics/explainer/2009/05/a_dogs_life.html
+If you liked this Kata there is another related one here
+
+FUNDAMENTALS
+https://www.codewars.com/kata/5a6663e9fd56cb5ab800008b/train/csharp
+
+#!csharp
+
+using System.Linq;
+public class Dinglemouse {
+
+  public static int[] humanYearsCatYearsDogYears(int humanYears) {
+    // Your code here!
+    if(humanYears == 1)
+      return new int[]{humanYears,15,15};
+    var CatYears = Enumerable.Repeat(4,humanYears-2).Sum()+9+15;
+    var DogYears = Enumerable.Repeat(5,humanYears-2).Sum()+9+15;;
+    return new int[]{humanYears,CatYears,DogYears};
+  }
+
+}
+
+#!csharp
+
+using System.Linq;
+public class Dinglemouse {
+
+  public static int[] humanYearsCatYearsDogYears(int humanYears) {
+    // Your code here!
+    if(humanYears == 1)
+      return new int[]{humanYears,15,15};
+    var CatYears = 4*(humanYears-2) + 9 + 15;
+    var DogYears = 5*(humanYears-2) + 9 + 15;;
+    return new int[]{humanYears,CatYears,DogYears};
+  }
+
+}
+
+#!csharp
+
+Dinglemouse.humanYearsCatYearsDogYears(10)
+
+#!csharp
+
+public class Dinglemouse {
+
+  public static int[] humanYearsCatYearsDogYears(int humanYears) {
+    
+    int catYear = 15 + (humanYears >= 2 ? 9 + 4 * (humanYears-2): 0);
+    int dogYear = 15 + (humanYears >= 2 ? 9 + 5 * (humanYears-2): 0);
+   
+    return new int[]{humanYears,catYear ,dogYear};
+  }
+
+}
+
+#!markdown
+
+DESCRIPTION:
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+
+If the function is passed a valid PIN string, return true, else return false.
+
+Examples (Input --> Output)
+"1234" --> true
+"12345" --> false
+"a234" --> false
+REGULAR EXPRESSIONSFUNDAMENTALS
+https://www.codewars.com/kata/55f8a9c06c018a0d6e000132/csharp
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+using System.Linq;
+
+public class Kata
+{
+    public static bool ValidatePin(string pin)
+    {
+        return (pin.Length == 4 || pin.Length == 6) && int.TryParse(pin, out int _)
+               && pin.All(char.IsDigit);
+    }
+}
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+using System.Linq;
+
+public class Kata
+{
+    public static bool ValidatePin(string pin)
+    {
+        return (pin.Length == 4 || pin.Length == 6) 
+               && pin.All(char.IsDigit);
+    }
+}
+
+#!csharp
+
+using System;
+using System.Text.RegularExpressions;
+
+public class Kata
+{
+  public static bool ValidatePin(string pin)
+  {
+    return Regex.IsMatch(pin, @"^(\d{6}|\d{4})\z");
+  }
+}
