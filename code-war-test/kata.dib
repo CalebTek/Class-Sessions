@@ -7420,3 +7420,101 @@ public static class Kata
     return arr.Where((x, i) => i == 0 || !Equals(x, arr.ElementAt(i - 1)));
   }
 }
+
+#!markdown
+
+In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number.
+
+Examples
+Kata.HighAndLow("1 2 3 4 5"); // return "5 1"
+Kata.HighAndLow("1 2 -3 4 5"); // return "5 -3"
+Kata.HighAndLow("1 9 3 4 -5"); // return "9 -5"
+Notes
+All numbers are valid Int32, no need to validate them.
+There will always be at least one number in the input string.
+Output string must be two numbers separated by a single space, and highest number is first.
+FUNDAMENTALSSTRINGS
+
+#!csharp
+
+using System;
+using System.Linq;
+
+public static class Kata
+{
+  public static string HighAndLow(string numbers)
+  {
+    // Code here or
+    var nums = numbers.Split(" ").Select(x=>Int32.Parse(x)).OrderBy(x=>x);
+    return $"{nums.Max()} {nums.Min()}";
+  }
+}
+
+#!csharp
+
+Kata.HighAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6")
+
+#!csharp
+
+using System;
+
+public static class Kata
+{
+  public static string HighAndLow(string numbers)
+  {
+    int min = int.MaxValue;
+    int max = int.MinValue;
+    string[] values = numbers.Split(' ');
+    for(int i = values.Length-1; i >= 0; --i)
+    {
+      int value = System.Convert.ToInt32(values[i]);
+      if(value < min)
+      {
+        min = value;
+      }
+      if(value > max)
+      {
+        max = value;
+      }
+    }
+    return string.Format("{0} {1}", max, min);
+  }
+}
+
+#!csharp
+
+Kata.HighAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");
+Kata.HighAndLow("10 2 -1 -20")
+
+#!csharp
+
+var nums = "4 5 29 54 4 0 -214 542 -64 1 -3 6 -6".Split();
+var num = new List<int>();
+foreach(string i in nums)
+{
+    num.Add(Convert.ToInt32(i));
+}
+num.ToArray()
+
+#!markdown
+
+There were and still are many problem in CW about palindrome numbers and palindrome strings. We suposse that you know which kind of numbers they are. If not, you may search about them using your favourite search engine.
+
+In this kata you will be given a positive integer, val and you have to create the function next_pal()(nextPal Javascript) that will output the smallest palindrome number higher than val.
+
+Let's see:
+
+For Javascript
+nextPal(11) == 22
+
+nextPal(188) == 191
+
+nextPal(191) == 202
+
+nextPal(2541) == 2552
+You will be receiving values higher than 10, all valid.
+
+Enjoy it!!
+
+FUNDAMENTALSDATA STRUCTURESALGORITHMSMATHEMATICSLOGICSTRINGS
+https://www.codewars.com/kata/56a6ce697c05fb4667000029/train/javascript
