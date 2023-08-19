@@ -444,3 +444,64 @@ Math.Sqrt(Math.Pow(9,99)/9)
 #!csharp
 
 Math.Pow(3,98)
+
+#!csharp
+
+public class Node<T>
+{
+    public T data {get; set;}
+    public Node<T> Next {get; set;}
+}
+
+#!csharp
+
+Node node = new Node(){data = 9};
+
+#!csharp
+
+node
+
+#!csharp
+
+public class SinglyLinkedList<T> : Node<T>
+{
+    public int listSize {get; private set;}
+    
+
+    public int Add(T Tdata)
+            
+        {
+            var node = new Node<T> { data = Tdata};
+            switch (Next)
+            {
+                case null:
+                    Next = node;
+                    break;
+                default:
+                    {
+                        var currentNode = Next;
+                        while (!(currentNode.Next == null))
+                        {
+                            currentNode = currentNode.Next;
+                        }
+                        currentNode.Next = node;
+                        break;
+                    }
+            }
+            listSize++;
+            return listSize;
+        }
+
+}
+
+#!csharp
+
+var node = new SinglyLinkedList<string>(){data = "Strawberry"};
+node.Add("Orange");
+node.Add("Lemon");
+node.Add("Mango");
+node.Add("Pine Apple");
+
+#!csharp
+
+node

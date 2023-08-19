@@ -7518,3 +7518,13 @@ Enjoy it!!
 
 FUNDAMENTALSDATA STRUCTURESALGORITHMSMATHEMATICSLOGICSTRINGS
 https://www.codewars.com/kata/56a6ce697c05fb4667000029/train/javascript
+
+#!csharp
+
+function nextPal(val) {
+  val++;
+  while (val.toString() !== val.toString().split('').reverse().join('')) {
+    val++;
+  }
+  return val;
+}
